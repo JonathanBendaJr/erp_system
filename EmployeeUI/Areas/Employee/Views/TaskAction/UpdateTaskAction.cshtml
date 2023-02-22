@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "UpdateTaskAction";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+
+<section class="content-header">
+    <h1>Update Task Action</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Admin</a></li>
+        <li class="breadcrumb-item"><a>Task Action</a></li>
+        <li class="breadcrumb-item active"><a>Update Task Action</a></li>
+    </ol>
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/TaskAction/TaskActionList'">Task Action List</button>
+</div>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+                @using (Html.BeginForm("UpdateTaskAction", "TaskAction", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.Partial("Partial/TaskActionForm")
+                }
+            </div>
+        </div>
+    </div>
+</section>
+

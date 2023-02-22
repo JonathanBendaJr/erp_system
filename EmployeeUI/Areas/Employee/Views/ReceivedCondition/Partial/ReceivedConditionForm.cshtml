@@ -1,0 +1,24 @@
+﻿
+
+@model DTO.ReceivedConditionDTO
+<div class="box-body">
+    <div class="form-group">
+        <label>Recieved Condition</label>
+        @Html.TextBoxFor(x => x.ReceivedCondition, new { @class = "form-control", @placeholder = "Enter Received Condition" })
+        @Html.ValidationMessageFor(x => x.ReceivedCondition, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Description" })
+        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+    </div>
+    <input hidden type="number" value="@Model.ID" name="ID" />
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+
+
+</div>
+
+
+

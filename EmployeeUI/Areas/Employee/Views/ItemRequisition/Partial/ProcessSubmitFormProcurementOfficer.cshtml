@@ -1,0 +1,49 @@
+﻿
+
+@model DTO.ItemRequisitionDTO
+<div class="box-body">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Item Delivery</h3>
+            </div>
+            <div class="card-body">
+                <input hidden type="number" value="@Model.ID" name="ID" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Delivery Quantity</label>
+                            @Html.TextBoxFor(x => x.DeliverQUantity, new { @class = "form-control", @placeholder = "Enter Delivery Quantity" })
+                            @Html.ValidationMessageFor(x => x.DeliverQUantity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="ProcurementOfficerDeliver" checked="@Model.ProcurementOfficerDeliver" value="true">
+                                <label class="form-check-label">Deliver Item</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Deliver Item</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+

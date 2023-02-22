@@ -1,0 +1,177 @@
+﻿
+@model DTO.EmployeeDTO
+<div class="box-body">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Basic Information</h3>
+            </div>
+            <div class="card-body">
+                <input hidden type="number" value="@Model.ID" name="ID" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            @Html.TextBoxFor(x => x.FName, new { @class = "form-control", @placeholder = "Enter Firstname" })
+                            @Html.ValidationMessageFor(x => x.FName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            @Html.TextBoxFor(x => x.LName, new { @class = "form-control", @placeholder = "Enter Lastname" })
+                            @Html.ValidationMessageFor(x => x.LName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Email</label>
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Enter Email" })
+                            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Gender</label>
+                            @Html.DropDownList("GenderID", Model.Genders, "Select Gender", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.GenderID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            @Html.TextBoxFor(x => x.Phone1, new { @class = "form-control", @placeholder = "Enter Phone #" })
+                            @Html.ValidationMessageFor(x => x.Phone1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Second Phone Number</label>
+                            @Html.TextBoxFor(x => x.Phone2, new { @class = "form-control", @placeholder = "Enter Another Phone #" })
+                            @Html.ValidationMessageFor(x => x.Phone2, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Address</label>
+                            @Html.TextBoxFor(x => x.Address, new { @class = "form-control", @placeholder = "Enter Address" })
+                            @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>City</label>
+                            @Html.TextBoxFor(x => x.City, new { @class = "form-control", @placeholder = "Enter City" })
+                            @Html.ValidationMessageFor(x => x.City, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>County</label>
+                            @Html.DropDownList("CountyAddressID", Model.Counties, "Select County", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.CountyAddressID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Position</label>
+                            @Html.DropDownList("PositionID", Model.PositionList, "Select Position", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.PositionID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Additional Information</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Date of Birth</label>
+                                @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "form-control datepicker" })
+                                @Html.ValidationMessageFor(x => x.DateOfBirth, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>County of Origin</label>
+                                @Html.DropDownList("CountyOfOriginID", Model.Counties, "Select County", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.CountyOfOriginID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Place of Birth</label>
+                                @Html.TextBoxFor(x => x.PlaceOfBirth, new { @class = "form-control", @placeholder = "Enter Place of Birth" })
+                                @Html.ValidationMessageFor(x => x.PlaceOfBirth, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Status</label>
+                                @Html.DropDownList("StatusID", Model.Statuses, "Select Status", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.StatusID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Marital Status</label>
+                                @Html.DropDownList("MaritalStatusID", Model.MaritalStatuses, "Select Marital Status", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.MaritalStatusID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Divide page into two columns-->
+        <div class="col-md-4">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Employee Photo Upload</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.EmployeeImage)
+                        <input type="file" name="EmployeeImage" accept="image/gif, image/jpg, image/jpeg, image/png"
+                               onchange="$('#EmployeeImage')[0].src = window.URL.createObjectURL(this.files[0])" />
+                        @if (Model != null && Model.ImagePath != null)
+                        {
+                            <br />
+                            <img src="~/Areas/Employee/Content/Employees/EmpImages/@Model.ImagePath" width="300" height="180" id="EmployeeImage" />
+                        }
+                        else
+                        {
+                            <img src="" width="300" height="180" id="EmployeeImage" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save Employee</button>
+        </div>
+    </div>
+</div>
+
+

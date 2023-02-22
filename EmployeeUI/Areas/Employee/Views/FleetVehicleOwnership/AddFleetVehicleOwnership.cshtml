@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "AddFleetVehicleOwnership";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Add Vehicle Ownership</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Fleet</a></li>
+        <li class="breadcrumb-item"><a>Vehicle</a></li>
+        <li class="breadcrumb-item active"><a>Add Vehicle Ownership</a></li>
+    </ol>
+
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/FleetVehicleOwnership/FleetVehicleOwnershipList'">Vehicle Ownership List</button>
+</div>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+                @using (Html.BeginForm("AddFleetVehicleOwnership", "FleetVehicleOwnership", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.Partial("Partial/FleetVehicleOwnershipForm")
+                }
+            </div>
+        </div>
+    </div>
+</section>

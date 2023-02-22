@@ -1,0 +1,138 @@
+﻿
+@using System.Text.RegularExpressions;
+@model DTO.EmployeeEducationDTO
+<div class="box-body">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Add Employee Education</h3>
+            </div>
+            <div class="card-body">
+                <input hidden type="number" value="@Model.ID" name="ID" />
+                <input hidden type="number" value="@Model.EmployeeID" name="EmployeeID" />
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Degree Full Title</label>
+                                    @Html.TextBoxFor(x => x.DegreeTitle, new { @class = "form-control", @placeholder = "Enter Degree Full Title" })
+                                    @Html.ValidationMessageFor(x => x.DegreeTitle, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>School Name</label>
+                                    @Html.TextBoxFor(x => x.SchoolName, new { @class = "form-control", @placeholder = "Enter School Name" })
+                                    @Html.ValidationMessageFor(x => x.SchoolName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Address/City</label>
+                                    @Html.TextBoxFor(x => x.SchoolAddress, new { @class = "form-control", @placeholder = "Enter Address of School" })
+                                    @Html.ValidationMessageFor(x => x.SchoolAddress, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    @Html.TextBoxFor(x => x.SchoolCountry, new { @class = "form-control", @placeholder = "Enter Country" })
+                                    @Html.ValidationMessageFor(x => x.SchoolCountry, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Degree Type</label>
+                                    @Html.DropDownList("DegreeTypeID", Model.DegreeTypeList, "Select Degree Type", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.DegreeTypeID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Study Completion</label>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" name="hasCompleted" checked="@Model.hasCompleted" value="true">
+                                    <label class="form-check-label">Has Completed?</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Start Date</label>
+                                    @Html.TextBoxFor(x => x.StartDate, new { @class = "form-control datepicker" })
+                                    @Html.ValidationMessageFor(x => x.StartDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>End Date</label>
+                                    @Html.TextBoxFor(x => x.EndDate, new { @class = "form-control datepicker" })
+                                    @Html.ValidationMessageFor(x => x.EndDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-info">
+                            <div class="card-body">
+                                <h4>Copy of Educational Document</h4>
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.DocumentFile)
+                                    <input type="file" name="DocumentFile" accept="application/pdf, image/jpg, image/jpeg, image/png"
+                                           onchange="$('#DocumentFile')[0].src = window.URL.createObjectURL(this.files[0])" />
+
+                                    @if (Model != null && Model.DocumentPath != null)
+                                    {
+                                        if (Regex.IsMatch(Model.DocumentPath, @"\.(jpg|png|jpeg)$"))
+                                        {
+                                            <img src="~/Areas/Employee/Content/Employees/EducationFiles/@Model.DocumentPath" width="300" height="180" id="DocumentFile" />
+                                        }
+                                        else if (Regex.IsMatch(Model.DocumentPath, @"\.(pdf)$"))
+                                        {
+                                            <a href="~/Areas/Employee/Content/Employees/EducationFiles/@Model.DocumentPath" target="_blank" id="DocumentFile" value="@Model.DocumentPath"></a>
+                                        }
+
+                                    }
+
+                                    else
+                                    {
+                                        <img src="" width="300" height="180" id="DocumentFile" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save Employee Education</button>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+
+
+
+
+
+
+

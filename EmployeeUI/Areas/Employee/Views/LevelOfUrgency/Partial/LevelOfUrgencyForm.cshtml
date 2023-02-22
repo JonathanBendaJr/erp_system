@@ -1,0 +1,21 @@
+﻿
+
+@model DTO.LevelOfUrgencyDTO
+<div class="box-body">
+    <div class="form-group">
+        <label>Level of Urgency</label>
+        @Html.TextBoxFor(x => x.LevelOfUrgency, new { @class = "form-control", @placeholder = "Level of Urgency" })
+        @Html.ValidationMessageFor(x => x.LevelOfUrgency, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Description of Urgency" })
+        @Html.ValidationMessageFor(x => x.Description)
+    </div>
+    <input hidden type="number" value="@Model.ID" name="ID" />
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</div>
+
+

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "UpdateEmployeeDependant";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Update Employee Dependant</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>HR Department</a></li>
+        <li class="breadcrumb-item"><a>Employee</a></li>
+        <li class="breadcrumb-item active"><a>Update Employee Dependant</a></li>
+    </ol>
+
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/EmployeeDependant/EmployeeDependantList'">Employee Dependant List</button>
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/Employee/EmployeeList'">Employee List</button>
+</div>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+                @using (Html.BeginForm("UpdateEmployeeDependant", "EmployeeDependant", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.Partial("Partial/EmployeeDependant")
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

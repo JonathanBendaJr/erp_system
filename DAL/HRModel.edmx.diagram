@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="97f2f1f68df44d90aa7450c876f9db51" Name="Diagram1">
+        <EntityTypeShape EntityType="HRMModel.Address" Width="1.5" PointX="7.5" PointY="49.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.County" Width="1.5" PointX="0.75" PointY="50.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.DegreeCredential" Width="1.5" PointX="7.5" PointY="53.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.Department" Width="1.5" PointX="7.5" PointY="57.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.EmpDependant" Width="1.5" PointX="10.5" PointY="63.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.EmpDepManSupPosition" Width="1.5" PointX="9.75" PointY="69.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.EmpEducation" Width="1.5" PointX="15.75" PointY="65" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.Employee" Width="1.5" PointX="3" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.EmpRole" Width="1.5" PointX="9.75" PointY="81.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.EmpSalaryBenefit" Width="1.5" PointX="12.75" PointY="70.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.FavLogoTitle" Width="1.5" PointX="7.5" PointY="65.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.Gender" Width="1.5" PointX="7.5" PointY="68.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.LeaveAction" Width="1.5" PointX="7.5" PointY="72.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.LeaveRequest" Width="1.5" PointX="12.75" PointY="61.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.LeaveType" Width="1.5" PointX="7.5" PointY="76" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.LevelOfUrgency" Width="1.5" PointX="7.5" PointY="79.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.Log_Table" Width="1.5" PointX="10.5" PointY="59.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.MaritalStatu" Width="1.5" PointX="7.5" PointY="83.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.PayGrade" Width="1.5" PointX="7.5" PointY="87.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.Position" Width="1.5" PointX="7.5" PointY="91" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.ProcessType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.Relationship" Width="1.5" PointX="7.5" PointY="95.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.Status" Width="1.5" PointX="7.5" PointY="99.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.T_User" Width="1.5" PointX="5.25" PointY="70.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.Task" Width="1.5" PointX="15.75" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.TaskAction" Width="1.5" PointX="7.5" PointY="102.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.TaskRating" Width="1.5" PointX="7.5" PointY="106.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.TaskReport" Width="1.5" PointX="18" PointY="80.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMModel.WorkExperience" Width="1.5" PointX="13.5" PointY="56.375" IsExpanded="true" />
+        <AssociationConnector Association="HRMModel.FK_Address_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Employee_County" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Employee_County_Origin" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_DegreeCredential_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_EmpEducation_DegreeCredential" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Department_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_EmpDepManSupPosition_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_LeaveRequest_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_EmpDependant_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_EmpDependant_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_EmpDepManSupPosition_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_EmpDepManSupPosition_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_EmpEducation_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Employee_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Employee_MaritalStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Employee_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Employee_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Employee_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_EmpSalaryBenefit_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_LeaveRequest_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Log_Table_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_T_User_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Task_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_WorkExperience_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_EmpRole_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_EmpRole_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_EmpSalaryBenefit_PayGrade" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_EmpSalaryBenefit_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_FavLogoTitle_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Gender_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_LeaveAction_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_LeaveRequest_LeaveAction" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_LeaveRequest_LeaveType" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_LeaveRequest_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_LeaveType_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_LevelOfUrgency_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Task_LevelOfUrgency" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Log_Table_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_MaritalStatus_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_PayGrade_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Position_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Relationship_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Status_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_Task_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_TaskAction_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_TaskRating_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_TaskReport_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_TaskReport_T_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_WorkExperience_T_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_TaskReport_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMModel.FK_TaskReport_TaskAction" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HRMModel.DeliveryStatu" Width="1.5" PointX="7.875" PointY="124.875" />
+        <EntityTypeShape EntityType="HRMModel.DriverToVehicleAssignment" Width="1.5" PointX="13.875" PointY="75.25" />
+        <EntityTypeShape EntityType="HRMModel.FieldOffice" Width="1.5" PointX="10.875" PointY="74.5" />
+        <EntityTypeShape EntityType="HRMModel.FleetVehicle" Width="1.5" PointX="13.125" PointY="84.25" />
+        <EntityTypeShape EntityType="HRMModel.FleetVehicleBookingReport" Width="1.5" PointX="23.625" PointY="65" />
+        <EntityTypeShape EntityType="HRMModel.FleetVehicleBookingRequest" Width="1.5" PointX="21.375" PointY="63.25" />
+        <EntityTypeShape EntityType="HRMModel.FleetVehicleMaintenanceApprovalAction" Width="1.5" PointX="7.875" PointY="127.875" />
+        <EntityTypeShape EntityType="HRMModel.FleetVehicleMaintenanceReport" Width="1.5" PointX="21.125" PointY="77.875" />
+        <EntityTypeShape EntityType="HRMModel.FleetVehicleMaintenanceRequest" Width="1.5" PointX="18.875" PointY="71" />
+        <EntityTypeShape EntityType="HRMModel.FleetVehicleOwnership" Width="1.5" PointX="7.875" PointY="111.5" />
+        <EntityTypeShape EntityType="HRMModel.FleetVehiclePartsRequest" Width="1.5" PointX="21.125" PointY="71.25" />
+        <EntityTypeShape EntityType="HRMModel.FleetVehicleReceivedCondition" Width="1.5" PointX="7.875" PointY="118.5" />
+        <EntityTypeShape EntityType="HRMModel.FleetVehicleRegistrationStatu" Width="1.5" PointX="7.875" PointY="121.625" />
+        <EntityTypeShape EntityType="HRMModel.FleetVehicleStatu" Width="1.5" PointX="7.875" PointY="115.25" />
+        <EntityTypeShape EntityType="HRMModel.FleetVehicleType" Width="1.5" PointX="7.875" PointY="61.875" />
+        <EntityTypeShape EntityType="HRMModel.IncidentType" Width="1.5" PointX="21.375" PointY="55.375" />
+        <EntityTypeShape EntityType="HRMModel.ItemRequisition" Width="1.5" PointX="16.125" PointY="71" />
+        <EntityTypeShape EntityType="HRMModel.ProcumentProcuredItem" Width="1.5" PointX="19.125" PointY="66" />
+        <EntityTypeShape EntityType="HRMModel.ProcurementPurchaseRequest" Width="1.5" PointX="19.125" PointY="59" />
+        <EntityTypeShape EntityType="HRMModel.ProductCategory" Width="1.5" PointX="16.875" PointY="54.625" />
+        <EntityTypeShape EntityType="HRMModel.ReceivedCondition" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="HRMModel.RequestStatu" Width="1.5" PointX="16.625" PointY="85.75" />
+        <EntityTypeShape EntityType="HRMModel.ResolutionType" Width="1.5" PointX="21.375" PointY="59.25" />
+        <EntityTypeShape EntityType="HRMModel.UnitOfMeasurement" Width="1.5" PointX="7.875" PointY="45.5" />
+        <AssociationConnector Association="HRMModel.FK_FieldOffice_County" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingRequest_County" />
+        <AssociationConnector Association="HRMModel.FK_DeliveryStatus_T_User" />
+        <AssociationConnector Association="HRMModel.FK_ItemRequisition_Department" />
+        <AssociationConnector Association="HRMModel.FK_DriverToVehicleAssignment_Employee" />
+        <AssociationConnector Association="HRMModel.FK_DriverToVehicleAssignment_FleetVehicle" />
+        <AssociationConnector Association="HRMModel.FK_DriverToVehicleAssignment_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingReport_Employee" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingReport_Employee1" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingRequest_Employee" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingRequest_Employee1" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingRequest_Employee2" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleMaintenanceRequest_Employee" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleMaintenanceRequest_Employee1" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleMaintenanceRequest_Employee2" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehiclePartsRequest_Employee" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehiclePartsRequest_Employee1" />
+        <AssociationConnector Association="HRMModel.FK_ItemRequisition_Employee" />
+        <AssociationConnector Association="HRMModel.FK_ItemRequisition_Employee_ManagerID" />
+        <AssociationConnector Association="HRMModel.FK_ItemRequisition_Employee_ProcurementManagerID" />
+        <AssociationConnector Association="HRMModel.FK_ItemRequisition_Employee_ProcurementOfficerID" />
+        <AssociationConnector Association="HRMModel.FK_ProcurementPurchaseRequest_Employee" />
+        <AssociationConnector Association="HRMModel.FK_ProcurementPurchaseRequest_Employee1" />
+        <AssociationConnector Association="HRMModel.FK_FieldOffice_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicle_FleetVehicleOwnership" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicle_FleetVehicleRegistrationStatus" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicle_FleetVehicleStatus" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicle_FleetVehicleType" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicle_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicle_UnitOfMeasurement" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingRequest_FleetVehicle" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehiclePartsRequest_FleetVehicle" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingReport_FleetVehicleBookingRequest" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingReport_IncidentType" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingReport_ResolutionType" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingReport_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingRequest_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleMaintenanceApprovalAction_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleMaintenanceReport_FleetVehicleMaintenanceRequest" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleMaintenanceReport_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleMaintenanceRequest_RequestStatus" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleMaintenanceRequest_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleOwnership_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehiclePartsRequest_LevelOfUrgency" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehiclePartsRequest_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleReceivedCondition_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleRegistrationStatus_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleStatus_T_User" />
+        <AssociationConnector Association="HRMModel.FK_FleetVehicleType_T_User" />
+        <AssociationConnector Association="HRMModel.FK_ItemRequisition_LevelOfUrgency" />
+        <AssociationConnector Association="HRMModel.FK_ItemRequisition_T_User" />
+        <AssociationConnector Association="HRMModel.FK_ItemRequisition_UnitOfMeasurement" />
+        <AssociationConnector Association="HRMModel.FK_ProcumentProcuredItems_T_User" />
+        <AssociationConnector Association="HRMModel.FK_ProcumentProcuredItems_UnitOfMeasurement" />
+        <AssociationConnector Association="HRMModel.FK_ProcurementPurchaseRequest_ProductCategory" />
+        <AssociationConnector Association="HRMModel.FK_ProcurementPurchaseRequest_T_User" />
+        <AssociationConnector Association="HRMModel.FK_ProcurementPurchaseRequest_UnitOfMeasurement" />
+        <AssociationConnector Association="HRMModel.FK_UnitOfMeasurement_T_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

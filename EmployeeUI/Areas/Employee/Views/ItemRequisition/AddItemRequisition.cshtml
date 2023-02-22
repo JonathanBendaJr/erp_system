@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "AddItemRequisition";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Add Item Request</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Employee</a></li>
+        <li class="breadcrumb-item"><a>Requisition</a></li>
+        <li class="breadcrumb-item active"><a>Add Item Request</a></li>
+    </ol>
+
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/ItemRequisition/ItemRequisitionListPerLoginUser'">My Request List</button>
+</div>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+                @using (Html.BeginForm("AddItemRequisition", "ItemRequisition", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.Partial("Partial/RequisitionForm")
+                }
+            </div>
+        </div>
+    </div>
+</section>

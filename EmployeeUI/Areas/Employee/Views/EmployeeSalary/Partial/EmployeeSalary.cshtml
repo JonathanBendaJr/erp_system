@@ -1,0 +1,59 @@
+﻿
+@model DTO.EmployeeSalaryDTO
+<div class="box-body">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Employee Salary</h3>
+            </div>
+            <div class="card-body">
+                <input hidden type="number" value="@Model.ID" name="ID" />
+                <input hidden type="number" value="@Model.EmployeeID" name="EmployeeID" />
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Pay Grade</label>
+                            @Html.DropDownList("PayGradeID", Model.PayGradeList, "Select Pay Grade", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.PayGradeID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Basic Salary</label>
+                            @Html.TextBoxFor(x => x.BasicSalary, new { @class = "form-control", @placeholder = "Enter Basic Salary" })
+                            @Html.ValidationMessageFor(x => x.BasicSalary, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Allowance A</label>
+                            @Html.TextBoxFor(x => x.Allowance1, new { @class = "form-control", @placeholder = "Cash Allowance" })
+                            @Html.ValidationMessageFor(x => x.Allowance1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Allowance B</label>
+                            @Html.TextBoxFor(x => x.Allowance2, new { @class = "form-control", @placeholder = "Non-Cash Allowance" })
+                            @Html.ValidationMessageFor(x => x.Allowance2, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save Employee Salary</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

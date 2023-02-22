@@ -1,0 +1,50 @@
+﻿
+
+@model DTO.EmployeeDependantDTO
+<div class="box-body">
+    <div class="col-md-12">
+        <div class="card card-info">
+            <div class="card-header">
+                <h3 class="card-title">Employee Dependants</h3>
+            </div>
+            <div class="card-body">
+                <input hidden type="number" value="@Model.ID" name="ID" />
+               @* <input hidden type="number" value="@Model.EmployeeID" name="EmployeeID" />*@
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Dependant Full Name</label>
+                            @Html.TextBoxFor(x => x.FullName, new { @class = "form-control", @placeholder = "Enter Dependant Firstname" })
+                            @Html.ValidationMessageFor(x => x.FullName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "form-control datepicker" })
+                            @Html.ValidationMessageFor(x => x.DateOfBirth, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>County</label>
+                            @Html.DropDownList("RelationshipID", Model.RelationshipList, "Select Relationship", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.RelationshipID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save Employee Dependant</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

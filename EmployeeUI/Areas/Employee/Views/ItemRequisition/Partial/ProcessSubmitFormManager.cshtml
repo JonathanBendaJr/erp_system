@@ -1,0 +1,47 @@
+﻿
+
+@model DTO.ItemRequisitionDTO
+<div class="box-body">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Process Request </h3>
+            </div>
+            <div class="card-body">
+                <input hidden type="number" value="@Model.ID" name="ID" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Approval Action</label>
+                            @Html.DropDownList("ManagerApprovalID", Model.ManagerApprovalStatuses, "Select Action to Perform", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.ManagerApprovalID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <label>Action Message/Reason</label>
+                            @Html.TextAreaFor(x => x.ManagerApprovalMessage, new { @class = "form-control", @placeholder = "Enter Reason for Action from above" })
+                            @Html.ValidationMessageFor(x => x.ManagerApprovalMessage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Process Request</button>
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,15 @@
+﻿
+@model DTO.EmployeeRoleDTO
+<div class="box-body">
+    <div class="form-group">
+        <label>Role</label>
+        @Html.TextBoxFor(x => x.Role, new { @class = "form-control", @placeholder = "Enter Role" })
+        @Html.ValidationMessageFor(x => x.Role, "", new { @class = "text-danger" })
+    </div>
+    <input hidden type="number" value="@Model.ID" name="ID" />
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</div>
+
+

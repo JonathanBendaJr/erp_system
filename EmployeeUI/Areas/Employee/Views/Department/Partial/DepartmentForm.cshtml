@@ -1,0 +1,20 @@
+﻿
+
+@model DTO.DepartmentDTO
+<div class="box-body">
+    <div class="form-group">
+        <label>Department Name</label>
+        @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control", @placeholder = "Department Name" })
+        @Html.ValidationMessageFor(x => x.DepartmentName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Department Description" })
+        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+    </div>
+    <input hidden type="number" value="@Model.ID" name="ID" />
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</div>
+

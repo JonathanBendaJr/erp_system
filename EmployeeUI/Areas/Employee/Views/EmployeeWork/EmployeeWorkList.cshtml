@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeWorkList";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+@model List<DTO.EmployeeWorkDTO>
+<section class="content-header">
+    <h1>Employee Work List</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>HR Department</a></li>
+        <li class="breadcrumb-item"><a>Employee</a></li>
+        <li class="breadcrumb-item active"><a>Employee Work List</a></li>
+    </ol>
+
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/Employee/AddEmployeeWork'">Add Employee Work</button>
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/Employee/EmployeeList'">Employee List</button>
+
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">List of Work Experiences</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Positions</th>
+                    <th>Responsibilities</th>
+                    <th>Start and End Dates</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr id="a_@item.ID">
+                    <td>@item.PositionTitle</td>
+                    <td>@item.Responsibilities</td>
+                    <td>@item.StartDate.ToString("dd-MMM-yyyy") to @item.EndDate.ToString("dd-MMM-yyyy")</td>
+                    <td align="center">
+                        <a href="/Employee/EmployeeWork/UpdateEmployeeWork/@item.ID">
+                            <img width="20" height="20" src="~/Areas/Employee/Content/icons/update.ico" />
+                        </a>
+                        <span>|</span>
+                        <a href="#">
+                            <img width="20" height="20" src="~/Areas/Employee/Content/icons/delete.ico" onclick="AskQuestion('/Employee/EmployeeWork/DeleteEmployeeWork/',@item.ID)" />
+                        </a>
+                    </td>
+
+                </tr>
+                }
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th>Positions</th>
+                    <th>Responsibilities</th>
+                    <th>Start and End Dates</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    @Html.Partial("~/Areas/Employee/Views/Shared/ModalMessage.cshtml")
+    <!-- /.card-body -->
+</div>
+<script src="~/Areas/Employee/Content/JS/DeleteRecord.js"></script>
+
+

@@ -1,0 +1,22 @@
+﻿
+@model DTO.ProductCategoryDTO
+<div class="box-body">
+    <div class="form-group">
+        <label>Product Category Name</label>
+        @Html.TextBoxFor(x => x.ProductCategory, new { @class = "form-control", @placeholder = "Enter Product Category Name" })
+        @Html.ValidationMessageFor(x => x.ProductCategory, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Descritpion</label>
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Description" })
+        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+    </div>
+    <input hidden type="number" value="@Model.ID" name="ID" />
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+
+
+</div>
+
+

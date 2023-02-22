@@ -1,0 +1,268 @@
+﻿@model DTO.UserDTO
+<div class="box-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Employee</label>
+                @Html.TextBoxFor(x => x.EmployeesName, new { @class = "form-control", @placeholder = "Enter Username (e.g. jdoe)", @readonly = "readonly" })
+                @Html.ValidationMessageFor(x => x.EmployeesName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Username</label>
+                @Html.TextBoxFor(x => x.Username, new { @class = "form-control", @placeholder = "Enter Username (e.g. jdoe)", @readonly = "readonly" })
+                @Html.ValidationMessageFor(x => x.Username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Phone</label>
+                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @placeholder = "Enter Phone Number", @readonly = "readonly" })
+                @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Email</label>
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Enter Email ID", @readonly = "readonly" })
+                @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="isActive" checked="@Model.isActive" value="true" disabled>
+                <label class="form-check-label">is Active?</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Role Group</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isITDept" checked="@Model.isITDept" value="true" disabled>
+                                <label class="form-check-label">Information Technology Group</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isHRDept" checked="@Model.isHRDept" value="true" disabled>
+                                <label class="form-check-label">Human Resource Group</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isSeniorManagementDept" checked="@Model.isSeniorManagementDept" value="true" disabled>
+                                <label class="form-check-label">Senior Management Group</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isProcumentDept" checked="@Model.isProcumentDept" value="true" disabled>
+                                <label class="form-check-label">Procurement Group</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isFleetDept" checked="@Model.isFleetDept" value="true" disabled>
+                                <label class="form-check-label">Fleet Management Group</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isGeneralDept" checked="@Model.isGeneralDept" value="true" disabled>
+                                <label class="form-check-label">General Employee Group</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isMaintenanceDept" checked="@Model.isMaintenanceDept" value="true" disabled>
+                                <label class="form-check-label">Maintenance Group</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">User Roles</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isAdmin" checked="@Model.isAdmin" value="true" disabled>
+                                <label class="form-check-label">Admin</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isITOfficerSupervisor" checked="@Model.isITOfficerSupervisor" value="true" disabled>
+                                <label class="form-check-label">ICT Director/Manager</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isITOfficer" checked="@Model.isITOfficer" value="true" disabled>
+                                <label class="form-check-label">ICT Officer</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isSeniorManagement" checked="@Model.isSeniorManagement" value="true" disabled>
+                                <label class="form-check-label">Senior Management</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isHRManager" checked="@Model.isHRManager" value="true" disabled>
+                                <label class="form-check-label">HR Director/Manager</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isHROfficerPayroll" checked="@Model.isHROfficerPayroll" value="true" disabled>
+                                <label class="form-check-label">HR Payroll Officer</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isHROfficerGeneral" checked="@Model.isHROfficerGeneral" value="true" disabled>
+                                <label class="form-check-label">HR Officer</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isHRSupervisor" checked="@Model.isHRSupervisor" value="true" disabled>
+                                <label class="form-check-label">HR Supervisor</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isProcurementManager" checked="@Model.isProcurementManager" value="true" disabled>
+                                <label class="form-check-label">Procurement Manager</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isProcurementSupervisor" checked="@Model.isProcurementSupervisor" value="true" disabled>
+                                <label class="form-check-label">Procurement Supervisor</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isProcurementOfficer" checked="@Model.isProcurementOfficer" value="true" disabled>
+                                <label class="form-check-label">Procurement Officer</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isDriver" checked="@Model.isDriver" value="true" disabled>
+                                <label class="form-check-label">Driver</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isMaintenanceManager" checked="@Model.isMaintenanceManager" value="true" disabled>
+                                <label class="form-check-label">Maintenance Manager</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isMaintenanceSupervisor" checked="@Model.isMaintenanceSupervisor" value="true" disabled>
+                                <label class="form-check-label">Maintenance Supervisor</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isMaintenanceOfficer" checked="@Model.isMaintenanceOfficer" value="true" disabled>
+                                <label class="form-check-label">Maintenance Officer</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isGeneralEmployeeManager" checked="@Model.isGeneralEmployeeManager" value="true" disabled>
+                                <label class="form-check-label">General Employee Manager</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isGeneralEmployeeSupervisor" checked="@Model.isGeneralEmployeeSupervisor" value="true" disabled>
+                                <label class="form-check-label">General Employee Supervisor</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isGeneralEmployee" checked="@Model.isGeneralEmployee" value="true" disabled>
+                                <label class="form-check-label">General Employee</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isFleetManager" checked="@Model.isFleetManager" value="true" disabled>
+                                <label class="form-check-label">Fleet Manager</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isFleetSupervisor" checked="@Model.isFleetSupervisor" value="true" disabled>
+                                <label class="form-check-label">Fleet Supervisor</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="isFleetOfficer" checked="@Model.isFleetOfficer" value="true" disabled>
+                                <label class="form-check-label">Dispatcher</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input hidden type="number" value="@Model.ID" name="ID" />
+    
+</div>
+
+
+
+

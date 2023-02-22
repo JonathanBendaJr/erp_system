@@ -1,0 +1,18 @@
+﻿
+
+@model DTO.FleetVehicleTypeDTO
+<div class="box-body">
+    <div class="form-group">
+        <label>Gender</label>
+        @Html.TextBoxFor(x => x.VehicleType, new { @class = "form-control", @placeholder = "Enter Vehicle Type" })
+        @Html.ValidationMessageFor(x => x.VehicleType, "", new { @class = "text-danger" })
+    </div>
+    <input hidden type="number" value="@Model.ID" name="ID" />
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+
+
+</div>
+
+

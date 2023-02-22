@@ -1,0 +1,70 @@
+﻿
+@using EmployeeUI.Areas.Employee;
+
+@if (ViewBag.ProcessState == BLL.General.Messages.AddSuccess)
+{
+    <div class="alert alert-success">
+        <strong>Success!!  Add Operation was completed successfully.</strong>
+    </div>
+}
+else if (ViewBag.ProcessState == BLL.General.Messages.UpdateSuccess)
+{
+    <div class="alert alert-success">
+        <strong>Success!!  Update Operation was completed successfully.</strong>
+    </div>
+}
+else if (ViewBag.ProcessState == BLL.General.Messages.EmptyArea)
+{
+    <div class="alert alert-danger">
+        <strong>Error!!  Please fill out the necessary area before submitting.</strong>
+    </div>
+}
+else if (ViewBag.ProcessState == BLL.General.Messages.ImageMissing)
+{
+    <div class="alert alert-danger">
+        <strong>Error!!  Please select an image to upload.</strong>
+    </div>
+}
+else if (ViewBag.ProcessState == BLL.General.Messages.ExtensionError)
+{
+    <div class="alert alert-danger">
+        <strong>Error!!  Please select an image with valid extension...(.png, .jpg, .jpeg).</strong>
+    </div>
+}
+else if (ViewBag.ProcessState == BLL.General.Messages.GeneralError)
+{
+    <div class="alert alert-danger">
+        <strong>Error!!  Try again, If error persist contact system administrator.</strong>
+    </div>
+}
+else if (ViewBag.ProcessState == BLL.General.Messages.MissingDocument)
+{
+    <div class="alert alert-danger">
+        <strong>Error!!  Please select an Document with valid extension...(.pdf, .docx).</strong>
+    </div>
+}
+else if (ViewBag.ProcessState == BLL.General.Messages.UserExist)
+{
+    <div class="alert alert-danger">
+        <strong>User Exist!!  The User you are trying to create already exist by either a username or email.</strong>
+    </div>
+}
+else if (ViewBag.ProcessState == BLL.General.Messages.PasswordIncorrect)
+{
+    <div class="alert alert-danger">
+        <strong>User Exist!!  The Password you have entered is incorrect.</strong>
+    </div>
+}
+else if (ViewBag.ProcessState == BLL.General.Messages.UsernameIncorrect)
+{
+    <div class="alert alert-danger">
+        <strong>User Exist!!  The Username you have entered in incorrect.</strong>
+    </div>
+}
+else if (ViewBag.ProcessState == BLL.General.Messages.LoginError)
+{
+    <div class="alert alert-danger">
+        <strong>Login Error!!  The Username and password entered is incorrect.</strong>
+    </div>
+}
+

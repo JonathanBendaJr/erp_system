@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeAdditionalInfo";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Employee Additional Information</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>HR Department</a></li>
+        <li class="breadcrumb-item"><a>Employee</a></li>
+    </ol>
+
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/Employee/EmployeeList'">Employee List</button>
+</div>
+<hr/>
+<section class="content-header">
+    <h1>Employee Education</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Employee</a></li>
+        <li class="breadcrumb-item active"><a>Employee Education</a></li>
+    </ol>
+</section>
+
+<div class="card card-info">
+    <div class="card-header">
+        <h3 class="card-title">Add Employee Education</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+                    <div class="box box-primary">
+                        @using (Html.BeginForm("AddEmployeeEducation", "Employee", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                        {
+                            @Html.Partial("Partial/EmployeeEducation")
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<hr/>
+<section class="content-header">
+    <h1>Employee Work Experience</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Employee</a></li>
+        <li class="breadcrumb-item active"><a>Employee Work Experience</a></li>
+    </ol>
+</section>
+
+<div class="card card-info">
+    <div class="card-header">
+        <h3 class="card-title">Add Employee Work Experience</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+                    <div class="box box-primary">
+                        @using (Html.BeginForm("AddEmployeeWork", "Employee", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                        {
+                            @Html.Partial("Partial/EmployeeWorkHistory")
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<hr/>
+<section class="content-header">
+    <h1>Employee Assign Department</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Employee</a></li>
+        <li class="breadcrumb-item active"><a>Employee Assign Department</a></li>
+    </ol>
+</section>
+<div class="card card-info">
+    <div class="card-header">
+        <h3 class="card-title">Add Employee Assign Department</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+                    <div class="box box-primary">
+                        @using (Html.BeginForm("AddEmployeeDepartment", "Employee", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                        {
+                            @Html.Partial("Partial/EmployeeDepartment")
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<hr/>
+<section class="content-header">
+    <h1>Employee Salary &amp; Benefits</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Employee</a></li>
+        <li class="breadcrumb-item active"><a>Employee Salary &amp; Benefits</a></li>
+    </ol>
+</section>
+<div class="card card-info">
+    <div class="card-header">
+        <h3 class="card-title">Add Employee Salary &amp; Benefits</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+                    <div class="box box-primary">
+                        @using (Html.BeginForm("AddEmployeeSalary", "Employee", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                        {
+                            @Html.Partial("Partial/EmployeeSalary")
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<hr/>
+
+<section class="content-header">
+    <h1>Employee Dependants</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Employee</a></li>
+        <li class="breadcrumb-item active"><a>Employee Dependants</a></li>
+    </ol>
+</section>
+
+<div class="card card-info">
+    <div class="card-header">
+        <h3 class="card-title">Add Employee Dependants</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+                    <div class="box box-primary">
+                        @using (Html.BeginForm("AddEmployeeDependant", "Employee", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                        {
+                            @Html.Partial("Partial/EmployeeDependants")
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+

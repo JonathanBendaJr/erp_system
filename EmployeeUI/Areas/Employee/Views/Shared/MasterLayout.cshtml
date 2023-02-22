@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ERP | @ViewBag.Title</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link href="~/Areas/Employee/Content/CSS/all.min.css" rel="stylesheet" />
+
+    <!-- DataTables -->
+    <link href="~/Areas/Employee/Content/CSS/dataTables.bootstrap4.css" rel="stylesheet" />
+    <link href="~/Areas/Employee/Content/CSS/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Areas/Employee/Content/CSS/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Areas/Employee/Content/CSS/buttons.bootstrap4.min.css" rel="stylesheet" />
+
+    <!-- Theme style -->
+    <link href="~/Areas/Employee/Content/CSS/bootstrap-4.min.css" rel="stylesheet" />
+    <link href="~/Areas/Employee/Content/CSS/adminlte.min.css" rel="stylesheet" />
+
+</head>
+<body class="hold-transition sidebar-mini">
+    @using DTO
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+
+
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-comments"></i>
+                        <span class="badge badge-danger navbar-badge">3</span>
+                    </a>
+
+                </li>
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+
+                        <div class="dropdown-divider"></div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="../../index3.html" class="brand-link">
+                <img src="~/Areas/Admin/Content/tempimage/enews.png"
+                     alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">Social Ent</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        @*<img src="~/Areas/Admin/Content/UserImages/@UserStatic.ImagePath"*@
+                        <img src="~/Areas/Employee/Content/tempimage/person_me.jpeg"
+                             class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">@UserStatic.FName &nbsp; @UserStatic.LName</a>
+                    </div>
+                </div>
+
+                <!-- SidebarSearch Form -->
+                <div class="form-inline">
+                    <div class="input-group" data-widget="sidebar-search">
+                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-sidebar">
+                                <i class="fas fa-search fa-fw"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                        with font-awesome or any other icon font library -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-wrench"></i>
+                                <p>
+                                    Site Settings
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admin/Fav/UpdateFav" class="nav-link">
+                                        <i class="fas fa-circle nav-icon" style='font-size:12px'></i>
+                                        <p>Fav Icon, Logo &amp; Title</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Meta/AddMeta" class="nav-link">
+                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>Add Meta</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Meta/MetaList" class="nav-link">
+                                        <i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                        <p>Meta List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-map-marked"></i>
+                                <p>
+                                    Address
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admin/Address/AddAddress" class="nav-link">
+                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>Add Address</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Address/AddressList" class="nav-link">
+                                        <i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
+                                        <p>Address List</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-rss"></i>
+                                <p>
+                                    Socail Media
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admin/SocialMedia/AddSocialMedia" class="nav-link">
+                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>Add Social Media</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/SocialMedia/SocailMediaList" class="nav-link">
+                                        <i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Social Media List</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-ad"></i>
+                                <p>
+                                    Ads
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admin/Ads/AddAds" class="nav-link">
+                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>Add Ads</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Ads/AdsList" class="nav-link">
+                                        <i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                        <p>Ads List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas  fa-clipboard"></i>
+                                <p>
+                                    Category
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admin/Category/AddCategory" class="nav-link">
+                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>Add Category</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Category/CategoryList" class="nav-link">
+                                        <i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Category List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-clipboard-check"></i>
+                                <p>
+                                    Posts
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admin/Post/AddPost" class="nav-link">
+                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>Add Post</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Post/PostList" class="nav-link">
+                                        <i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Post List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-video"></i>
+                                <p>
+                                    Video
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admin/Video/AddVideo" class="nav-link">
+                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>Add Video</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Video/VideoList" class="nav-link">
+                                        <i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                        <p>Video List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        @if (UserStatic.isAdmin)
+                        {
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-user-alt"></i>
+                                    <p>
+                                        User
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/Admin/User/AddUser" class="nav-link">
+                                            <i class="fas fa-user-plus nav-icon" style='font-size:12px'></i>
+                                            <p>Add User</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/Admin/User/UserList" class="nav-link">
+                                            <i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
+                                            <p>User List</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/Admin/User/UpdateUser/@UserStatic.UserID" class="nav-link">
+                                            <i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
+                                            <p>Update Profile</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-user-alt"></i>
+                                    <p>
+                                        User
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/Admin/User/UpdateUser/@UserStatic.UserID" class="nav-link">
+                                            <i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
+                                            <p>Update Profile</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        }
+
+
+
+
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- Main content -->
+
+            @RenderBody()
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+            </div>
+            <script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By:  <a href="" target="_blank">Jonathan S D Benda Jr</a>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/Areas/Employee/Content/JS/jquery.min.js"></script>
+    <script src="~/Areas/Employee/Content/JS/jquery-ui.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Areas/Employee/Content/JS/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="~/Areas/Employee/Content/JS/sweetalert2.min.js"></script>
+    <script src="~/Areas/Employee/Content/JS/adminlte.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Areas/Employee/Content/JS/demo.js"></script>
+
+    <!-- DataTables  & Plugins -->
+    <script src="~/Areas/Employee/Content/JS/jquery.dataTables.js"></script>
+    <script src="~/Areas/Employee/Content/JS/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Employee/Content/JS/dataTables.bootstrap4.js"></script>
+    <script src="~/Areas/Employee/Content/JS/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Areas/Employee/Content/JS/dataTables.responsive.min.js"></script>
+    <script src="~/Areas/Employee/Content/JS/responsive.bootstrap4.min.js"></script>
+    <script src="~/Areas/Employee/Content/JS/dataTables.buttons.min.js"></script>
+    <script src="~/Areas/Employee/Content/JS/buttons.bootstrap4.min.js"></script>
+    <script src="~/Areas/Employee/Content/JS/buttons.html5.min.js"></script>
+    <script src="~/Areas/Employee/Content/JS/jszip.min.js"></script>
+    <script src="~/Areas/Employee/Content/JS/buttons.print.min.js"></script>
+    <script src="~/Areas/Employee/Content/JS/buttons.colVis.min.js"></script>
+
+    <script>
+        const ellipses = document.getElementById("ellipses");
+        const dropdown = document.getElementById("dropdown");
+        ellipses.addEventListener("click", function () {
+            dropdown.classList.toggle("show");
+        });
+    </script>
+
+    <script>
+        
+
+    </script>
+
+    <script>
+        $(function () {
+            var d = new Date();
+            var startYear = d.getFullYear() - 100;
+            var endYear = d.getFullYear();
+            $(".datepicker").datepicker({
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: startYear + ':' + endYear,
+            });
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "ordering": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+</body>
+</html>
+

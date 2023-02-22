@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "ViewEmployeeCard";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>View Employee</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>HR Department</a></li>
+        <li class="breadcrumb-item"><a>Employee</a></li>
+        <li class="breadcrumb-item active"><a>View Employee</a></li>
+    </ol>
+
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/Employee/EmployeeList'">Employee List</button>
+</div>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+                @using (Html.BeginForm("ViewEmployeeCard", "Employee", FormMethod.Get, new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.Partial("Partial/EmployeeCard")
+                }
+            </div>
+        </div>
+    </div>
+</section>
+

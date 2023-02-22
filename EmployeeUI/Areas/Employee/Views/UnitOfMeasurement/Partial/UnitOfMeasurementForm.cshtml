@@ -1,0 +1,22 @@
+﻿
+@model DTO.UnitOfMeasurementDTO
+<div class="box-body">
+    <div class="form-group">
+        <label>Measurement Unit</label>
+        @Html.TextBoxFor(x => x.MeasuringUnit, new { @class = "form-control", @placeholder = "Enter Measurement Unit" })
+        @Html.ValidationMessageFor(x => x.MeasuringUnit, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Description" })
+        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+    </div>
+    <input hidden type="number" value="@Model.ID" name="ID" />
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+
+
+</div>
+
+

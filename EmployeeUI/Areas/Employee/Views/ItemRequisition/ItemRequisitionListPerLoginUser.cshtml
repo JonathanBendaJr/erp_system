@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "ItemRequisitionListPerLoginUser";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+@model List<DTO.ItemRequisitionDTO>
+<section class="content-header">
+    <h1>My Requisitions</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Genereal</a></li>
+        <li class="breadcrumb-item"><a>Requisition</a></li>
+        <li class="breadcrumb-item active"><a>My Requisistions</a></li>
+    </ol>
+
+</section>
+<br />
+<div class="card-footer">
+
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">My Requisitions</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit</th>
+                    <th>Urgeny Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr id="a_@item.ID">
+                        <td>@item.Item</td>
+                        <td>@item.ItemDescription</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.UnitName</td>
+                        <td>@item.UrgencyType</td>
+                        <td align="center">
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas fa-ellipsis-v" id="ellipses"></i></a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li>
+                                    <a href="/Employee/Employee/ViewEmployeeCard/@item.ID" style="color:black">
+                                        <span>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <i class="fas fa-id-card" style="color:blue"></i>
+                                            &nbsp;&nbsp;&nbsp;
+                                        </span>
+                                        View
+                                    </a>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li>
+                                    <a href="/Employee/ItemRequisition/UpdateItemRequisition/@item.ID" onclick="setttData(@item.ID)" style="color:black">
+                                        <span>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <i class="fas fa-edit" style="color:blue"></i>
+                                            &nbsp;&nbsp;&nbsp;
+                                        </span>
+                                        Edit Request
+                                    </a>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li>
+                                    <a href="/Employee/ItemRequisition/AcknowledgeItemReceived/@item.ID" style="color:black">
+                                        <span>&nbsp;&nbsp;&nbsp;<i class="fas fa-edit" style="color:blue"></i>&nbsp;&nbsp;&nbsp;</span>
+                                        Receive Item
+                                    </a>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li>
+                                    <a href="#" onclick="AskQuestion('/Employee/Employee/DeleteEmployee/',@item.ID)" style="color:black">
+                                        <span>&nbsp;&nbsp;&nbsp;<i class="fas fa-trash" style="color:red"></i>&nbsp;&nbsp;&nbsp;</span>
+                                        Delete
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit</th>
+                    <th>Urgeny Status</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    @Html.Partial("~/Areas/Employee/Views/Shared/ModalMessage.cshtml")
+    <!-- /.card-body -->
+</div>
+<script src="~/Areas/Employee/Content/JS/DeleteRecord.js"></script>

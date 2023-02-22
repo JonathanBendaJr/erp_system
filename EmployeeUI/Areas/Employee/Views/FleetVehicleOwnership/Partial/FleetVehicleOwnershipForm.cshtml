@@ -1,0 +1,20 @@
+﻿@model DTO.FleetVehicleOwnershipDTO
+<div class="box-body">
+    <div class="form-group">
+        <label>Vehicle Ownership</label>
+        @Html.TextBoxFor(x => x.VehicleOwnership, new { @class = "form-control", @placeholder = "Enter Vehicle Ownership" })
+        @Html.ValidationMessageFor(x => x.VehicleOwnership, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Vehicle Ownership</label>
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Vehicle Ownership Description" })
+        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+    </div>
+    <input hidden type="number" value="@Model.ID" name="ID" />
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+
+
+</div>
+

@@ -1,0 +1,20 @@
+﻿
+@model DTO.FleetVehicleStatusDTO
+<div class="box-body">
+    <div class="form-group">
+        <label>Gender</label>
+        @Html.TextBoxFor(x => x.VehicleStatus, new { @class = "form-control", @placeholder = "Enter Status" })
+        @Html.ValidationMessageFor(x => x.VehicleStatus, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Gender</label>
+        @Html.TextBoxFor(x => x.Description, new { @class = "form-control", @placeholder = "Describe Status" })
+        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+    </div>
+    <input hidden type="number" value="@Model.ID" name="ID" />
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+
+
+</div>

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeEducationList";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+@model List<DTO.EmployeeEducationDTO>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">List of Education Credentials</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>School Name</th>
+                    <th>Address/Location</th>
+                    <th>Degree Title</th>
+                    <th>Degree Type</th>
+                    <th>Start - End Dates</th>
+                    <th>Has Completed?</th>
+                    <th>Document</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr id="a_@item.ID">
+                        <td>@item.SchoolName</td>
+                        <td>@item.SchoolAddress, @item.SchoolCountry</td>
+                        <td>@item.DegreeTitle</td>
+                        <td>@item.DegreeTypeName</td>
+                        <td>@item.StartDate.ToString("dd-MMM-yyyy") to @item.EndDate.ToString("dd-MMM-yyyy")</td>
+                        <td>@item.hasCompleted</td>
+                        <td><a href="~/Areas/Employee/Content/Employees/EducationFiles/@item.DocumentPath" target="_blank" id="DocumentFile" value=""><span>@item.DocumentPath</span></a></td>
+                        <td align="center">
+                            <a href="/Employee/EmployeeEducation/UpdateEmployeeEducation/@item.ID">
+                                <span>&nbsp;&nbsp;&nbsp;<i class="fas fa-edit" style="color:forestgreen"></i></span>
+                            </a>
+                            <span>|</span>
+                            <a href="#">
+                                <span>&nbsp;&nbsp;&nbsp;<i class="fas fa-trash" style="color:red" onclick="AskQuestion('/Employee/EmployeeEducation/DeleteEmployeeEducation/',@item.ID)"></i></span>
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    @Html.Partial("~/Areas/Employee/Views/Shared/ModalMessage.cshtml")
+    <!-- /.card-body -->
+</div>
+
+<script src="~/Areas/Employee/Content/JS/DeleteRecord.js"></script>

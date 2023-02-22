@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "UpdateItemRequisitionProcurementManager";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+@{
+    ViewBag.Title = "UpdateItemRequisitionManager";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Process Requisition</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Procurement</a></li>
+        <li class="breadcrumb-item"><a>Requisition</a></li>
+        <li class="breadcrumb-item active"><a>Process Requisition</a></li>
+    </ol>
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/ItemRequisition/ItemRequisitionList'">Requisition List</button>
+</div>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+                @Html.Partial("Partial/ProcessRequisitionFormProcurementManager")
+                <hr />
+                @using (Html.BeginForm("UpdateItemRequisitionProcurementManager", "ItemRequisition", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.Partial("Partial/ProcessSubmitFormProcurementManager")
+                }
+            </div>
+        </div>
+    </div>
+</section>

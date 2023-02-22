@@ -1,0 +1,98 @@
+﻿
+
+@model DTO.ItemRequisitionDTO
+<div class="box-body">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Basic Information</h3>
+            </div>
+            <div class="card-body">
+                <input hidden type="number" value="@Model.ID" name="ID" />
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Employee Name</label>
+                            @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control", @placeholder = "Enter Item Name" })
+                            @Html.ValidationMessageFor(x => x.Item, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Item Name</label>
+                            @Html.TextBoxFor(x => x.Item, new { @class = "form-control", @placeholder = "Enter Item Name" })
+                            @Html.ValidationMessageFor(x => x.Item, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", @placeholder = "Enter Qunatity" })
+                            @Html.ValidationMessageFor(x => x.Quantity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Unit</label>
+                            @Html.TextBoxFor(x => x.UnitName, new { @class = "form-control", @placeholder = "Enter Qunatity" })
+                            @Html.ValidationMessageFor(x => x.UnitID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <label>Item Description</label>
+                            @Html.TextAreaFor(x => x.ItemDescription, new { @class = "form-control", @placeholder = "Enter Item Description" })
+                            @Html.ValidationMessageFor(x => x.ItemDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Urgency</label>
+                            @Html.TextBoxFor(x => x.UrgencyType, new { @class = "form-control", @placeholder = "Enter Qunatity" })
+                            @Html.ValidationMessageFor(x => x.UrgencyID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Manager Name</label>
+                            @Html.TextAreaFor(x => x.ManagerName, new { @class = "form-control", @placeholder = "Enter Item Description" })
+                            @Html.ValidationMessageFor(x => x.ManagerName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Department</label>
+                            @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control", @placeholder = "Enter Qunatity" })
+                            @Html.ValidationMessageFor(x => x.DepartmentName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Approval Status</label>
+                            @Html.TextAreaFor(x => x.ManagerApprovalStatusName, new { @class = "form-control", @placeholder = "Enter Item Description" })
+                            @Html.ValidationMessageFor(x => x.ManagerApprovalStatusName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Manager Approval Message</label>
+                            @Html.TextAreaFor(x => x.ManagerApprovalMessage, new { @class = "form-control", @placeholder = "Enter Item Description" })
+                            @Html.ValidationMessageFor(x => x.ManagerApprovalMessage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+      
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

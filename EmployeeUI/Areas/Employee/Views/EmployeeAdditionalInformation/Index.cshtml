@@ -1,0 +1,29 @@
+﻿
+
+@{
+    ViewBag.Title = "EmployeeAdditionalInfomation";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+<section class="content-header">
+    <h1>Employee Additional Information</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>HR Department</a></li>
+        <li class="breadcrumb-item"><a>Employee</a></li>
+        <li class="breadcrumb-item active"><a>Add Employee Information</a></li>
+    </ol>
+
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/Employee/EmployeeList'">Employee List</button>
+</div>
+@Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+<div>
+    @Html.Action("AddEmployeeEducation", "EmployeeAdditionalInformation")
+</div>
+
+
+
+
+
+

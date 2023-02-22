@@ -1,0 +1,78 @@
+﻿
+
+@model DTO.ItemRequisitionDTO
+<div class="box-body">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Basic Information</h3>
+            </div>
+            <div class="card-body">
+                <input hidden type="number" value="@Model.ID" name="ID" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Item Name</label>
+                            @Html.TextBoxFor(x => x.Item, new { @class = "form-control", @placeholder = "Enter Item Name" })
+                            @Html.ValidationMessageFor(x => x.Item, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", @placeholder = "Enter Qunatity" })
+                            @Html.ValidationMessageFor(x => x.Quantity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Unit</label>
+                            @Html.DropDownList("UnitID", Model.Units, "Select Measuring Unit", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.UnitID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <label>Item Description</label>
+                            @Html.TextAreaFor(x => x.ItemDescription, new { @class = "form-control", @placeholder = "Enter Item Description" })
+                            @Html.ValidationMessageFor(x => x.ItemDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Urgency</label>
+                            @Html.DropDownList("UrgencyID", Model.Urgencies, "Select Level of Urgency", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.UrgencyID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                @if(Model.ProcurementOfficerDeliver)
+                {
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" name="EmployeeReceived" checked="@Model.EmployeeReceived" value="true">
+                                    <label class="form-check-label">Received Delivery</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                }
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save &amp; Send Request</button>
+        </div>
+    </div>
+</div>
+
+

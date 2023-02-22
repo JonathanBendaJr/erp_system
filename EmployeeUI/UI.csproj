@@ -1,0 +1,988 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A978346-8CD1-4BBD-8A5B-D883CB685B73}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmployeeUI</RootNamespace>
+    <AssemblyName>EmployeeUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44313</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.2.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.2.5\lib\net461\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.commons, Version=7.2.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.commons.7.2.5\lib\net461\itext.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.2.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.2.5\lib\net461\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.html2pdf, Version=4.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.pdfhtml.4.0.5\lib\net461\itext.html2pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.2.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.2.5\lib\net461\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.2.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.2.5\lib\net461\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.2.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.2.5\lib\net461\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.2.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.2.5\lib\net461\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.2.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.2.5\lib\net461\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.2.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.2.5\lib\net461\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.2.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.2.5\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.5.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.5.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.5.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Employee\Content\CSS\adminlte.min.css" />
+    <Content Include="Areas\Employee\Content\CSS\all.min.css" />
+    <Content Include="Areas\Employee\Content\CSS\bootstrap-4.min.css" />
+    <Content Include="Areas\Employee\Content\CSS\buttons.bootstrap4.min.css" />
+    <Content Include="Areas\Employee\Content\CSS\dataTables.bootstrap4.css" />
+    <Content Include="Areas\Employee\Content\CSS\dataTables.bootstrap4.min.css" />
+    <Content Include="Areas\Employee\Content\CSS\icheck-bootstrap.min.css" />
+    <Content Include="Areas\Employee\Content\CSS\responsive.bootstrap4.min.css" />
+    <Content Include="Areas\Employee\Content\icons\delete.ico" />
+    <Content Include="Areas\Employee\Content\icons\deletes.ico" />
+    <Content Include="Areas\Employee\Content\icons\update.ico" />
+    <Content Include="Areas\Employee\Content\icons\updates.ico" />
+    <Content Include="Areas\Employee\Content\JS\adminlte.min.js" />
+    <Content Include="Areas\Employee\Content\JS\bootstrap.bundle.min.js" />
+    <Content Include="Areas\Employee\Content\JS\buttons.bootstrap4.min.js" />
+    <Content Include="Areas\Employee\Content\JS\buttons.colVis.min.js" />
+    <Content Include="Areas\Employee\Content\JS\buttons.html5.min.js" />
+    <Content Include="Areas\Employee\Content\JS\buttons.print.min.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\adapters\jquery.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\build-config.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\ckeditor.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\config.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\contents.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\af.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\ar.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\az.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\bg.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\bn.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\bs.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\ca.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\cs.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\cy.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\da.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\de-ch.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\de.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\el.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\en-au.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\en-ca.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\en-gb.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\en.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\eo.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\es-mx.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\es.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\et.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\eu.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\fa.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\fi.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\fo.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\fr-ca.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\fr.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\gl.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\gu.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\he.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\hi.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\hr.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\hu.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\id.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\is.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\it.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\ja.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\ka.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\km.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\ko.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\ku.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\lt.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\lv.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\mk.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\mn.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\ms.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\nb.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\nl.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\no.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\oc.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\pl.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\pt-br.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\pt.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\ro.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\ru.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\si.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\sk.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\sl.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\sq.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\sr-latn.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\sr.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\sv.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\th.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\tr.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\tt.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\ug.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\uk.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\vi.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\zh-cn.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\lang\zh.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\af.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\az.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\de-ch.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\en-au.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\en-gb.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\es-mx.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\eu.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\fo.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\gl.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\id.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\km.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\ko.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\oc.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\si.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\sr-latn.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\sr.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\tt.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\zh.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\colordialog\dialogs\colordialog.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\copyformatting\cursors\cursor-disabled.svg" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\copyformatting\cursors\cursor.svg" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\copyformatting\styles\copyformatting.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\dialog\styles\dialog.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\div\dialogs\div.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\plugindefinition.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\authentication.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\exportpdf.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\configfilename.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\emptyeditor.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\integration.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\integrations\easyimage.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\notifications.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\notificationsasync.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\paperformat.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\readonly.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\stylesheets.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\tokenfetching.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorscorrect.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorswrong.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\tokenwithouturl.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\wrongendpoint.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\notification.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\resourcespaths.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\statistics.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\stylesheets.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\_helpers\tools.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\find\dialogs\find.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\forms\dialogs\button.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\forms\dialogs\checkbox.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\forms\dialogs\form.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\forms\dialogs\hiddenfield.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\forms\dialogs\radio.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\forms\dialogs\select.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\forms\dialogs\textarea.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\forms\dialogs\textfield.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\forms\images\hiddenfield.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\icons.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\iframe\dialogs\iframe.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\iframe\images\placeholder.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\liststyle\dialogs\liststyle.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\magicline\images\hidpi\icon-rtl.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\magicline\images\hidpi\icon.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\magicline\images\icon-rtl.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\pagebreak\images\pagebreak.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\pastefromgdocs\filter\default.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\pastefromlibreoffice\filter\default.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\pastetools\filter\common.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\pastetools\filter\image.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\preview\images\pagebreak.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\preview\preview.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\preview\styles\screen.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\scayt\dialogs\dialog.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\scayt\skins\moono-lisa\scayt.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\showblocks\images\block_address.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\showblocks\images\block_blockquote.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\showblocks\images\block_div.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\showblocks\images\block_h1.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\showblocks\images\block_h2.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\showblocks\images\block_h3.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\showblocks\images\block_h4.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\showblocks\images\block_h5.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\showblocks\images\block_h6.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\showblocks\images\block_p.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\showblocks\images\block_pre.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\dialogs\smiley.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\angel_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\angel_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\angry_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\angry_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\broken_heart.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\broken_heart.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\confused_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\confused_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\cry_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\cry_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\devil_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\devil_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\embaressed_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\embarrassed_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\embarrassed_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\envelope.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\envelope.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\heart.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\heart.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\kiss.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\kiss.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\lightbulb.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\lightbulb.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\omg_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\omg_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\regular_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\regular_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\sad_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\sad_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\shades_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\shades_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\teeth_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\teeth_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\thumbs_down.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\thumbs_down.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\thumbs_up.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\thumbs_up.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\tongue_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\tongue_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\tounge_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\wink_smile.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\smiley\images\wink_smile.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\af.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\ar.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\az.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\bg.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\da.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\de-ch.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\en-au.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\en-ca.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\en-gb.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\es-mx.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\eu.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\gl.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\hu.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\id.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\ja.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\km.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\ko.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\lt.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\oc.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\pt.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\ro.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\ru.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\si.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\sl.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\sr-latn.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\sr.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\tt.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\uk.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\vi.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\zh.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\tableselection\styles\tableselection.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\templates\dialogs\templates.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\templates\dialogs\templates.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\templates\templatedefinition.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\templates\templates\default.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\templates\templates\images\template1.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\templates\templates\images\template2.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\templates\templates\images\template3.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\widget\images\handle.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\css\samples.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\img\github-top.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\img\header-bg.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\img\header-separator.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\img\logo.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\img\logo.svg" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\img\navigation-tip.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\index.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\js\sample.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\js\sf.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\ajax.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\api.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\appendto.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\assets\inlineall\logo.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\assets\posteddata.php" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\assets\sample.jpg" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\assets\uilanguages\languages.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\datafiltering.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\dialog\assets\my_dialog.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\dialog\dialog.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\divreplace.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\enterkey\enterkey.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\htmlwriter\outputhtml.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\index.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\inlineall.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\inlinebycode.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\inlinetextarea.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\jquery.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\magicline\magicline.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\readonly.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\replacebyclass.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\replacebycode.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\sample.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\sample.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\sample_posteddata.php" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\tabindex.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\toolbar\toolbar.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\uicolor.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\uilanguages.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\wysiwygarea\fullpage.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\old\xhtmlstyle.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\css\fontello.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\font\fontello.svg" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\font\LICENSE.txt" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\index.html" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\js\abstracttoolbarmodifier.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\js\fulltoolbareditor.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\js\toolbarmodifier.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\js\toolbartextmodifier.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\lib\codemirror\javascript.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\dialog.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\dialog_ie.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\dialog_ie8.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\dialog_iequirks.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\editor.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\editor_gecko.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\editor_ie.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\editor_ie8.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\editor_iequirks.css" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\icons.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\icons_hidpi.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\images\arrow.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\images\close.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\images\hidpi\close.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\images\hidpi\lock-open.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\images\hidpi\lock.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\images\hidpi\refresh.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\images\lock-open.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\images\lock.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\images\refresh.png" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\images\spinner.gif" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\styles.js" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\vendor\promise.js" />
+    <Content Include="Areas\Employee\Content\JS\dataTables.bootstrap4.js" />
+    <Content Include="Areas\Employee\Content\JS\dataTables.bootstrap4.min.js" />
+    <Content Include="Areas\Employee\Content\JS\dataTables.buttons.min.js" />
+    <Content Include="Areas\Employee\Content\JS\dataTables.responsive.min.js" />
+    <Content Include="Areas\Employee\Content\JS\DeleteRecord.js" />
+    <Content Include="Areas\Employee\Content\JS\demo.js" />
+    <Content Include="Areas\Employee\Content\JS\jquery-ui.min.js" />
+    <Content Include="Areas\Employee\Content\JS\jquery.dataTables.js" />
+    <Content Include="Areas\Employee\Content\JS\jquery.dataTables.min.js" />
+    <Content Include="Areas\Employee\Content\JS\jquery.min.js" />
+    <Content Include="Areas\Employee\Content\JS\jszip.min.js" />
+    <Content Include="Areas\Employee\Content\JS\PassData.js" />
+    <Content Include="Areas\Employee\Content\JS\pdfmake.min.js" />
+    <Content Include="Areas\Employee\Content\JS\responsive.bootstrap4.min.js" />
+    <Content Include="Areas\Employee\Content\JS\sweetalert2.min.js" />
+    <Content Include="Areas\Employee\Content\JS\vfs_fonts.js" />
+    <Content Include="Areas\Employee\Content\tempimage\e-news.png" />
+    <Content Include="Areas\Employee\Content\tempimage\enews.png" />
+    <Content Include="Areas\Employee\Content\tempimage\person.jpeg" />
+    <Content Include="Areas\Employee\Content\tempimage\person_me.jpeg" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-brands-400.svg" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-regular-400.svg" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Employee\Controllers\AddressController.cs" />
+    <Compile Include="Areas\Employee\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\CountyController.cs" />
+    <Compile Include="Areas\Employee\Controllers\DegreeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\DepartmentController.cs" />
+    <Compile Include="Areas\Employee\Controllers\EmployeeAdditionalInformationController.cs" />
+    <Compile Include="Areas\Employee\Controllers\EmployeeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\EmployeeDepartmentController.cs" />
+    <Compile Include="Areas\Employee\Controllers\EmployeeDependantController.cs" />
+    <Compile Include="Areas\Employee\Controllers\EmployeeEducationController.cs" />
+    <Compile Include="Areas\Employee\Controllers\EmployeeRoleController.cs" />
+    <Compile Include="Areas\Employee\Controllers\EmployeeSalaryController.cs" />
+    <Compile Include="Areas\Employee\Controllers\EmployeeWorkController.cs" />
+    <Compile Include="Areas\Employee\Controllers\EmpRoleController.cs" />
+    <Compile Include="Areas\Employee\Controllers\FavLogoTitleController.cs" />
+    <Compile Include="Areas\Employee\Controllers\FleetHomeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\FleetVehicleOwnershipController.cs" />
+    <Compile Include="Areas\Employee\Controllers\FleetVehicleStatusController.cs" />
+    <Compile Include="Areas\Employee\Controllers\FleetVehicleTypeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\GenderController.cs" />
+    <Compile Include="Areas\Employee\Controllers\GeneralHomeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\HRHomeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\ItemRequisitionController.cs" />
+    <Compile Include="Areas\Employee\Controllers\LeaveActionController.cs" />
+    <Compile Include="Areas\Employee\Controllers\LeaveTypeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\LevelOfUrgencyController.cs" />
+    <Compile Include="Areas\Employee\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Employee\Controllers\MaintenanceHomeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\MaritalStatusController.cs" />
+    <Compile Include="Areas\Employee\Controllers\PayGradeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\PositionController.cs" />
+    <Compile Include="Areas\Employee\Controllers\ProcurementHomeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\ProductCategoryController.cs" />
+    <Compile Include="Areas\Employee\Controllers\ReceivedConditionController.cs" />
+    <Compile Include="Areas\Employee\Controllers\RelationshipController.cs" />
+    <Compile Include="Areas\Employee\Controllers\RequestStatusController.cs" />
+    <Compile Include="Areas\Employee\Controllers\ResolutionTypeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\SrManageHomeController.cs" />
+    <Compile Include="Areas\Employee\Controllers\StatusController.cs" />
+    <Compile Include="Areas\Employee\Controllers\TaskActionController.cs" />
+    <Compile Include="Areas\Employee\Controllers\TaskRatingController.cs" />
+    <Compile Include="Areas\Employee\Controllers\UnitOfMeasurementController.cs" />
+    <Compile Include="Areas\Employee\Controllers\UserController.cs" />
+    <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Areas\Employee\Views\web.config" />
+    <Content Include="Areas\Employee\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Employee\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\bender-runner.config.json" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\CHANGES.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\LICENSE.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\CHANGELOG.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\LICENSE.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\README.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\configfilename.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\emptyeditor.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\integration.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\integrations\easyimage.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\notifications.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\notificationsasync.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\paperformat.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\readonly.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\stylesheets.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\tokenfetching.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorscorrect.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorswrong.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\tokenwithouturl.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\exportpdf\tests\manual\wrongendpoint.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\scayt\CHANGELOG.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\plugins\scayt\README.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\README.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\font\config.json" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\font\fontello.eot" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\font\fontello.ttf" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\SECURITY.md" />
+    <Content Include="Areas\Employee\Content\JS\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-brands-400.eot" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-brands-400.ttf" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-brands-400.woff" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-brands-400.woff2" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-regular-400.eot" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-regular-400.ttf" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-regular-400.woff" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-regular-400.woff2" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-solid-900.eot" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-solid-900.ttf" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-solid-900.woff" />
+    <Content Include="Areas\Employee\Content\webfonts\fa-solid-900.woff2" />
+    <Content Include="Areas\Employee\Views\Shared\MasterLayout.cshtml" />
+    <Content Include="Areas\Employee\Views\AdminHome\Index.cshtml" />
+    <Content Include="Areas\Employee\Views\Shared\MessageForm.cshtml" />
+    <Content Include="Areas\Employee\Views\TaskAction\AddTaskAction.cshtml" />
+    <Content Include="Areas\Employee\Views\TaskAction\Partial\TaskActionForm.cshtml" />
+    <Content Include="Areas\Employee\Views\TaskAction\TaskActionList.cshtml" />
+    <Content Include="Areas\Employee\Views\Shared\ModalMessage.cshtml" />
+    <Content Include="Areas\Employee\Views\TaskAction\UpdateTaskAction.cshtml" />
+    <Content Include="Areas\Employee\Views\Gender\AddGender.cshtml" />
+    <Content Include="Areas\Employee\Views\Gender\Partial\GenderForm.cshtml" />
+    <Content Include="Areas\Employee\Views\Gender\GenderList.cshtml" />
+    <Content Include="Areas\Employee\Views\Gender\UpdateGender.cshtml" />
+    <Content Include="Areas\Employee\Views\LeaveAction\AddLeaveAction.cshtml" />
+    <Content Include="Areas\Employee\Views\LeaveAction\LeaveActionList.cshtml" />
+    <Content Include="Areas\Employee\Views\LeaveAction\UpdateLeaveAction.cshtml" />
+    <Content Include="Areas\Employee\Views\LeaveAction\Partial\LeaveActionForm.cshtml" />
+    <Content Include="Areas\Employee\Views\Department\AddDepartment.cshtml" />
+    <Content Include="Areas\Employee\Views\Department\DepartmentList.cshtml" />
+    <Content Include="Areas\Employee\Views\Department\UpdateDepartment.cshtml" />
+    <Content Include="Areas\Employee\Views\Department\Partial\DepartmentForm.cshtml" />
+    <Content Include="Areas\Employee\Views\Degree\AddDegree.cshtml" />
+    <Content Include="Areas\Employee\Views\Degree\DegreeList.cshtml" />
+    <Content Include="Areas\Employee\Views\Degree\UpdateDegree.cshtml" />
+    <Content Include="Areas\Employee\Views\Degree\Partial\DegreeForm.cshtml" />
+    <Content Include="Areas\Employee\Views\LeaveType\AddLeaveType.cshtml" />
+    <Content Include="Areas\Employee\Views\LeaveType\LeaveTypeList.cshtml" />
+    <Content Include="Areas\Employee\Views\LeaveType\UpdateLeaveType.cshtml" />
+    <Content Include="Areas\Employee\Views\LeaveType\Partial\LeaveTypeForm.cshtml" />
+    <Content Include="Areas\Employee\Views\LevelOfUrgency\AddLevelOfUrgency.cshtml" />
+    <Content Include="Areas\Employee\Views\LevelOfUrgency\LevelOfUrgencyList.cshtml" />
+    <Content Include="Areas\Employee\Views\LevelOfUrgency\UpdateLevelOfUrgency.cshtml" />
+    <Content Include="Areas\Employee\Views\LevelOfUrgency\Partial\LevelOfUrgencyForm.cshtml" />
+    <Content Include="Areas\Employee\Views\MaritalStatus\AddMaritalStatus.cshtml" />
+    <Content Include="Areas\Employee\Views\MaritalStatus\MaritalStatusList.cshtml" />
+    <Content Include="Areas\Employee\Views\MaritalStatus\UpdateMaritalStatus.cshtml" />
+    <Content Include="Areas\Employee\Views\MaritalStatus\Partial\MaritalStatusForm.cshtml" />
+    <Content Include="Areas\Employee\Views\Relationship\AddRelationship.cshtml" />
+    <Content Include="Areas\Employee\Views\Relationship\RelationshipList.cshtml" />
+    <Content Include="Areas\Employee\Views\Relationship\UpdateRelationship.cshtml" />
+    <Content Include="Areas\Employee\Views\Relationship\Partial\RelationshipForm.cshtml" />
+    <Content Include="Areas\Employee\Views\Status\AddStatus.cshtml" />
+    <Content Include="Areas\Employee\Views\Status\StatusList.cshtml" />
+    <Content Include="Areas\Employee\Views\Status\UpdateStatus.cshtml" />
+    <Content Include="Areas\Employee\Views\Status\Partial\StatusForm.cshtml" />
+    <Content Include="Areas\Employee\Views\Position\AddPosition.cshtml" />
+    <Content Include="Areas\Employee\Views\Position\PositionList.cshtml" />
+    <Content Include="Areas\Employee\Views\Position\UpdatePosition.cshtml" />
+    <Content Include="Areas\Employee\Views\Position\Partial\PositionForm.cshtml" />
+    <Content Include="Areas\Employee\Views\PayGrade\AddPayGrade.cshtml" />
+    <Content Include="Areas\Employee\Views\PayGrade\PayGradeList.cshtml" />
+    <Content Include="Areas\Employee\Views\PayGrade\UpdatePayGrade.cshtml" />
+    <Content Include="Areas\Employee\Views\PayGrade\Partial\PayGradeForm.cshtml" />
+    <Content Include="Areas\Employee\Views\FavLogoTitle\UpdateFavLogoTitle.cshtml" />
+    <Content Include="Areas\Employee\Views\FavLogoTitle\Partial\FavLogoTitleForm.cshtml" />
+    <Content Include="Areas\Employee\Views\County\AddCounty.cshtml" />
+    <Content Include="Areas\Employee\Views\County\CountyList.cshtml" />
+    <Content Include="Areas\Employee\Views\County\UpdateCounty.cshtml" />
+    <Content Include="Areas\Employee\Views\County\Partial\CountyForm.cshtml" />
+    <Content Include="Areas\Employee\Views\Employee\AddEmployee.cshtml" />
+    <Content Include="Areas\Employee\Views\Employee\EmployeeList.cshtml" />
+    <Content Include="Areas\Employee\Views\Employee\UpdateEmployee.cshtml" />
+    <Content Include="Areas\Employee\Views\Employee\Partial\EmployeeForm.cshtml" />
+    <Content Include="Areas\Employee\Views\Employee\EmployeeAdditionalInfo.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeAdditionalInformation\Index.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeAdditionalInformation\Partial\EmployeeDependant.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeAdditionalInformation\Partial\EmployeeWorkHistory.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeAdditionalInformation\AddEmployeeEducation.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeAdditionalInformation\EmployeeEducationList.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeAdditionalInformation\GetEducationListByEmpId.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeEducation\AddEmployeeEducation.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeEducation\Partial\EmployeeEducation.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeEducation\EmployeeEducationList.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeEducation\UpdateEmployeeEducation.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeDepartment\AddEmployeeDepartment.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeDepartment\UpdateEmployeeDepartment.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeDepartment\Partial\EmployeeDepartment.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeRole\AddEmployeeRole.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeRole\EmployeeRoleList.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeRole\UpdateEmployeeRole.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeRole\Partial\EmployeeRoleForm.cshtml" />
+    <Content Include="Areas\Employee\Views\TaskRating\AddTaskRating.cshtml" />
+    <Content Include="Areas\Employee\Views\TaskRating\TaskRatingList.cshtml" />
+    <Content Include="Areas\Employee\Views\TaskRating\UpdateTaskRating.cshtml" />
+    <Content Include="Areas\Employee\Views\TaskRating\Partial\TaskRatingForm.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeSalary\AddEmployeeSalary.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeSalary\UpdateEmployeeSalary.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeSalary\Partial\EmployeeSalary.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeWork\AddEmployeeWork.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeWork\UpdateEmployeeWork.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeWork\EmployeeWorkList.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeWork\Partial\EmployeeWork.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeDependant\AddEmployeeDependant.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeDependant\EmployeeDependantList.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeDependant\UpdateEmployeeDependant.cshtml" />
+    <Content Include="Areas\Employee\Views\EmployeeDependant\Partial\EmployeeDependant.cshtml" />
+    <Content Include="Areas\Employee\Views\Employee\ViewEmployeeCard.cshtml" />
+    <Content Include="Areas\Employee\Views\Employee\Partial\EmployeeCard.cshtml" />
+    <Content Include="Areas\Employee\Views\FleetVehicleOwnership\AddFleetVehicleOwnership.cshtml" />
+    <Content Include="Areas\Employee\Views\FleetVehicleOwnership\FleetVehicleOwnershipList.cshtml" />
+    <Content Include="Areas\Employee\Views\FleetVehicleOwnership\UpdateFleetVehicleOwnership.cshtml" />
+    <Content Include="Areas\Employee\Views\FleetVehicleOwnership\Partial\FleetVehicleOwnershipForm.cshtml" />
+    <Content Include="Areas\Employee\Views\FleetVehicleStatus\AddFleetVehicleStatus.cshtml" />
+    <Content Include="Areas\Employee\Views\FleetVehicleStatus\UpdateFleetVehicleStatus.cshtml" />
+    <Content Include="Areas\Employee\Views\FleetVehicleStatus\FleetVehicleStatusList.cshtml" />
+    <Content Include="Areas\Employee\Views\FleetVehicleStatus\Partial\FleetVehicleStatusForm.cshtml" />
+    <Content Include="Areas\Employee\Views\FleetVehicleType\AddFleetVehicleType.cshtml" />
+    <Content Include="Areas\Employee\Views\FleetVehicleType\FleetVehicleTypeList.cshtml" />
+    <Content Include="Areas\Employee\Views\FleetVehicleType\UpdateFleetVehicleType.cshtml" />
+    <Content Include="Areas\Employee\Views\FleetVehicleType\Partial\FleetVehicleTypeForm.cshtml" />
+    <Content Include="Areas\Employee\Views\UnitOfMeasurement\AddUnitOfMeasurement.cshtml" />
+    <Content Include="Areas\Employee\Views\UnitOfMeasurement\UnitOfMeasurementList.cshtml" />
+    <Content Include="Areas\Employee\Views\UnitOfMeasurement\UpdateUnitOfMeasurement.cshtml" />
+    <Content Include="Areas\Employee\Views\UnitOfMeasurement\Partial\UnitOfMeasurementForm.cshtml" />
+    <Content Include="Areas\Employee\Views\ProductCategory\AddProductCategory.cshtml" />
+    <Content Include="Areas\Employee\Views\ProductCategory\ProductCategoryList.cshtml" />
+    <Content Include="Areas\Employee\Views\ProductCategory\UpdateProductCategory.cshtml" />
+    <Content Include="Areas\Employee\Views\ProductCategory\Partial\ProductCategoryForm.cshtml" />
+    <Content Include="Areas\Employee\Views\RequestStatus\AddRequestStatus.cshtml" />
+    <Content Include="Areas\Employee\Views\RequestStatus\RequestStatusList.cshtml" />
+    <Content Include="Areas\Employee\Views\RequestStatus\UpdateRequestStatus.cshtml" />
+    <Content Include="Areas\Employee\Views\RequestStatus\Partial\RequestStatusForm.cshtml" />
+    <Content Include="Areas\Employee\Views\ResolutionType\AddResolutionType.cshtml" />
+    <Content Include="Areas\Employee\Views\ResolutionType\ResolutionTypeList.cshtml" />
+    <Content Include="Areas\Employee\Views\ResolutionType\UpdateResolutionType.cshtml" />
+    <Content Include="Areas\Employee\Views\ResolutionType\Partial\ResolutionTypeForm.cshtml" />
+    <Content Include="Areas\Employee\Views\ReceivedCondition\AddReceivedCondition.cshtml" />
+    <Content Include="Areas\Employee\Views\ReceivedCondition\ReceivedConditionList.cshtml" />
+    <Content Include="Areas\Employee\Views\ReceivedCondition\UpdateReceivedCondition.cshtml" />
+    <Content Include="Areas\Employee\Views\ReceivedCondition\Partial\ReceivedConditionForm.cshtml" />
+    <Content Include="Areas\Employee\Views\User\AddUser.cshtml" />
+    <Content Include="Areas\Employee\Views\User\Partial\UserForm.cshtml" />
+    <Content Include="Areas\Employee\Views\User\UserList.cshtml" />
+    <Content Include="Areas\Employee\Views\User\UpdateUser.cshtml" />
+    <Content Include="Areas\Employee\Views\User\Partial\UserUpdateForm.cshtml" />
+    <Content Include="Areas\Employee\Views\User\Partial\UserViewForm.cshtml" />
+    <Content Include="Areas\Employee\Views\User\ViewUser.cshtml" />
+    <Content Include="Areas\Employee\Views\User\PasswordReset.cshtml" />
+    <Content Include="Areas\Employee\Views\User\Partial\PasswordResetForm.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\AddItemRequisition.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\ItemRequisitionList.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\ItemRequisitionListPerLoginUser.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\ItemRequisitionListPerDepartment.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\UpdateItemRequisition.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\UpdateItemRequisitionManager.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\UpdateItemRequisitionProcurementManager.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\UpdateItemRequisitionProcurementOfficer.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\Partial\RequisitionForm.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\Partial\ProcessRequisitionFormManager.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\Partial\ProcessSubmitFormManager.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\Partial\ProcessSubmitFormProcurementManager.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\Partial\ProcessRequisitionFormProcurementManager.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\Partial\ProcessSubmitFormProcurementOfficer.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\Partial\ProcessRequisitionFormProceurementOfficer.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\ItemRequisitionListProcurementOfficer.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\AcknowledgeItemReceived.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\Partial\AcknowledgeSubmitForm.cshtml" />
+    <Content Include="Areas\Employee\Views\ItemRequisition\Partial\AcknowledgeForm.cshtml" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Employee\Content\Employees\EducationFiles\" />
+    <Folder Include="Areas\Employee\Content\Employees\EmpImages\" />
+    <Folder Include="Areas\Employee\Content\FavLogoImages\" />
+    <Folder Include="Areas\Employee\Data\" />
+    <Folder Include="Areas\Employee\Views\Address\" />
+    <Folder Include="Areas\Employee\Views\EmpRole\" />
+    <Folder Include="Areas\Employee\Views\FleetHome\" />
+    <Folder Include="Areas\Employee\Views\GeneralHome\" />
+    <Folder Include="Areas\Employee\Views\HRHome\" />
+    <Folder Include="Areas\Employee\Views\MaintenanceHome\" />
+    <Folder Include="Areas\Employee\Views\ProcurementHome\" />
+    <Folder Include="Areas\Employee\Views\SrManageHome\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{ec38a414-6be7-4460-a58e-774032bcf82f}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{c11df8f8-d7f6-4d70-995d-af7e3454a3d2}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52195</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44313/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

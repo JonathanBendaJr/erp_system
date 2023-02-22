@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "FleetVehicleOwnershipList";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+@model List<DTO.FleetVehicleOwnershipDTO>
+<section class="content-header">
+    <h1>Vehicle Ownership List</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Fleet Management</a></li>
+        <li class="breadcrumb-item"><a>Vehicle</a></li>
+        <li class="breadcrumb-item active"><a>Vehicle Ownership List</a></li>
+    </ol>
+
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/FleetVehicleOwnership/AddFleetVehicleOwnership'">Add Vehicle Ownership</button>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">List of Vehicle Ownership</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Vehicle Ownership</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr id="a_@item.ID">
+                    <td>@item.VehicleOwnership</td>
+                    <td>@item.Description</td>
+                    <td align="center">
+                        <a href="/Employee/FleetVehicleOwnership/UpdateFleetVehicleOwnership/@item.ID">
+                            <img width="20" height="20" src="~/Areas/Employee/Content/icons/update.ico" />
+                        </a>
+                        <span>|</span>
+                        <a href="#">
+                            <img width="20" height="20" src="~/Areas/Employee/Content/icons/delete.ico" onclick="AskQuestion('/Employee/FleetVehicleOwnership/DeleteFleetVehicleOwnership/',@item.ID)" />
+                        </a>
+                    </td>
+
+                </tr>
+                }
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th>Vehicle Ownership</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    @Html.Partial("~/Areas/Employee/Views/Shared/ModalMessage.cshtml")
+    <!-- /.card-body -->
+</div>
+<script src="~/Areas/Employee/Content/JS/DeleteRecord.js"></script>

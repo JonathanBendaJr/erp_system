@@ -1,0 +1,2684 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Address" Type="varchar(max)" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Phone2" Type="varchar" MaxLength="20" />
+    <Property Name="MapPathLarge" Type="varchar(max)" />
+    <Property Name="MapPathSmall" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="County">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountyName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" />
+    <Property Name="LastUpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DegreeCredential">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DegreeName" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LasUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeliveryStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeliveryStatus" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="250" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" />
+    <Property Name="LastUpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DriverToVehicleAssignment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DriverID" Type="int" Nullable="false" />
+    <Property Name="VehicleID" Type="int" Nullable="false" />
+    <Property Name="DriverRoleID" Type="int" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpDependant">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Age" Type="varchar" MaxLength="10" />
+    <Property Name="RelationshipID" Type="int" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpDepManSupPosition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="SupervisorRoleID" Type="int" Nullable="false" />
+    <Property Name="ManagerRoleID" Type="int" Nullable="false" />
+    <Property Name="PositionID" Type="int" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpEducation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="DegreeTypeID" Type="int" Nullable="false" />
+    <Property Name="DegreeTitle" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="SchoolName" Type="varchar(max)" Nullable="false" />
+    <Property Name="SchoolAddress" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="SchoolCountry" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="HasCompleted" Type="bit" Nullable="false" />
+    <Property Name="DocumentPath" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone2" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="CountyAddressID" Type="int" Nullable="false" />
+    <Property Name="ImagePath" Type="varchar(max)" />
+    <Property Name="CountyOfOriginID" Type="int" Nullable="false" />
+    <Property Name="PlaceOfBirth" Type="varchar" MaxLength="50" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Age" Type="varchar" MaxLength="10" />
+    <Property Name="GenderID" Type="int" Nullable="false" />
+    <Property Name="StatusID" Type="int" Nullable="false" />
+    <Property Name="PositionID" Type="int" Nullable="false" />
+    <Property Name="MaritalStatusID" Type="int" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" />
+    <Property Name="LastUpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EmpRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="PositionID" Type="int" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpSalaryBenefit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="PayGradeID" Type="int" Nullable="false" />
+    <Property Name="BasicSalary" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Allowance1" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Allowance2" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="GrossSalary" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FavLogoTitle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Fav" Type="varchar(max)" Nullable="false" />
+    <Property Name="Logo" Type="varchar(max)" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FieldOffice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FieldOfficeCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FieldOfficeDescription" Type="varchar(max)" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="CountyID" Type="int" Nullable="false" />
+    <Property Name="MapPath" Type="varchar(max)" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetVehicle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VIN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mileage" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Make" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TypeID" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="OwnershipStatusID" Type="int" Nullable="false" />
+    <Property Name="Color" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FuelTankSize" Type="int" Nullable="false" />
+    <Property Name="FuelTankType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UnitID" Type="int" Nullable="false" />
+    <Property Name="RecieveDate" Type="datetime" Nullable="false" />
+    <Property Name="RecieveConditionID" Type="int" Nullable="false" />
+    <Property Name="VehicleStatusID" Type="int" Nullable="false" />
+    <Property Name="RegistrationStatusID" Type="int" Nullable="false" />
+    <Property Name="PlateNumber" Type="varchar" MaxLength="10" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetVehicleBookingReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookingID" Type="int" Nullable="false" />
+    <Property Name="DispatchDate" Type="date" Nullable="false" />
+    <Property Name="DispatchTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="ReturnDate" Type="date" Nullable="false" />
+    <Property Name="ReturnTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="ReportDescription" Type="varchar(max)" />
+    <Property Name="Incident" Type="bit" Nullable="false" />
+    <Property Name="IncidentTypeID" Type="int" />
+    <Property Name="ResolutionTypeID" Type="int" />
+    <Property Name="ResolutionDescription" Type="varchar(max)" />
+    <Property Name="DriverID" Type="int" Nullable="false" />
+    <Property Name="FleetManagerApprovalID" Type="int" />
+    <Property Name="FleetManagerID" Type="int" />
+    <Property Name="FleetManagerMessage" Type="varchar" MaxLength="500" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetVehicleBookingRequest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="BookingDate" Type="datetime" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="CountyID" Type="int" Nullable="false" />
+    <Property Name="BookingDescription" Type="varchar(max)" Nullable="false" />
+    <Property Name="FromDate" Type="date" Nullable="false" />
+    <Property Name="ToDate" Type="date" Nullable="false" />
+    <Property Name="FromTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="ToTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="AssignedDriverID" Type="int" />
+    <Property Name="AssignedVehicleID" Type="int" />
+    <Property Name="DepartmentManagerApprovalID" Type="int" />
+    <Property Name="DepartmentManagerID" Type="int" />
+    <Property Name="DepartmentManagerMessage" Type="varchar" MaxLength="500" />
+    <Property Name="FleetManagerApprovalID" Type="int" />
+    <Property Name="FleetManagerID" Type="int" />
+    <Property Name="FleetManagerMessage" Type="varchar" MaxLength="500" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetVehicleMaintenanceApprovalAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaintenanceApprovalAction" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetVehicleMaintenanceReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleMaintenanceRequestID" Type="int" Nullable="false" />
+    <Property Name="MaintenanceReport" Type="varchar(max)" Nullable="false" />
+    <Property Name="AttachedFilePath" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetVehicleMaintenanceRequest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleID" Type="int" Nullable="false" />
+    <Property Name="VehicleStatusID" Type="int" Nullable="false" />
+    <Property Name="MaintenanceDetail" Type="varchar(max)" />
+    <Property Name="MaintenanceCauseID" Type="int" Nullable="false" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="CompletedDate" Type="datetime" />
+    <Property Name="DriverID" Type="int" Nullable="false" />
+    <Property Name="FleetManagerApprovalID" Type="int" />
+    <Property Name="FleetManagerID" Type="int" />
+    <Property Name="FleetManagerMessage" Type="varchar" MaxLength="250" />
+    <Property Name="FinanceManagerApprovalID" Type="int" />
+    <Property Name="FinanceManagerID" Type="int" />
+    <Property Name="FinanceManagerMessage" Type="varchar" MaxLength="250" />
+    <Property Name="RequestStatusID" Type="int" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetVehicleOwnership">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleOwnership" Type="varchar(max)" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetVehiclePartsRequest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleID" Type="int" Nullable="false" />
+    <Property Name="VehiclePartName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="UrgencyID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Unit" Type="varchar" MaxLength="50" />
+    <Property Name="ProcurementApprovalID" Type="int" />
+    <Property Name="ProcurementManagerID" Type="int" />
+    <Property Name="ProcurementManagerMessage" Type="varchar(max)" />
+    <Property Name="FinanceManagerApprovalID" Type="int" />
+    <Property Name="FinanceManagerID" Type="int" />
+    <Property Name="FinanceManagerMessage" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetVehicleReceivedCondition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleCondition" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetVehicleRegistrationStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegistrationStatus" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetVehicleStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetVehicleType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" />
+    <Property Name="LastUpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="IncidentType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IncidentType" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemRequisition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="Item" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="ItemDescription" Type="varchar(max)" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="UnitID" Type="int" Nullable="false" />
+    <Property Name="UrgencyID" Type="int" Nullable="false" />
+    <Property Name="ManagerApprovalID" Type="int" />
+    <Property Name="ManagerID" Type="int" />
+    <Property Name="ManagerApprovalDate" Type="datetime" />
+    <Property Name="ManagerMessage" Type="varchar" MaxLength="200" />
+    <Property Name="ProcurementManagerApprovalID" Type="int" />
+    <Property Name="ProcurementManagerID" Type="int" />
+    <Property Name="ProcurementManagerApprovalDate" Type="datetime" />
+    <Property Name="ProcurementManagerMessage" Type="varchar" MaxLength="200" />
+    <Property Name="ProcurementOfficerID" Type="int" />
+    <Property Name="PocurementOfficerDeliver" Type="bit" />
+    <Property Name="DeliveryQuantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ProcurementOfficerDeliverDate" Type="datetime" />
+    <Property Name="EmployeeReceived" Type="bit" />
+    <Property Name="EmployeeReceivedDate" Type="datetime" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LeaveAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Action" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LeaveRequest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="LeaveTypeID" Type="int" Nullable="false" />
+    <Property Name="Message" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="NumberOfDays" Type="varchar" MaxLength="5" />
+    <Property Name="isSupervisorActionNeeded" Type="bit" Nullable="false" />
+    <Property Name="SupervisorActionID" Type="int" />
+    <Property Name="SupervisorComment" Type="varchar" MaxLength="150" />
+    <Property Name="isManagerActionNeeded" Type="bit" Nullable="false" />
+    <Property Name="ManagerActionID" Type="int" />
+    <Property Name="ManagerComment" Type="varchar" MaxLength="150" />
+    <Property Name="isHRSupervisorActionNeeded" Type="bit" Nullable="false" />
+    <Property Name="HRSupervisorActionID" Type="int" />
+    <Property Name="HRSupervisorComment" Type="varchar" MaxLength="150" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="SupervisorID" Type="int" />
+    <Property Name="SupervisorActionDate" Type="datetime" />
+    <Property Name="ManagerID" Type="int" />
+    <Property Name="ManagerActionDate" Type="datetime" />
+    <Property Name="HRSupervisorID" Type="int" />
+    <Property Name="HRSupervisorActionDate" Type="datetime" />
+    <Property Name="isApproved" Type="bit" />
+    <Property Name="ApprovedDate" Type="datetime" />
+    <Property Name="isDeleted" Type="bit" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" />
+    <Property Name="LastUpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LeaveType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LeaveType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="150" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LevelOfUrgency">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LevelOfUrgency" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="150" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Log_Table">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="ProcessID" Type="int" />
+    <Property Name="ProcessType" Type="int" />
+    <Property Name="ProcessCategoryType" Type="varchar" MaxLength="100" />
+    <Property Name="ProcessDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MaritalStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaritalStatus" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Abbreviation" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="150" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PayGrade">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PayGrade" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PositionID" Type="int" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PositionName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="1000" />
+    <Property Name="PositionGrade" Type="varchar" MaxLength="10" />
+    <Property Name="isSupervisory" Type="bit" Nullable="false" />
+    <Property Name="isManagerial" Type="bit" Nullable="false" />
+    <Property Name="isTopManagement" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProcessType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProcessName" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProcumentProcuredItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="UnitID" Type="int" Nullable="false" />
+    <Property Name="Warranty" Type="varchar" MaxLength="200" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProcurementPurchaseRequest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductTypeID" Type="int" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="ProductDescription" Type="varchar(max)" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="UnitID" Type="int" Nullable="false" />
+    <Property Name="ProcurementManagerApprovalID" Type="int" />
+    <Property Name="ProcurementManagerID" Type="int" />
+    <Property Name="ProcurementManagerApprovalDate" Type="datetime" />
+    <Property Name="ProcurementManagerMessage" Type="varchar" MaxLength="500" />
+    <Property Name="FinanceManagerApprovalID" Type="int" />
+    <Property Name="FinanceManagerID" Type="int" />
+    <Property Name="FinanceManagerApprovalDate" Type="datetime" />
+    <Property Name="FinanceManagerMessage" Type="varchar" MaxLength="500" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCategory" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReceivedCondition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReceiveCondition" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Relationship">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Relationship" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequestStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestStatus" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResolutionType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResolutionType" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="150" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" />
+    <Property Name="LastUpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="T_User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+    <Property Name="isAdmin" Type="bit" Nullable="false" />
+    <Property Name="isSeniorManagement" Type="bit" Nullable="false" />
+    <Property Name="isITOfficerSupervisor" Type="bit" Nullable="false" />
+    <Property Name="isITOfficer" Type="bit" Nullable="false" />
+    <Property Name="isHRManager" Type="bit" Nullable="false" />
+    <Property Name="isHRSupervisor" Type="bit" Nullable="false" />
+    <Property Name="isHROfficerPayroll" Type="bit" Nullable="false" />
+    <Property Name="isHROfficerGeneral" Type="bit" Nullable="false" />
+    <Property Name="isProcurementManager" Type="bit" Nullable="false" />
+    <Property Name="isProcurementSupervisor" Type="bit" Nullable="false" />
+    <Property Name="isProcurementOfficer" Type="bit" Nullable="false" />
+    <Property Name="isFleetManager" Type="bit" Nullable="false" />
+    <Property Name="isFleetSupervisor" Type="bit" Nullable="false" />
+    <Property Name="isFleetOfficer" Type="bit" Nullable="false" />
+    <Property Name="isDriver" Type="bit" Nullable="false" />
+    <Property Name="isMaintenanceManager" Type="bit" Nullable="false" />
+    <Property Name="isMaintenanceSupervisor" Type="bit" Nullable="false" />
+    <Property Name="isMaintenanceOfficer" Type="bit" Nullable="false" />
+    <Property Name="isGeneralEmployeeManager" Type="bit" Nullable="false" />
+    <Property Name="isGeneralEmployeeSupervisor" Type="bit" Nullable="false" />
+    <Property Name="isGeneralEmployee" Type="bit" Nullable="false" />
+    <Property Name="isHRDept" Type="bit" Nullable="false" />
+    <Property Name="isITDept" Type="bit" Nullable="false" />
+    <Property Name="isProcumentDept" Type="bit" Nullable="false" />
+    <Property Name="isFleetDept" Type="bit" Nullable="false" />
+    <Property Name="isMaintenanceDept" Type="bit" Nullable="false" />
+    <Property Name="isGeneralDept" Type="bit" Nullable="false" />
+    <Property Name="isSeniorManagementDept" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" />
+    <Property Name="LastUpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskTitle" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="TaskDescription" Type="varchar" MaxLength="1000" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="AssignTo" Type="int" Nullable="false" />
+    <Property Name="LevelOfUrgencyID" Type="int" Nullable="false" />
+    <Property Name="AttachFilePath" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isCompleted" Type="bit" />
+    <Property Name="CompletedDate" Type="datetime" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaskAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Action" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="150" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaskRating">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ratings" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaskReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskID" Type="int" Nullable="false" />
+    <Property Name="Report" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="AttachFilePath" Type="varchar" MaxLength="100" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="SupervisorActionID" Type="int" />
+    <Property Name="Remarks" Type="varchar" MaxLength="1500" />
+    <Property Name="SupervisorActionDate" Type="datetime" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnitOfMeasurement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MeasuringUnit" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkExperience">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="PositionTitle" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Responsibilities" Type="varchar(max)" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Address_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DegreeCredential_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="DegreeCredential" Type="Self.DegreeCredential" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DegreeCredential">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeliveryStatus_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="DeliveryStatus" Type="Self.DeliveryStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeliveryStatus">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="0..1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverToVehicleAssignment_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="DriverToVehicleAssignment" Type="Self.DriverToVehicleAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DriverToVehicleAssignment">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverToVehicleAssignment_FleetVehicle">
+    <End Role="FleetVehicle" Type="Self.FleetVehicle" Multiplicity="1" />
+    <End Role="DriverToVehicleAssignment" Type="Self.DriverToVehicleAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FleetVehicle">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DriverToVehicleAssignment">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverToVehicleAssignment_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="DriverToVehicleAssignment" Type="Self.DriverToVehicleAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DriverToVehicleAssignment">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpDependant_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="EmpDependant" Type="Self.EmpDependant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpDependant">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpDependant_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="EmpDependant" Type="Self.EmpDependant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpDependant">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpDepManSupPosition_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="EmpDepManSupPosition" Type="Self.EmpDepManSupPosition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpDepManSupPosition">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpDepManSupPosition_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="EmpDepManSupPosition" Type="Self.EmpDepManSupPosition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpDepManSupPosition">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpDepManSupPosition_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="EmpDepManSupPosition" Type="Self.EmpDepManSupPosition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpDepManSupPosition">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpEducation_DegreeCredential">
+    <End Role="DegreeCredential" Type="Self.DegreeCredential" Multiplicity="1" />
+    <End Role="EmpEducation" Type="Self.EmpEducation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DegreeCredential">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpEducation">
+        <PropertyRef Name="DegreeTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpEducation_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="EmpEducation" Type="Self.EmpEducation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpEducation">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_County">
+    <End Role="County" Type="Self.County" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="County">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="CountyAddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_County_Origin">
+    <End Role="County" Type="Self.County" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="County">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="CountyOfOriginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_MaritalStatus">
+    <End Role="MaritalStatus" Type="Self.MaritalStatus" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaritalStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="MaritalStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpRole_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="EmpRole" Type="Self.EmpRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpRole">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpRole_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="EmpRole" Type="Self.EmpRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpRole">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpSalaryBenefit_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="EmpSalaryBenefit" Type="Self.EmpSalaryBenefit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpSalaryBenefit">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpSalaryBenefit_PayGrade">
+    <End Role="PayGrade" Type="Self.PayGrade" Multiplicity="1" />
+    <End Role="EmpSalaryBenefit" Type="Self.EmpSalaryBenefit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PayGrade">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpSalaryBenefit">
+        <PropertyRef Name="PayGradeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpSalaryBenefit_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="EmpSalaryBenefit" Type="Self.EmpSalaryBenefit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpSalaryBenefit">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FavLogoTitle_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FavLogoTitle" Type="Self.FavLogoTitle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FavLogoTitle">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FieldOffice_County">
+    <End Role="County" Type="Self.County" Multiplicity="1" />
+    <End Role="FieldOffice" Type="Self.FieldOffice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="County">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FieldOffice">
+        <PropertyRef Name="CountyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FieldOffice_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FieldOffice" Type="Self.FieldOffice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FieldOffice">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicle_FleetVehicleOwnership">
+    <End Role="FleetVehicleOwnership" Type="Self.FleetVehicleOwnership" Multiplicity="1" />
+    <End Role="FleetVehicle" Type="Self.FleetVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FleetVehicleOwnership">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicle">
+        <PropertyRef Name="OwnershipStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicle_FleetVehicleRegistrationStatus">
+    <End Role="FleetVehicleRegistrationStatus" Type="Self.FleetVehicleRegistrationStatus" Multiplicity="1" />
+    <End Role="FleetVehicle" Type="Self.FleetVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FleetVehicleRegistrationStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicle">
+        <PropertyRef Name="RegistrationStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicle_FleetVehicleStatus">
+    <End Role="FleetVehicleStatus" Type="Self.FleetVehicleStatus" Multiplicity="1" />
+    <End Role="FleetVehicle" Type="Self.FleetVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FleetVehicleStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicle">
+        <PropertyRef Name="VehicleStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicle_FleetVehicleType">
+    <End Role="FleetVehicleType" Type="Self.FleetVehicleType" Multiplicity="1" />
+    <End Role="FleetVehicle" Type="Self.FleetVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FleetVehicleType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicle">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicle_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FleetVehicle" Type="Self.FleetVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicle">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicle_UnitOfMeasurement">
+    <End Role="UnitOfMeasurement" Type="Self.UnitOfMeasurement" Multiplicity="1" />
+    <End Role="FleetVehicle" Type="Self.FleetVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitOfMeasurement">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicle">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleBookingReport_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="FleetVehicleBookingReport" Type="Self.FleetVehicleBookingReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleBookingReport">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleBookingReport_Employee1">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="FleetVehicleBookingReport" Type="Self.FleetVehicleBookingReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleBookingReport">
+        <PropertyRef Name="FleetManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleBookingReport_FleetVehicleBookingRequest">
+    <End Role="FleetVehicleBookingRequest" Type="Self.FleetVehicleBookingRequest" Multiplicity="1" />
+    <End Role="FleetVehicleBookingReport" Type="Self.FleetVehicleBookingReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FleetVehicleBookingRequest">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleBookingReport">
+        <PropertyRef Name="BookingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleBookingReport_IncidentType">
+    <End Role="IncidentType" Type="Self.IncidentType" Multiplicity="0..1" />
+    <End Role="FleetVehicleBookingReport" Type="Self.FleetVehicleBookingReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IncidentType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleBookingReport">
+        <PropertyRef Name="IncidentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleBookingReport_ResolutionType">
+    <End Role="ResolutionType" Type="Self.ResolutionType" Multiplicity="0..1" />
+    <End Role="FleetVehicleBookingReport" Type="Self.FleetVehicleBookingReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResolutionType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleBookingReport">
+        <PropertyRef Name="ResolutionTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleBookingReport_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FleetVehicleBookingReport" Type="Self.FleetVehicleBookingReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleBookingReport">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleBookingRequest_County">
+    <End Role="County" Type="Self.County" Multiplicity="1" />
+    <End Role="FleetVehicleBookingRequest" Type="Self.FleetVehicleBookingRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="County">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleBookingRequest">
+        <PropertyRef Name="CountyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleBookingRequest_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="FleetVehicleBookingRequest" Type="Self.FleetVehicleBookingRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleBookingRequest">
+        <PropertyRef Name="AssignedDriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleBookingRequest_Employee1">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="FleetVehicleBookingRequest" Type="Self.FleetVehicleBookingRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleBookingRequest">
+        <PropertyRef Name="DepartmentManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleBookingRequest_Employee2">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="FleetVehicleBookingRequest" Type="Self.FleetVehicleBookingRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleBookingRequest">
+        <PropertyRef Name="FleetManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleBookingRequest_FleetVehicle">
+    <End Role="FleetVehicle" Type="Self.FleetVehicle" Multiplicity="0..1" />
+    <End Role="FleetVehicleBookingRequest" Type="Self.FleetVehicleBookingRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FleetVehicle">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleBookingRequest">
+        <PropertyRef Name="AssignedVehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleBookingRequest_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FleetVehicleBookingRequest" Type="Self.FleetVehicleBookingRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleBookingRequest">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleMaintenanceApprovalAction_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FleetVehicleMaintenanceApprovalAction" Type="Self.FleetVehicleMaintenanceApprovalAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleMaintenanceApprovalAction">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleMaintenanceReport_FleetVehicleMaintenanceRequest">
+    <End Role="FleetVehicleMaintenanceRequest" Type="Self.FleetVehicleMaintenanceRequest" Multiplicity="1" />
+    <End Role="FleetVehicleMaintenanceReport" Type="Self.FleetVehicleMaintenanceReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FleetVehicleMaintenanceRequest">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleMaintenanceReport">
+        <PropertyRef Name="VehicleMaintenanceRequestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleMaintenanceReport_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FleetVehicleMaintenanceReport" Type="Self.FleetVehicleMaintenanceReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleMaintenanceReport">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleMaintenanceRequest_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="FleetVehicleMaintenanceRequest" Type="Self.FleetVehicleMaintenanceRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleMaintenanceRequest">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleMaintenanceRequest_Employee1">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="FleetVehicleMaintenanceRequest" Type="Self.FleetVehicleMaintenanceRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleMaintenanceRequest">
+        <PropertyRef Name="FleetManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleMaintenanceRequest_Employee2">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="FleetVehicleMaintenanceRequest" Type="Self.FleetVehicleMaintenanceRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleMaintenanceRequest">
+        <PropertyRef Name="FinanceManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleMaintenanceRequest_RequestStatus">
+    <End Role="RequestStatus" Type="Self.RequestStatus" Multiplicity="0..1" />
+    <End Role="FleetVehicleMaintenanceRequest" Type="Self.FleetVehicleMaintenanceRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleMaintenanceRequest">
+        <PropertyRef Name="RequestStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleMaintenanceRequest_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FleetVehicleMaintenanceRequest" Type="Self.FleetVehicleMaintenanceRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleMaintenanceRequest">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleOwnership_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FleetVehicleOwnership" Type="Self.FleetVehicleOwnership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleOwnership">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehiclePartsRequest_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="FleetVehiclePartsRequest" Type="Self.FleetVehiclePartsRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehiclePartsRequest">
+        <PropertyRef Name="ProcurementManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehiclePartsRequest_Employee1">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="FleetVehiclePartsRequest" Type="Self.FleetVehiclePartsRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehiclePartsRequest">
+        <PropertyRef Name="FinanceManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehiclePartsRequest_FleetVehicle">
+    <End Role="FleetVehicle" Type="Self.FleetVehicle" Multiplicity="1" />
+    <End Role="FleetVehiclePartsRequest" Type="Self.FleetVehiclePartsRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FleetVehicle">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehiclePartsRequest">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehiclePartsRequest_LevelOfUrgency">
+    <End Role="LevelOfUrgency" Type="Self.LevelOfUrgency" Multiplicity="1" />
+    <End Role="FleetVehiclePartsRequest" Type="Self.FleetVehiclePartsRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LevelOfUrgency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehiclePartsRequest">
+        <PropertyRef Name="UrgencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehiclePartsRequest_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FleetVehiclePartsRequest" Type="Self.FleetVehiclePartsRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehiclePartsRequest">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleReceivedCondition_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FleetVehicleReceivedCondition" Type="Self.FleetVehicleReceivedCondition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleReceivedCondition">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleRegistrationStatus_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FleetVehicleRegistrationStatus" Type="Self.FleetVehicleRegistrationStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleRegistrationStatus">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleStatus_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FleetVehicleStatus" Type="Self.FleetVehicleStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleStatus">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FleetVehicleType_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="FleetVehicleType" Type="Self.FleetVehicleType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FleetVehicleType">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gender_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="0..1" />
+    <End Role="Gender" Type="Self.Gender" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Gender">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequisition_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="ItemRequisition" Type="Self.ItemRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemRequisition">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequisition_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="ItemRequisition" Type="Self.ItemRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemRequisition">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequisition_Employee_ManagerID">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="ItemRequisition" Type="Self.ItemRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemRequisition">
+        <PropertyRef Name="ManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequisition_Employee_ProcurementManagerID">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="ItemRequisition" Type="Self.ItemRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemRequisition">
+        <PropertyRef Name="ProcurementManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequisition_Employee_ProcurementOfficerID">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="ItemRequisition" Type="Self.ItemRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemRequisition">
+        <PropertyRef Name="ProcurementOfficerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequisition_LevelOfUrgency">
+    <End Role="LevelOfUrgency" Type="Self.LevelOfUrgency" Multiplicity="1" />
+    <End Role="ItemRequisition" Type="Self.ItemRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LevelOfUrgency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemRequisition">
+        <PropertyRef Name="UrgencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequisition_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="ItemRequisition" Type="Self.ItemRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemRequisition">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemRequisition_UnitOfMeasurement">
+    <End Role="UnitOfMeasurement" Type="Self.UnitOfMeasurement" Multiplicity="1" />
+    <End Role="ItemRequisition" Type="Self.ItemRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitOfMeasurement">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ItemRequisition">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveAction_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="LeaveAction" Type="Self.LeaveAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LeaveAction">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveRequest_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="LeaveRequest" Type="Self.LeaveRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LeaveRequest">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveRequest_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="LeaveRequest" Type="Self.LeaveRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LeaveRequest">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveRequest_LeaveAction">
+    <End Role="LeaveAction" Type="Self.LeaveAction" Multiplicity="0..1" />
+    <End Role="LeaveRequest" Type="Self.LeaveRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LeaveRequest">
+        <PropertyRef Name="SupervisorActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveRequest_LeaveType">
+    <End Role="LeaveType" Type="Self.LeaveType" Multiplicity="1" />
+    <End Role="LeaveRequest" Type="Self.LeaveRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LeaveRequest">
+        <PropertyRef Name="LeaveTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveRequest_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="0..1" />
+    <End Role="LeaveRequest" Type="Self.LeaveRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LeaveRequest">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveType_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="LeaveType" Type="Self.LeaveType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LeaveType">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LevelOfUrgency_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="LevelOfUrgency" Type="Self.LevelOfUrgency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LevelOfUrgency">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Log_Table_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Log_Table" Type="Self.Log_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Log_Table">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Log_Table_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="0..1" />
+    <End Role="Log_Table" Type="Self.Log_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Log_Table">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaritalStatus_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="MaritalStatus" Type="Self.MaritalStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MaritalStatus">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PayGrade_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="PayGrade" Type="Self.PayGrade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PayGrade">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Position_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="Position" Type="Self.Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcumentProcuredItems_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="ProcumentProcuredItems" Type="Self.ProcumentProcuredItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProcumentProcuredItems">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcumentProcuredItems_UnitOfMeasurement">
+    <End Role="UnitOfMeasurement" Type="Self.UnitOfMeasurement" Multiplicity="1" />
+    <End Role="ProcumentProcuredItems" Type="Self.ProcumentProcuredItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitOfMeasurement">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProcumentProcuredItems">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcurementPurchaseRequest_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="ProcurementPurchaseRequest" Type="Self.ProcurementPurchaseRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProcurementPurchaseRequest">
+        <PropertyRef Name="ProcurementManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcurementPurchaseRequest_Employee1">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="ProcurementPurchaseRequest" Type="Self.ProcurementPurchaseRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProcurementPurchaseRequest">
+        <PropertyRef Name="FinanceManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcurementPurchaseRequest_ProductCategory">
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="1" />
+    <End Role="ProcurementPurchaseRequest" Type="Self.ProcurementPurchaseRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProcurementPurchaseRequest">
+        <PropertyRef Name="ProductTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcurementPurchaseRequest_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="ProcurementPurchaseRequest" Type="Self.ProcurementPurchaseRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProcurementPurchaseRequest">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcurementPurchaseRequest_UnitOfMeasurement">
+    <End Role="UnitOfMeasurement" Type="Self.UnitOfMeasurement" Multiplicity="1" />
+    <End Role="ProcurementPurchaseRequest" Type="Self.ProcurementPurchaseRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitOfMeasurement">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProcurementPurchaseRequest">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relationship_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="Relationship" Type="Self.Relationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Relationship">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Status_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="0..1" />
+    <End Role="Status" Type="Self.Status" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Status">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_User_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="T_User" Type="Self.T_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="T_User">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Task_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="AssignTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Task_LevelOfUrgency">
+    <End Role="LevelOfUrgency" Type="Self.LevelOfUrgency" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LevelOfUrgency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="LevelOfUrgencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Task_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskAction_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="TaskAction" Type="Self.TaskAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TaskAction">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskRating_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="TaskRating" Type="Self.TaskRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TaskRating">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskReport_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="TaskReport" Type="Self.TaskReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TaskReport">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskReport_T_User1">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="TaskReport" Type="Self.TaskReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TaskReport">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskReport_Task">
+    <End Role="Task" Type="Self.Task" Multiplicity="1" />
+    <End Role="TaskReport" Type="Self.TaskReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TaskReport">
+        <PropertyRef Name="TaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskReport_TaskAction">
+    <End Role="TaskAction" Type="Self.TaskAction" Multiplicity="0..1" />
+    <End Role="TaskReport" Type="Self.TaskReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TaskReport">
+        <PropertyRef Name="SupervisorActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnitOfMeasurement_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="UnitOfMeasurement" Type="Self.UnitOfMeasurement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UnitOfMeasurement">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkExperience_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="WorkExperience" Type="Self.WorkExperience" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WorkExperience">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkExperience_T_User">
+    <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
+    <End Role="WorkExperience" Type="Self.WorkExperience" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="WorkExperience">
+        <PropertyRef Name="LastUpdateUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HRMModelStoreContainer">
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="County" EntityType="Self.County" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DegreeCredential" EntityType="Self.DegreeCredential" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryStatus" EntityType="Self.DeliveryStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DriverToVehicleAssignment" EntityType="Self.DriverToVehicleAssignment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpDependant" EntityType="Self.EmpDependant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpDepManSupPosition" EntityType="Self.EmpDepManSupPosition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpEducation" EntityType="Self.EmpEducation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpRole" EntityType="Self.EmpRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpSalaryBenefit" EntityType="Self.EmpSalaryBenefit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FavLogoTitle" EntityType="Self.FavLogoTitle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FieldOffice" EntityType="Self.FieldOffice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetVehicle" EntityType="Self.FleetVehicle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetVehicleBookingReport" EntityType="Self.FleetVehicleBookingReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetVehicleBookingRequest" EntityType="Self.FleetVehicleBookingRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetVehicleMaintenanceApprovalAction" EntityType="Self.FleetVehicleMaintenanceApprovalAction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetVehicleMaintenanceReport" EntityType="Self.FleetVehicleMaintenanceReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetVehicleMaintenanceRequest" EntityType="Self.FleetVehicleMaintenanceRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetVehicleOwnership" EntityType="Self.FleetVehicleOwnership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetVehiclePartsRequest" EntityType="Self.FleetVehiclePartsRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetVehicleReceivedCondition" EntityType="Self.FleetVehicleReceivedCondition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetVehicleRegistrationStatus" EntityType="Self.FleetVehicleRegistrationStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetVehicleStatus" EntityType="Self.FleetVehicleStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetVehicleType" EntityType="Self.FleetVehicleType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncidentType" EntityType="Self.IncidentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemRequisition" EntityType="Self.ItemRequisition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveAction" EntityType="Self.LeaveAction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveRequest" EntityType="Self.LeaveRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveType" EntityType="Self.LeaveType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LevelOfUrgency" EntityType="Self.LevelOfUrgency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log_Table" EntityType="Self.Log_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PayGrade" EntityType="Self.PayGrade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProcessType" EntityType="Self.ProcessType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProcumentProcuredItems" EntityType="Self.ProcumentProcuredItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProcurementPurchaseRequest" EntityType="Self.ProcurementPurchaseRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReceivedCondition" EntityType="Self.ReceivedCondition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Relationship" EntityType="Self.Relationship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequestStatus" EntityType="Self.RequestStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ResolutionType" EntityType="Self.ResolutionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_User" EntityType="Self.T_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskAction" EntityType="Self.TaskAction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskRating" EntityType="Self.TaskRating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskReport" EntityType="Self.TaskReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnitOfMeasurement" EntityType="Self.UnitOfMeasurement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkExperience" EntityType="Self.WorkExperience" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Address_T_User" Association="Self.FK_Address_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DegreeCredential_T_User" Association="Self.FK_DegreeCredential_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="DegreeCredential" EntitySet="DegreeCredential" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeliveryStatus_T_User" Association="Self.FK_DeliveryStatus_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="DeliveryStatus" EntitySet="DeliveryStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_T_User" Association="Self.FK_Department_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverToVehicleAssignment_Employee" Association="Self.FK_DriverToVehicleAssignment_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="DriverToVehicleAssignment" EntitySet="DriverToVehicleAssignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverToVehicleAssignment_FleetVehicle" Association="Self.FK_DriverToVehicleAssignment_FleetVehicle">
+      <End Role="FleetVehicle" EntitySet="FleetVehicle" />
+      <End Role="DriverToVehicleAssignment" EntitySet="DriverToVehicleAssignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverToVehicleAssignment_T_User" Association="Self.FK_DriverToVehicleAssignment_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="DriverToVehicleAssignment" EntitySet="DriverToVehicleAssignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpDependant_Employee" Association="Self.FK_EmpDependant_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EmpDependant" EntitySet="EmpDependant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpDependant_T_User" Association="Self.FK_EmpDependant_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="EmpDependant" EntitySet="EmpDependant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpDepManSupPosition_Department" Association="Self.FK_EmpDepManSupPosition_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="EmpDepManSupPosition" EntitySet="EmpDepManSupPosition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpDepManSupPosition_Employee" Association="Self.FK_EmpDepManSupPosition_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EmpDepManSupPosition" EntitySet="EmpDepManSupPosition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpDepManSupPosition_Position" Association="Self.FK_EmpDepManSupPosition_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="EmpDepManSupPosition" EntitySet="EmpDepManSupPosition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpEducation_DegreeCredential" Association="Self.FK_EmpEducation_DegreeCredential">
+      <End Role="DegreeCredential" EntitySet="DegreeCredential" />
+      <End Role="EmpEducation" EntitySet="EmpEducation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpEducation_T_User" Association="Self.FK_EmpEducation_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="EmpEducation" EntitySet="EmpEducation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_County" Association="Self.FK_Employee_County">
+      <End Role="County" EntitySet="County" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_County_Origin" Association="Self.FK_Employee_County_Origin">
+      <End Role="County" EntitySet="County" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Gender" Association="Self.FK_Employee_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_MaritalStatus" Association="Self.FK_Employee_MaritalStatus">
+      <End Role="MaritalStatus" EntitySet="MaritalStatus" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Position" Association="Self.FK_Employee_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Status" Association="Self.FK_Employee_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_T_User" Association="Self.FK_Employee_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpRole_Position" Association="Self.FK_EmpRole_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="EmpRole" EntitySet="EmpRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpRole_T_User" Association="Self.FK_EmpRole_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="EmpRole" EntitySet="EmpRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpSalaryBenefit_Employee" Association="Self.FK_EmpSalaryBenefit_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EmpSalaryBenefit" EntitySet="EmpSalaryBenefit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpSalaryBenefit_PayGrade" Association="Self.FK_EmpSalaryBenefit_PayGrade">
+      <End Role="PayGrade" EntitySet="PayGrade" />
+      <End Role="EmpSalaryBenefit" EntitySet="EmpSalaryBenefit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpSalaryBenefit_T_User" Association="Self.FK_EmpSalaryBenefit_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="EmpSalaryBenefit" EntitySet="EmpSalaryBenefit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FavLogoTitle_T_User" Association="Self.FK_FavLogoTitle_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FavLogoTitle" EntitySet="FavLogoTitle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FieldOffice_County" Association="Self.FK_FieldOffice_County">
+      <End Role="County" EntitySet="County" />
+      <End Role="FieldOffice" EntitySet="FieldOffice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FieldOffice_T_User" Association="Self.FK_FieldOffice_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FieldOffice" EntitySet="FieldOffice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicle_FleetVehicleOwnership" Association="Self.FK_FleetVehicle_FleetVehicleOwnership">
+      <End Role="FleetVehicleOwnership" EntitySet="FleetVehicleOwnership" />
+      <End Role="FleetVehicle" EntitySet="FleetVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicle_FleetVehicleRegistrationStatus" Association="Self.FK_FleetVehicle_FleetVehicleRegistrationStatus">
+      <End Role="FleetVehicleRegistrationStatus" EntitySet="FleetVehicleRegistrationStatus" />
+      <End Role="FleetVehicle" EntitySet="FleetVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicle_FleetVehicleStatus" Association="Self.FK_FleetVehicle_FleetVehicleStatus">
+      <End Role="FleetVehicleStatus" EntitySet="FleetVehicleStatus" />
+      <End Role="FleetVehicle" EntitySet="FleetVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicle_FleetVehicleType" Association="Self.FK_FleetVehicle_FleetVehicleType">
+      <End Role="FleetVehicleType" EntitySet="FleetVehicleType" />
+      <End Role="FleetVehicle" EntitySet="FleetVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicle_T_User" Association="Self.FK_FleetVehicle_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FleetVehicle" EntitySet="FleetVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicle_UnitOfMeasurement" Association="Self.FK_FleetVehicle_UnitOfMeasurement">
+      <End Role="UnitOfMeasurement" EntitySet="UnitOfMeasurement" />
+      <End Role="FleetVehicle" EntitySet="FleetVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleBookingReport_Employee" Association="Self.FK_FleetVehicleBookingReport_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="FleetVehicleBookingReport" EntitySet="FleetVehicleBookingReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleBookingReport_Employee1" Association="Self.FK_FleetVehicleBookingReport_Employee1">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="FleetVehicleBookingReport" EntitySet="FleetVehicleBookingReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleBookingReport_FleetVehicleBookingRequest" Association="Self.FK_FleetVehicleBookingReport_FleetVehicleBookingRequest">
+      <End Role="FleetVehicleBookingRequest" EntitySet="FleetVehicleBookingRequest" />
+      <End Role="FleetVehicleBookingReport" EntitySet="FleetVehicleBookingReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleBookingReport_IncidentType" Association="Self.FK_FleetVehicleBookingReport_IncidentType">
+      <End Role="IncidentType" EntitySet="IncidentType" />
+      <End Role="FleetVehicleBookingReport" EntitySet="FleetVehicleBookingReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleBookingReport_ResolutionType" Association="Self.FK_FleetVehicleBookingReport_ResolutionType">
+      <End Role="ResolutionType" EntitySet="ResolutionType" />
+      <End Role="FleetVehicleBookingReport" EntitySet="FleetVehicleBookingReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleBookingReport_T_User" Association="Self.FK_FleetVehicleBookingReport_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FleetVehicleBookingReport" EntitySet="FleetVehicleBookingReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleBookingRequest_County" Association="Self.FK_FleetVehicleBookingRequest_County">
+      <End Role="County" EntitySet="County" />
+      <End Role="FleetVehicleBookingRequest" EntitySet="FleetVehicleBookingRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleBookingRequest_Employee" Association="Self.FK_FleetVehicleBookingRequest_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="FleetVehicleBookingRequest" EntitySet="FleetVehicleBookingRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleBookingRequest_Employee1" Association="Self.FK_FleetVehicleBookingRequest_Employee1">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="FleetVehicleBookingRequest" EntitySet="FleetVehicleBookingRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleBookingRequest_Employee2" Association="Self.FK_FleetVehicleBookingRequest_Employee2">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="FleetVehicleBookingRequest" EntitySet="FleetVehicleBookingRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleBookingRequest_FleetVehicle" Association="Self.FK_FleetVehicleBookingRequest_FleetVehicle">
+      <End Role="FleetVehicle" EntitySet="FleetVehicle" />
+      <End Role="FleetVehicleBookingRequest" EntitySet="FleetVehicleBookingRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleBookingRequest_T_User" Association="Self.FK_FleetVehicleBookingRequest_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FleetVehicleBookingRequest" EntitySet="FleetVehicleBookingRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleMaintenanceApprovalAction_T_User" Association="Self.FK_FleetVehicleMaintenanceApprovalAction_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FleetVehicleMaintenanceApprovalAction" EntitySet="FleetVehicleMaintenanceApprovalAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleMaintenanceReport_FleetVehicleMaintenanceRequest" Association="Self.FK_FleetVehicleMaintenanceReport_FleetVehicleMaintenanceRequest">
+      <End Role="FleetVehicleMaintenanceRequest" EntitySet="FleetVehicleMaintenanceRequest" />
+      <End Role="FleetVehicleMaintenanceReport" EntitySet="FleetVehicleMaintenanceReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleMaintenanceReport_T_User" Association="Self.FK_FleetVehicleMaintenanceReport_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FleetVehicleMaintenanceReport" EntitySet="FleetVehicleMaintenanceReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleMaintenanceRequest_Employee" Association="Self.FK_FleetVehicleMaintenanceRequest_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="FleetVehicleMaintenanceRequest" EntitySet="FleetVehicleMaintenanceRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleMaintenanceRequest_Employee1" Association="Self.FK_FleetVehicleMaintenanceRequest_Employee1">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="FleetVehicleMaintenanceRequest" EntitySet="FleetVehicleMaintenanceRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleMaintenanceRequest_Employee2" Association="Self.FK_FleetVehicleMaintenanceRequest_Employee2">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="FleetVehicleMaintenanceRequest" EntitySet="FleetVehicleMaintenanceRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleMaintenanceRequest_RequestStatus" Association="Self.FK_FleetVehicleMaintenanceRequest_RequestStatus">
+      <End Role="RequestStatus" EntitySet="RequestStatus" />
+      <End Role="FleetVehicleMaintenanceRequest" EntitySet="FleetVehicleMaintenanceRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleMaintenanceRequest_T_User" Association="Self.FK_FleetVehicleMaintenanceRequest_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FleetVehicleMaintenanceRequest" EntitySet="FleetVehicleMaintenanceRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleOwnership_T_User" Association="Self.FK_FleetVehicleOwnership_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FleetVehicleOwnership" EntitySet="FleetVehicleOwnership" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehiclePartsRequest_Employee" Association="Self.FK_FleetVehiclePartsRequest_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="FleetVehiclePartsRequest" EntitySet="FleetVehiclePartsRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehiclePartsRequest_Employee1" Association="Self.FK_FleetVehiclePartsRequest_Employee1">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="FleetVehiclePartsRequest" EntitySet="FleetVehiclePartsRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehiclePartsRequest_FleetVehicle" Association="Self.FK_FleetVehiclePartsRequest_FleetVehicle">
+      <End Role="FleetVehicle" EntitySet="FleetVehicle" />
+      <End Role="FleetVehiclePartsRequest" EntitySet="FleetVehiclePartsRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehiclePartsRequest_LevelOfUrgency" Association="Self.FK_FleetVehiclePartsRequest_LevelOfUrgency">
+      <End Role="LevelOfUrgency" EntitySet="LevelOfUrgency" />
+      <End Role="FleetVehiclePartsRequest" EntitySet="FleetVehiclePartsRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehiclePartsRequest_T_User" Association="Self.FK_FleetVehiclePartsRequest_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FleetVehiclePartsRequest" EntitySet="FleetVehiclePartsRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleReceivedCondition_T_User" Association="Self.FK_FleetVehicleReceivedCondition_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FleetVehicleReceivedCondition" EntitySet="FleetVehicleReceivedCondition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleRegistrationStatus_T_User" Association="Self.FK_FleetVehicleRegistrationStatus_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FleetVehicleRegistrationStatus" EntitySet="FleetVehicleRegistrationStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleStatus_T_User" Association="Self.FK_FleetVehicleStatus_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FleetVehicleStatus" EntitySet="FleetVehicleStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FleetVehicleType_T_User" Association="Self.FK_FleetVehicleType_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="FleetVehicleType" EntitySet="FleetVehicleType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gender_T_User" Association="Self.FK_Gender_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="Gender" EntitySet="Gender" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequisition_Department" Association="Self.FK_ItemRequisition_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="ItemRequisition" EntitySet="ItemRequisition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequisition_Employee" Association="Self.FK_ItemRequisition_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="ItemRequisition" EntitySet="ItemRequisition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequisition_Employee_ManagerID" Association="Self.FK_ItemRequisition_Employee_ManagerID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="ItemRequisition" EntitySet="ItemRequisition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequisition_Employee_ProcurementManagerID" Association="Self.FK_ItemRequisition_Employee_ProcurementManagerID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="ItemRequisition" EntitySet="ItemRequisition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequisition_Employee_ProcurementOfficerID" Association="Self.FK_ItemRequisition_Employee_ProcurementOfficerID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="ItemRequisition" EntitySet="ItemRequisition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequisition_LevelOfUrgency" Association="Self.FK_ItemRequisition_LevelOfUrgency">
+      <End Role="LevelOfUrgency" EntitySet="LevelOfUrgency" />
+      <End Role="ItemRequisition" EntitySet="ItemRequisition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequisition_T_User" Association="Self.FK_ItemRequisition_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="ItemRequisition" EntitySet="ItemRequisition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemRequisition_UnitOfMeasurement" Association="Self.FK_ItemRequisition_UnitOfMeasurement">
+      <End Role="UnitOfMeasurement" EntitySet="UnitOfMeasurement" />
+      <End Role="ItemRequisition" EntitySet="ItemRequisition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveAction_T_User" Association="Self.FK_LeaveAction_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="LeaveAction" EntitySet="LeaveAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveRequest_Department" Association="Self.FK_LeaveRequest_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="LeaveRequest" EntitySet="LeaveRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveRequest_Employee" Association="Self.FK_LeaveRequest_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="LeaveRequest" EntitySet="LeaveRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveRequest_LeaveAction" Association="Self.FK_LeaveRequest_LeaveAction">
+      <End Role="LeaveAction" EntitySet="LeaveAction" />
+      <End Role="LeaveRequest" EntitySet="LeaveRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveRequest_LeaveType" Association="Self.FK_LeaveRequest_LeaveType">
+      <End Role="LeaveType" EntitySet="LeaveType" />
+      <End Role="LeaveRequest" EntitySet="LeaveRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveRequest_T_User" Association="Self.FK_LeaveRequest_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="LeaveRequest" EntitySet="LeaveRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveType_T_User" Association="Self.FK_LeaveType_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="LeaveType" EntitySet="LeaveType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LevelOfUrgency_T_User" Association="Self.FK_LevelOfUrgency_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="LevelOfUrgency" EntitySet="LevelOfUrgency" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Log_Table_Employee" Association="Self.FK_Log_Table_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Log_Table" EntitySet="Log_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Log_Table_T_User" Association="Self.FK_Log_Table_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="Log_Table" EntitySet="Log_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaritalStatus_T_User" Association="Self.FK_MaritalStatus_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="MaritalStatus" EntitySet="MaritalStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PayGrade_T_User" Association="Self.FK_PayGrade_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="PayGrade" EntitySet="PayGrade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Position_T_User" Association="Self.FK_Position_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="Position" EntitySet="Position" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcumentProcuredItems_T_User" Association="Self.FK_ProcumentProcuredItems_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="ProcumentProcuredItems" EntitySet="ProcumentProcuredItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcumentProcuredItems_UnitOfMeasurement" Association="Self.FK_ProcumentProcuredItems_UnitOfMeasurement">
+      <End Role="UnitOfMeasurement" EntitySet="UnitOfMeasurement" />
+      <End Role="ProcumentProcuredItems" EntitySet="ProcumentProcuredItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcurementPurchaseRequest_Employee" Association="Self.FK_ProcurementPurchaseRequest_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="ProcurementPurchaseRequest" EntitySet="ProcurementPurchaseRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcurementPurchaseRequest_Employee1" Association="Self.FK_ProcurementPurchaseRequest_Employee1">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="ProcurementPurchaseRequest" EntitySet="ProcurementPurchaseRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcurementPurchaseRequest_ProductCategory" Association="Self.FK_ProcurementPurchaseRequest_ProductCategory">
+      <End Role="ProductCategory" EntitySet="ProductCategory" />
+      <End Role="ProcurementPurchaseRequest" EntitySet="ProcurementPurchaseRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcurementPurchaseRequest_T_User" Association="Self.FK_ProcurementPurchaseRequest_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="ProcurementPurchaseRequest" EntitySet="ProcurementPurchaseRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcurementPurchaseRequest_UnitOfMeasurement" Association="Self.FK_ProcurementPurchaseRequest_UnitOfMeasurement">
+      <End Role="UnitOfMeasurement" EntitySet="UnitOfMeasurement" />
+      <End Role="ProcurementPurchaseRequest" EntitySet="ProcurementPurchaseRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relationship_T_User" Association="Self.FK_Relationship_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="Relationship" EntitySet="Relationship" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Status_T_User" Association="Self.FK_Status_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="Status" EntitySet="Status" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_User_Employee" Association="Self.FK_T_User_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="T_User" EntitySet="T_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_Employee" Association="Self.FK_Task_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_LevelOfUrgency" Association="Self.FK_Task_LevelOfUrgency">
+      <End Role="LevelOfUrgency" EntitySet="LevelOfUrgency" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_T_User" Association="Self.FK_Task_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskAction_T_User" Association="Self.FK_TaskAction_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="TaskAction" EntitySet="TaskAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskRating_T_User" Association="Self.FK_TaskRating_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="TaskRating" EntitySet="TaskRating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskReport_T_User" Association="Self.FK_TaskReport_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="TaskReport" EntitySet="TaskReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskReport_T_User1" Association="Self.FK_TaskReport_T_User1">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="TaskReport" EntitySet="TaskReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskReport_Task" Association="Self.FK_TaskReport_Task">
+      <End Role="Task" EntitySet="Task" />
+      <End Role="TaskReport" EntitySet="TaskReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskReport_TaskAction" Association="Self.FK_TaskReport_TaskAction">
+      <End Role="TaskAction" EntitySet="TaskAction" />
+      <End Role="TaskReport" EntitySet="TaskReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnitOfMeasurement_T_User" Association="Self.FK_UnitOfMeasurement_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="UnitOfMeasurement" EntitySet="UnitOfMeasurement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkExperience_Employee" Association="Self.FK_WorkExperience_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="WorkExperience" EntitySet="WorkExperience" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkExperience_T_User" Association="Self.FK_WorkExperience_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="WorkExperience" EntitySet="WorkExperience" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
