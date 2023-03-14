@@ -23,7 +23,7 @@ namespace DAL
         public int VehicleID { get; set; }
         public int VehicleStatusID { get; set; }
         public string MaintenanceDetail { get; set; }
-        public int MaintenanceCauseID { get; set; }
+        public Nullable<int> MaintenanceCauseID { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
         public Nullable<System.DateTime> CompletedDate { get; set; }
         public int DriverID { get; set; }

@@ -33,6 +33,26 @@ namespace DAL
             return edp.DepartmentID;
         }
 
+        internal static string GetPositionByEmployeeID(int? employeeID)
+        {
+            var employeePosition = (from edp in db.EmpDepManSupPositions.Where(x => x.isDeleted == false && x.EmployeeID == employeeID)
+                                          join ps in db.Positions on edp.PositionID equals ps.ID
+                                          select new
+                                          {
+                                              EmpID = edp.EmployeeID,
+                                              PositionID = ps.ID,
+                                              PositionName = ps.PositionName
+                                          });
+            EmployeeDepartmentDTO dto = new EmployeeDepartmentDTO();
+            foreach (var item in employeePosition)
+            {
+                dto.EmployeeID = item.EmpID;
+                dto.PositionID = item.PositionID;
+                dto.PositionName = item.PositionName;
+            }
+            return dto.PositionName;
+        }
+
         internal static int GetDepartmentByEmployeeID(int? employeeID)
         {
             EmpDepManSupPosition edp = db.EmpDepManSupPositions.First(x => x.EmployeeID == employeeID);
@@ -74,7 +94,7 @@ namespace DAL
                 dto.EmployeeID = edp.EmployeeID;
                 dto.PositionID = edp.PositionID;
                 dto.ManagerRoleID = edp.ManagerRoleID;
-                dto.SupervisorRoleID = edp.SupervisorRoleID;
+                dto.SupervisorRoleID = Convert.ToInt32(edp.SupervisorRoleID);
                 dto.DepartmentID = edp.DepartmentID;
                 return dto;
             }
@@ -115,6 +135,37 @@ namespace DAL
                 dtolist.Add(dto);
             }
             return dtolist;
+        }
+
+        public EmployeeDepartmentDTO GetEmployeeDepartmentAndPosition(int employeeID)
+        {
+            var employeeDepartmentList = (from edp in db.EmpDepManSupPositions.Where(x => x.isDeleted == false && x.EmployeeID == employeeID)
+                                          join ps in db.Positions on edp.PositionID equals ps.ID
+                                          join sp in db.Employees on edp.SupervisorRoleID equals sp.ID
+                                          join mg in db.Employees on edp.ManagerRoleID equals mg.ID
+                                          join dp in db.Departments on edp.DepartmentID equals dp.ID
+                                          select new
+                                          {
+                                              ID = edp.ID,
+                                              EmpID = edp.EmployeeID,
+                                              ManagerRole = mg.FName + " " + mg.LName,
+                                              SupervisorRole = sp.FName + " " + sp.LName,
+                                              Department = dp.DepartmentName,
+                                              PositionName = ps.PositionName,
+                                              AddDate = edp.AddDate
+                                          }).OrderByDescending(x => x.AddDate);
+            EmployeeDepartmentDTO dto = new EmployeeDepartmentDTO();
+            foreach (var item in employeeDepartmentList)
+            {
+                dto.ID = item.ID;
+                dto.EmployeeID = item.EmpID;
+                dto.PositionName = item.PositionName;
+                dto.ManagerRoleTitle = item.ManagerRole;
+                dto.SupervisorRoleTitle = item.SupervisorRole;
+                dto.DepartmentName = item.Department;
+            }
+            return dto;
+
         }
 
         public int AddEmployeeDepartment(EmpDepManSupPosition edp)

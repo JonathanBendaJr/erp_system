@@ -55,6 +55,11 @@ namespace DAL
             return positionList;
         }
 
+        public PositionDTO GetUserPosition(int employeeID)
+        {
+            throw new NotImplementedException();
+        }
+
         public static IEnumerable<SelectListItem> GetSupervisorListForDropdown()
         {
             IEnumerable<SelectListItem> supervisorRoleList = db.Positions.Where(x => x.isDeleted == false).OrderBy(x => x.PositionName).Select(x => new SelectListItem()

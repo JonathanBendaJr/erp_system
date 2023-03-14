@@ -12,12 +12,12 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class DriverToVehicleAssignment
+    public partial class FleetDriverVehicleAssignment
     {
         public int ID { get; set; }
         public int DriverID { get; set; }
         public int VehicleID { get; set; }
-        public int DriverRoleID { get; set; }
+        public Nullable<int> DriverRoleID { get; set; }
         public System.DateTime AddDate { get; set; }
         public bool isDeleted { get; set; }
         public Nullable<System.DateTime> DeletedDate { get; set; }

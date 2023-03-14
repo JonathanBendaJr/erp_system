@@ -1,0 +1,59 @@
+﻿
+@model DTO.FleetVehicleBookingDTO
+<div class="box-body">
+    <div class="card card-secondary">
+        <div class="card-header">
+            <h3 class="card-title">Manager's Approval Information</h3>
+        </div>
+        <div class="card-body">
+            <input hidden type="number" value="@Model.ID" name="ID" />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Assign Vehicle</label>
+                        @Html.DropDownList("AssignedVehicleID", Model.Vehicles, "Select Vehicle", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.AssignedVehicleID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Assign Driver</label>
+                        @Html.DropDownList("AssignedDriverID", Model.Drivers, "Select Driver", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.AssignedDriverID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Approve/Reject</label>
+                            @Html.DropDownList("FleetManagerApprovalID", Model.Approvals, "Select Approval Status County", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.FleetManagerApprovalID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Approve/Reject Message</label>
+                            @Html.TextAreaFor(x => x.FleetManagerMessage, new { @class = "form-control", @placeholder = "Enter Approval/Denial Message " })
+                            @Html.ValidationMessageFor(x => x.FleetManagerMessage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+

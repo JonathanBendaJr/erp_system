@@ -77,5 +77,11 @@ namespace BLL
         {
             return dao.GetEmployeeDepartments();
         }
+
+        public string  GetEmployeeDepartmentAndPosition(int employeeID)
+        {
+            EmployeeDepartmentDTO dto = dao.GetEmployeeDepartmentAndPosition(employeeID);
+            return dto.PositionName;
+        }
     }
 }

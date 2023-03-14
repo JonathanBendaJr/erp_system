@@ -1,6 +1,6 @@
-C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
-C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\obj\Debug\DTO.dll
-C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\obj\Debug\DTO.pdb
+C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\DTO.dll.config
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\DTO.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\DTO.pdb
@@ -10,14 +10,11 @@ C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\csc.rsp
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\csi.exe
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\csi.exe.config
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\csi.rsp
-C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.CodeAnalysis.Scripting.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.Managed.Core.targets
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
@@ -122,5 +119,8 @@ C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\System.Web.Razor.xml
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\System.Web.WebPages.xml
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\obj\Debug\DTO.csproj.CopyComplete
+C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\obj\Debug\DTO.dll
+C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\obj\Debug\DTO.pdb
 C:\Users\Jonathan Benda\source\repos\fda_erp\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache

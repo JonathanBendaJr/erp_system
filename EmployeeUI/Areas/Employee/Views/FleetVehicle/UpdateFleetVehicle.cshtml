@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "UpdateFleetVehicle";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Update Vehilce</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Fleet</a></li>
+        <li class="breadcrumb-item"><a>Vehicle</a></li>
+        <li class="breadcrumb-item active"><a>Update Vehicle</a></li>
+    </ol>
+
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/FleetVehicle/FleetVehicleList'">Vehicle List</button>
+</div>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+                @using (Html.BeginForm("UpdateFleetVehicle", "FleetVehicle", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.Partial("Partial/FleetVehicleForm")
+                }
+            </div>
+        </div>
+    </div>
+</section>

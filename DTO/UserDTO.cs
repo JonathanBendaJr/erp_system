@@ -56,6 +56,6 @@ namespace DTO
         public bool isGeneralDept { get; set; }
         public bool isSeniorManagementDept { get; set; }
         public DateTime AddDate { get; set; }
-        
+        public string PositionName { get; set; }
     }
 }

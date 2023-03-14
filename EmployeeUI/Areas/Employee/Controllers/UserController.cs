@@ -65,6 +65,7 @@ namespace EmployeeUI.Areas.Employee.Controllers
             EmployeeDTO empmodel = EmployeeBLL.GetEmployeeWithID(model.EmployeeID);
             model.EmployeesName = empmodel.FName + " " + empmodel.LName;
             model.EmployeeFullName = UserBLL.GetEmployeesForDropdown();
+
             return View(model);
         }
 

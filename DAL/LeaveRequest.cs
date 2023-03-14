@@ -47,8 +47,8 @@ namespace DAL
     
         public virtual Department Department { get; set; }
         public virtual Employee Employee { get; set; }
-        public virtual LeaveAction LeaveAction { get; set; }
         public virtual LeaveType LeaveType { get; set; }
         public virtual T_User T_User { get; set; }
+        public virtual RequestAction RequestAction { get; set; }
     }
 }

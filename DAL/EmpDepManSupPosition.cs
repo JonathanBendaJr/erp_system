@@ -17,18 +17,19 @@ namespace DAL
         public int ID { get; set; }
         public int EmployeeID { get; set; }
         public int DepartmentID { get; set; }
-        public int SupervisorRoleID { get; set; }
+        public Nullable<int> SupervisorRoleID { get; set; }
         public int ManagerRoleID { get; set; }
         public int PositionID { get; set; }
-
         public System.DateTime AddDate { get; set; }
         public bool isDeleted { get; set; }
         public Nullable<System.DateTime> DeletedDate { get; set; }
         public int LastUpdateUserID { get; set; }
         public System.DateTime LastUpdateDate { get; set; }
+        public Nullable<int> ManagerID { get; set; }
     
         public virtual Department Department { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual Position Position { get; set; }
+        public virtual Employee Employee1 { get; set; }
     }
 }

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "DeptManagerFleetVehicleBookingDetail";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Vehicle Booking Request Details</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Fleet Management</a></li>
+        <li class="breadcrumb-item"><a>Vehicle</a></li>
+        <li class="breadcrumb-item active"><a>Vehicle Booking Request Details</a></li>
+    </ol>
+
+</section>
+<br />
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+                @using (Html.BeginForm("DeptManagerFleetVehicleBookingDetail", "FleetVehicleBooking", FormMethod.Get, new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.Partial("Partial/FleetVehicleBookingDetails")
+                }
+            </div>
+        </div>
+        <div class="col-md-6">
+            @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+                @using (Html.BeginForm("DeptManagerFleetVehicleBookingDetail", "FleetVehicleBooking", FormMethod.Get, new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.Partial("Partial/DeptManagerApprovalDetails")
+                }
+            </div>
+        </div>
+    </div>
+</section>

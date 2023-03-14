@@ -11,6 +11,7 @@ namespace EmployeeUI.Areas.Employee.Controllers
     public class LoginController : Controller
     {
         UserBLL userbll = new UserBLL();
+        EmployeeDepartmentBLL empdepbll = new EmployeeDepartmentBLL();
         // GET: Employee/Login
         public ActionResult Index()
         {
@@ -25,12 +26,15 @@ namespace EmployeeUI.Areas.Employee.Controllers
                 model.Username = model.Username;
                 model.encryptedPassword = EncryptDecrypt.Encrypt(model.Password);
                 UserDTO user = userbll.GetUserWithUserNameAnPassword(model);
-                       
+               
+
+
                     if (user.ID != 0 && user.isActive == true)
                     {
                         //get employee details using employee id in the usertable
                        
                         UserStatic.UserID = user.ID;
+                    //EmployeeDepartmentDTO dep = empdepbll.GetEmployeeDepartmentAndPosition(user.EmployeeID);
                         UserStatic.FName = user.EmpFName;
                         UserStatic.LName = user.EmpLName;
                         UserStatic.EmployeeID = user.EmployeeID;
@@ -63,8 +67,9 @@ namespace EmployeeUI.Areas.Employee.Controllers
                         UserStatic.isMaintenanceDept = user.isMaintenanceDept;
                         UserStatic.isGeneralDept = user.isGeneralDept;
                         UserStatic.isSeniorManagementDept = user.isSeniorManagementDept;
+                        UserStatic.PositionName = user.PositionName;
 
-                        LogBLL.AddLog(General.ProcessType.Login, General.TableName.Login, 12);
+                    LogBLL.AddLog(General.ProcessType.Login, General.TableName.Login, 12);
                         if (UserStatic.isITDept == true)
                             return RedirectToAction("Index", "AdminHome");
                         else if (UserStatic.isHRDept == true)

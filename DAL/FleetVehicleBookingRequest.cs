@@ -27,8 +27,8 @@ namespace DAL
         public string BookingDescription { get; set; }
         public System.DateTime FromDate { get; set; }
         public System.DateTime ToDate { get; set; }
-        public System.TimeSpan FromTime { get; set; }
-        public System.TimeSpan ToTime { get; set; }
+        public Nullable<System.TimeSpan> FromTime { get; set; }
+        public Nullable<System.TimeSpan> ToTime { get; set; }
         public Nullable<int> AssignedDriverID { get; set; }
         public Nullable<int> AssignedVehicleID { get; set; }
         public Nullable<int> DepartmentManagerApprovalID { get; set; }
@@ -42,6 +42,7 @@ namespace DAL
         public Nullable<System.DateTime> DeletedDate { get; set; }
         public int LastUpdateUserID { get; set; }
         public System.DateTime LastUpdateDate { get; set; }
+        public int DepartmentID { get; set; }
     
         public virtual County County { get; set; }
         public virtual Employee Employee { get; set; }

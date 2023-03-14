@@ -17,7 +17,6 @@
         <EntityTypeShape EntityType="HRMModel.EmpSalaryBenefit" Width="1.5" PointX="12.75" PointY="70.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HRMModel.FavLogoTitle" Width="1.5" PointX="7.5" PointY="65.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HRMModel.Gender" Width="1.5" PointX="7.5" PointY="68.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRMModel.LeaveAction" Width="1.5" PointX="7.5" PointY="72.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HRMModel.LeaveRequest" Width="1.5" PointX="12.75" PointY="61.25" IsExpanded="true" />
         <EntityTypeShape EntityType="HRMModel.LeaveType" Width="1.5" PointX="7.5" PointY="76" IsExpanded="true" />
         <EntityTypeShape EntityType="HRMModel.LevelOfUrgency" Width="1.5" PointX="7.5" PointY="79.75" IsExpanded="true" />
@@ -65,8 +64,6 @@
         <AssociationConnector Association="HRMModel.FK_EmpSalaryBenefit_T_User" ManuallyRouted="false" />
         <AssociationConnector Association="HRMModel.FK_FavLogoTitle_T_User" ManuallyRouted="false" />
         <AssociationConnector Association="HRMModel.FK_Gender_T_User" ManuallyRouted="false" />
-        <AssociationConnector Association="HRMModel.FK_LeaveAction_T_User" ManuallyRouted="false" />
-        <AssociationConnector Association="HRMModel.FK_LeaveRequest_LeaveAction" ManuallyRouted="false" />
         <AssociationConnector Association="HRMModel.FK_LeaveRequest_LeaveType" ManuallyRouted="false" />
         <AssociationConnector Association="HRMModel.FK_LeaveRequest_T_User" ManuallyRouted="false" />
         <AssociationConnector Association="HRMModel.FK_LeaveType_T_User" ManuallyRouted="false" />
@@ -87,7 +84,6 @@
         <AssociationConnector Association="HRMModel.FK_TaskReport_Task" ManuallyRouted="false" />
         <AssociationConnector Association="HRMModel.FK_TaskReport_TaskAction" ManuallyRouted="false" />
         <EntityTypeShape EntityType="HRMModel.DeliveryStatu" Width="1.5" PointX="7.875" PointY="124.875" />
-        <EntityTypeShape EntityType="HRMModel.DriverToVehicleAssignment" Width="1.5" PointX="13.875" PointY="75.25" />
         <EntityTypeShape EntityType="HRMModel.FieldOffice" Width="1.5" PointX="10.875" PointY="74.5" />
         <EntityTypeShape EntityType="HRMModel.FleetVehicle" Width="1.5" PointX="13.125" PointY="84.25" />
         <EntityTypeShape EntityType="HRMModel.FleetVehicleBookingReport" Width="1.5" PointX="23.625" PointY="65" />
@@ -114,9 +110,6 @@
         <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingRequest_County" />
         <AssociationConnector Association="HRMModel.FK_DeliveryStatus_T_User" />
         <AssociationConnector Association="HRMModel.FK_ItemRequisition_Department" />
-        <AssociationConnector Association="HRMModel.FK_DriverToVehicleAssignment_Employee" />
-        <AssociationConnector Association="HRMModel.FK_DriverToVehicleAssignment_FleetVehicle" />
-        <AssociationConnector Association="HRMModel.FK_DriverToVehicleAssignment_T_User" />
         <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingReport_Employee" />
         <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingReport_Employee1" />
         <AssociationConnector Association="HRMModel.FK_FleetVehicleBookingRequest_Employee" />
@@ -168,6 +161,14 @@
         <AssociationConnector Association="HRMModel.FK_ProcurementPurchaseRequest_T_User" />
         <AssociationConnector Association="HRMModel.FK_ProcurementPurchaseRequest_UnitOfMeasurement" />
         <AssociationConnector Association="HRMModel.FK_UnitOfMeasurement_T_User" />
+        <EntityTypeShape EntityType="HRMModel.FleetDriverVehicleAssignment" Width="1.5" PointX="23.375" PointY="72" />
+        <AssociationConnector Association="HRMModel.FK_EmpDepManSupPosition_Employee1" />
+        <AssociationConnector Association="HRMModel.FK_DriverToVehicleAssignment_Employee1" />
+        <AssociationConnector Association="HRMModel.FK_DriverToVehicleAssignment_FleetVehicle1" />
+        <AssociationConnector Association="HRMModel.FK_DriverToVehicleAssignment_T_User1" />
+        <EntityTypeShape EntityType="HRMModel.RequestAction" Width="1.5" PointX="7.5" PointY="41" />
+        <AssociationConnector Association="HRMModel.FK_LeaveRequest_LeaveAction1" />
+        <AssociationConnector Association="HRMModel.FK_LeaveAction_T_User1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

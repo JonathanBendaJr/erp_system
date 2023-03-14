@@ -8,26 +8,26 @@ using System.Web.Mvc;
 
 namespace EmployeeUI.Areas.Employee.Controllers
 {
-    public class LeaveActionController : Controller
+    public class RequestActionController : Controller
     {
-        LeaveActionBLL bll = new LeaveActionBLL();
-        // GET: Employee/LeaveAction
-        public ActionResult AddLeaveAction()
+        RequestActionBLL bll = new RequestActionBLL();
+        // GET: Employee/RequestAction
+        public ActionResult AddRequestAction()
         {
-            LeaveActionDTO dto = new LeaveActionDTO();
+            RequestActionDTO dto = new RequestActionDTO();
             return View(dto);
         }
 
         [HttpPost]
-        public ActionResult AddLeaveAction(LeaveActionDTO model)
+        public ActionResult AddRequestAction(RequestActionDTO model)
         {
             if (ModelState.IsValid)
             {
-                if (bll.AddLeaveAction(model))
+                if (bll.AddRequestAction(model))
                 {
                     ViewBag.ProcessState = General.Messages.AddSuccess;
                     ModelState.Clear();
-                    model = new LeaveActionDTO();
+                    model = new RequestActionDTO();
                 }
                 else
                     ViewBag.ProcessState = General.Messages.GeneralError;
@@ -39,24 +39,24 @@ namespace EmployeeUI.Areas.Employee.Controllers
             return View(model);
         }
 
-        public ActionResult LeaveActionList()
+        public ActionResult RequestActionList()
         {
-            List<LeaveActionDTO> model = bll.GetLeaveActions();
+            List<RequestActionDTO> model = bll.GetRequestActions();
             return View(model);
         }
 
-        public ActionResult UpdateLeaveAction(int ID)
+        public ActionResult UpdateRequestAction(int ID)
         {
-            LeaveActionDTO dto = bll.UpdateLeaveActionWithID(ID);
+            RequestActionDTO dto = bll.UpdateRequestActionWithID(ID);
             return View(dto);
         }
 
         [HttpPost]
-        public ActionResult UpdateLeaveAction(LeaveActionDTO model)
+        public ActionResult UpdateRequestAction(RequestActionDTO model)
         {
             if (ModelState.IsValid)
             {
-                if (bll.UpdateLeaveAction(model))
+                if (bll.UpdateRequestAction(model))
                 {
                     ViewBag.ProcessState = General.Messages.UpdateSuccess;
                 }
@@ -69,9 +69,9 @@ namespace EmployeeUI.Areas.Employee.Controllers
             return View(model);
         }
 
-        public JsonResult DeleteLeaveAction(int ID)
+        public JsonResult DeleteRequestAction(int ID)
         {
-            bll.DeleteLeaveAction(ID);
+            bll.DeleteRequestAction(ID);
             return Json("");
         }
     }

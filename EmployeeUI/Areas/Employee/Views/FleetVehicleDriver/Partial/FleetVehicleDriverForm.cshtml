@@ -1,0 +1,19 @@
+﻿
+@model DTO.FleetVehicleDriverDTO
+<div class="box-body">
+    <input type="number" hidden value="@Model.ID" name="ID" />
+    <div class="form-group">
+        <label>Vehicle Code</label>
+        @Html.DropDownList("VehicleID", Model.Vehicles, "Select Vehicle", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.VehicleID, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Position</label>
+        @Html.DropDownList("DriverID", Model.Drivers, "Select Driver", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.DriverID, "", new { @class = "text-danger" })
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</div>
+

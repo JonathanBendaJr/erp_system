@@ -43,7 +43,7 @@ namespace DTO
         public static bool isMaintenanceDept { get; set; }
         public static bool isGeneralDept { get; set; }
         public static bool isSeniorManagementDept { get; set; }
-
+        public static string PositionName { get; set; } 
 
     }
 }

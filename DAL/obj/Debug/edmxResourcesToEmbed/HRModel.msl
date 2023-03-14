@@ -79,6 +79,7 @@
     <EntitySetMapping Name="EmpDepManSupPositions">
       <EntityTypeMapping TypeName="HRMModel.EmpDepManSupPosition">
         <MappingFragment StoreEntitySet="EmpDepManSupPosition">
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
           <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
@@ -197,20 +198,6 @@
         <MappingFragment StoreEntitySet="Gender">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Gender1" ColumnName="Gender" />
-          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
-          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
-          <ScalarProperty Name="LastUpdateUserID" ColumnName="LastUpdateUserID" />
-          <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="LeaveActions">
-      <EntityTypeMapping TypeName="HRMModel.LeaveAction">
-        <MappingFragment StoreEntitySet="LeaveAction">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Action" ColumnName="Action" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="AddDate" ColumnName="AddDate" />
           <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
           <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
@@ -527,21 +514,6 @@
           <ScalarProperty Name="LastUpdateUserID" ColumnName="LastUpdateUserID" />
           <ScalarProperty Name="AddDate" ColumnName="AddDate" />
           <ScalarProperty Name="DeliveryStatus" ColumnName="DeliveryStatus" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DriverToVehicleAssignments">
-      <EntityTypeMapping TypeName="HRMModel.DriverToVehicleAssignment">
-        <MappingFragment StoreEntitySet="DriverToVehicleAssignment">
-          <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
-          <ScalarProperty Name="LastUpdateUserID" ColumnName="LastUpdateUserID" />
-          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
-          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
-          <ScalarProperty Name="DriverRoleID" ColumnName="DriverRoleID" />
-          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
-          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -932,6 +904,35 @@
           <ScalarProperty Name="AddDate" ColumnName="AddDate" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="MeasuringUnit" ColumnName="MeasuringUnit" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FleetDriverVehicleAssignments">
+      <EntityTypeMapping TypeName="HRMModel.FleetDriverVehicleAssignment">
+        <MappingFragment StoreEntitySet="FleetDriverVehicleAssignment">
+          <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+          <ScalarProperty Name="LastUpdateUserID" ColumnName="LastUpdateUserID" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="DriverRoleID" ColumnName="DriverRoleID" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestActions">
+      <EntityTypeMapping TypeName="HRMModel.RequestAction">
+        <MappingFragment StoreEntitySet="RequestAction">
+          <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+          <ScalarProperty Name="LastUpdateUserID" ColumnName="LastUpdateUserID" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

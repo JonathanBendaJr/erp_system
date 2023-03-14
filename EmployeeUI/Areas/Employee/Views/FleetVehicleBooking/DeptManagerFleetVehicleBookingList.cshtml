@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "DeptManagerFleetVehicleBookingList";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+
+@model List<DTO.FleetVehicleBookingDTO>
+<section class="content-header">
+    <h1>Vehicle Booking List Per Department</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Fleet Management</a></li>
+        <li class="breadcrumb-item"><a>Vehicle</a></li>
+        <li class="breadcrumb-item active"><a>Vehicle Booking List Per Department</a></li>
+    </ol>
+
+</section>
+<br />
+@*<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/FleetVehicleBooking/AddFleetVehicleBooking'">Create New Vehicle Booking Request</button>
+</div>
+*@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">List of Vehicle Bookings Per Department</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Department</th>
+                    <th>Destination</th>
+                    <th>County</th>
+                    <th>Booking Date</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                    <th>Request Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr id="a_@item.ID">
+                        <td>@item.EmployeeName</td>
+                        <td>@item.DepartmentName</td>
+                        <td>@item.Location</td>
+                        <td>@item.CountyName</td>
+                        <td>@item.BookingDate</td>
+                        <td>@item.FromDate</td>
+                        <td>@item.ToDate</td>
+                        <td>
+                            <span>
+                                @if (item.FleetManagerApprovalID == 1)
+                                {
+                                    <span style="background-color:green">&nbsp;</span>
+                                }@if (item.FleetManagerApprovalID == 2)
+                                {
+                                    <span style="background-color:red">&nbsp;</span>
+                                }
+                                @if (item.FleetManagerApprovalID == 3)
+                                {
+                                    <span style="background-color:orange">&nbsp;</span>
+                                }
+                                @if (item.FleetManagerApprovalID <= 0)
+                                {
+                                    <span style="background-color:yellow">&nbsp;</span>
+                                }
+                            </span>
+                        </td>
+                        <td align="center">
+                            <a href="/Employee/FleetVehicleBooking/DeptManagerFleetVehicleBookingDetail/@item.ID">
+                                <img width="20" height="20" src="~/Areas/Employee/Content/icons/view.png" />
+                            </a>
+                            <span>|</span>
+                            <a href="/Employee/FleetVehicleBooking/UpdateFleetVehicleBooking/@item.ID">
+                                <img width="20" height="20" src="~/Areas/Employee/Content/icons/update.ico" />
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th>Vehicle Type</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    @Html.Partial("~/Areas/Employee/Views/Shared/ModalMessage.cshtml")
+    <!-- /.card-body -->
+</div>
+<script src="~/Areas/Employee/Content/JS/DeleteRecord.js"></script>
+

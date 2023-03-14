@@ -22,6 +22,7 @@ namespace DAL
                 dto.EmpLName = emp.LName;
                 dto.ID = user.ID;
                 dto.DepartmentID = EmployeeDepartmentDAO.GetDepartmentByEmployeeID(user.EmployeeID);
+                dto.PositionName = EmployeeDepartmentDAO.GetPositionByEmployeeID(user.EmployeeID);
                 dto.Username = user.UserName;
                 dto.isActive = user.isActive;
                 dto.isAdmin = user.isAdmin;

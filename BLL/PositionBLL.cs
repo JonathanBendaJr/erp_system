@@ -51,5 +51,11 @@ namespace BLL
             dao.DeletePosition(ID);
             LogDAO.AddLog(General.ProcessType.PositionDelete, General.TableName.Position, ID);
         }
+
+        public string GetUserPosition(int employeeID)
+        {
+            PositionDTO  dto = dao.GetUserPosition(employeeID);
+            return dto.PositionName;
+        }
     }
 }

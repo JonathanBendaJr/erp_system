@@ -41,9 +41,9 @@ namespace BLL
             public static int GenderAdd = 29;
             public static int GenderUpdate = 30;
             public static int GenderDelete = 31;
-            public static int LeaveActionAdd = 32;
-            public static int LeaveActionUpdate = 33;
-            public static int LeaveActionDelete = 34;
+            public static int RequestActionAdd = 32;
+            public static int RequestActionUpdate = 33;
+            public static int RequestActionDelete = 34;
             public static int LeaveRequestAdded = 35;
             public static int LeaveRequestUpdate = 36;
             public static int LeaveRequestDelete = 37;
@@ -119,7 +119,6 @@ namespace BLL
             public static int ReceivedConditionAdd = 107;
             public static int ReceivedConditionUpdate = 108;
             public static int ReceivedConditionDelete = 109;
-
             public static int ItemRequisitionAdd = 110;
             public static int ItemRequisitionUpdate = 111;
             public static int ItemRequisitionDelete = 112;
@@ -127,6 +126,33 @@ namespace BLL
             public static int ItemRequisitionProcurementManagerProcessRequest = 114;
             public static int ItemRequisitionProcurementOfficerDeliveryItem = 115;
             public static int ItemRequisitionDeliveryReceived = 116;
+            public static int FleetVehicleAdd = 117;
+            public static int FleetVehicleUpdate = 118;
+            public static int FleetVehicleDelete = 119;
+            public static int FleetVehicleConditionAdd = 120;
+            public static int FleetVehicleConditionUpdate = 121;
+            public static int FleetVehicleConditionDelete = 122;
+            public static int FleetVehicleRegistrationAdd = 123;
+            public static int FleetVehicleRegistrationUpdate = 124;
+            public static int FleetVehicleRegistrationDelete = 125;
+            public static int FleetVehicleDriverAdd = 126;
+            public static int FleetVehicleDriverUpdate = 127;
+            public static int FleetVehicleDriverDelete = 128;
+            public static int FleetVehicleBookingAdd = 129;
+            public static int FleetVehicleBookingUpdate = 130;
+            public static int FleetVehicleBookingDelete = 131;
+            public static int FleetVehicleBookingDepartmentManagerApprovalUpdate = 132;
+            public static int FleetVehicleBookingFleetManagerApprovalUpdate = 133;
+
+            public static int FleetVehicleBookingReportAdd = 134;
+            public static int FleetVehicleBookingReportUpdate = 135;
+            public static int FleetVehicleBookingReportDelete = 136;
+            public static int FleetVehicleBookingReportFleetManagerUpdate = 137;
+
+            public static int FleetVehicleMaintenanceRequestAdd = 138;
+            public static int FleetVehicleMaintenanceRequestUpdate = 139;
+            public static int FleetVehicleMaintenanceRequestDelete = 140;
+
 
         }
 
@@ -143,7 +169,7 @@ namespace BLL
             public static string EmployeeSalary = "Employee Salary and Benefits";
             public static string FavIconLogo = "Favicon, Logo, and Title";
             public static string Gender = "Gender";
-            public static string LeaveAction = "Leave Action";
+            public static string RequestAction = "Leave Action";
             public static string LeaveRequest = "Leave Request";
             public static string LeaveType = "Leave Type";
             public static string LevelOfUrgency = "Level Of Urgency";
@@ -169,6 +195,14 @@ namespace BLL
             public static string ResolutionType = "Resolution Type"; 
             public static string ReceivedCondition = "Received Condition";
             public static string ItemRequisition = "Item Requisition";
+            public static string FleetVehicle = "Fleet Vehicle";
+            public static string FleetVehicleCondition = "Fleet Vehicle Condition";
+            public static string FleetVehicleRegistration = "Fleet Vehicle Registration";
+            public static string FleetVehicleDriver = "Fleet Vehicle Driver";
+            public static string FleetVehicleBooking = "Fleet Vehicle Booking";
+            public static string FleetVehicleBookingReport = "Fleet Vehicle Booking Report";
+            public static string FleetVehicleMaintenanceRequest = "Fleet Vehicle Maintencance Request";
+
 
         }
 

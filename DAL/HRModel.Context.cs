@@ -37,7 +37,6 @@ namespace DAL
         public DbSet<EmpSalaryBenefit> EmpSalaryBenefits { get; set; }
         public DbSet<FavLogoTitle> FavLogoTitles { get; set; }
         public DbSet<Gender> Genders { get; set; }
-        public DbSet<LeaveAction> LeaveActions { get; set; }
         public DbSet<LeaveRequest> LeaveRequests { get; set; }
         public DbSet<LeaveType> LeaveTypes { get; set; }
         public DbSet<LevelOfUrgency> LevelOfUrgencies { get; set; }
@@ -56,7 +55,6 @@ namespace DAL
         public DbSet<TaskReport> TaskReports { get; set; }
         public DbSet<WorkExperience> WorkExperiences { get; set; }
         public DbSet<DeliveryStatu> DeliveryStatus { get; set; }
-        public DbSet<DriverToVehicleAssignment> DriverToVehicleAssignments { get; set; }
         public DbSet<FieldOffice> FieldOffices { get; set; }
         public DbSet<FleetVehicle> FleetVehicles { get; set; }
         public DbSet<FleetVehicleBookingReport> FleetVehicleBookingReports { get; set; }
@@ -79,5 +77,7 @@ namespace DAL
         public DbSet<RequestStatu> RequestStatus { get; set; }
         public DbSet<ResolutionType> ResolutionTypes { get; set; }
         public DbSet<UnitOfMeasurement> UnitOfMeasurements { get; set; }
+        public DbSet<FleetDriverVehicleAssignment> FleetDriverVehicleAssignments { get; set; }
+        public DbSet<RequestAction> RequestActions { get; set; }
     }
 }

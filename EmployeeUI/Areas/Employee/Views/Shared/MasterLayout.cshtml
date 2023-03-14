@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ERP | @ViewBag.Title</title>
 
+    <link rel="icon" type="image/x-icon" href="~/Areas/Employee/Content/FavLogoImages/fda_logo.png">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -70,10 +71,10 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="../../index3.html" class="brand-link">
-                <img src="~/Areas/Admin/Content/tempimage/enews.png"
+            <a href="#" class="brand-link">
+                <img src="~/Areas/Employee/Content/FavLogoImages/fda_logo.png"
                      alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Social Ent</span>
+                <span class="brand-text font-weight-light"><strong>FDA</strong> ERP-<small>Sys</small></span>
             </a>
 
             <!-- Sidebar -->
@@ -86,12 +87,13 @@
                              class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">@UserStatic.FName &nbsp; @UserStatic.LName</a>
+                        <a href="/Employee/User/ViewUser/@UserStatic.UserID" class="d-block">@UserStatic.FName &nbsp; @UserStatic.LName</a>
+                        <a href="/Employee/User/ViewUser/@UserStatic.UserID">@UserStatic.PositionName</a>
                     </div>
                 </div>
 
                 <!-- SidebarSearch Form -->
-                <div class="form-inline">
+                @*<div class="form-inline">
                     <div class="input-group" data-widget="sidebar-search">
                         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
@@ -100,40 +102,173 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div>*@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-wrench"></i>
                                 <p>
-                                    Site Settings
+                                    <strong>General Settings</strong>
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/Admin/Fav/UpdateFav" class="nav-link">
-                                        <i class="fas fa-circle nav-icon" style='font-size:12px'></i>
-                                        <p>Fav Icon, Logo &amp; Title</p>
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-circle nav-icon" style='font-size:12px'></i>
+                                        <p>
+                                            County
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Employee/County/AddCounty" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Add County</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Employee/County/CountyList" class="nav-link">
+                                                <span>&emsp;&emsp;</span> <i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>View Counties</small></p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admin/Meta/AddMeta" class="nav-link">
-                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
-                                        <p>Add Meta</p>
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>
+                                            Gender
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Employee/Gender/AddGender" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Add Gender</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Employee/Gender/GenderList" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>View Gender</small></p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admin/Meta/MetaList" class="nav-link">
-                                        <i class="fas fa-list nav-icon" style='font-size:12px'></i>
-                                        <p>Meta List</p>
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                        <p>
+                                            Marital Status
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Employee/MaritalStatus/AddMaritalStatus" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Add Marital Status</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Employee/MaritalStatus/MaritalStatusList" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>View Marital Status</small></p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                        <p>
+                                            Unit of Measurement
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Employee/UnitOfMeasurement/AddUnitOfMeasurement" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Add Measurement Unit</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Employee/UnitOfMeasurement/UnitOfMeasurementList" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>View Measurement Units</small></p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                        <p>
+                                            Task
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p>
+                                                    Task Action
+                                                    <i class="right fas fa-angle-left"></i>
+                                                </p>
+                                            </a>
+                                            <ul class="nav nav-treeview">
+                                                <li class="nav-item">
+                                                    <a href="/Employee/TaskAction/AddTaskAction" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>Add Action</small></p>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="/Employee/TaskAction/TaskActionList" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>View Actions</small></p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p>
+                                                    Task Rating
+                                                    <i class="right fas fa-angle-left"></i>
+                                                </p>
+                                            </a>
+                                            <ul class="nav nav-treeview">
+                                                <li class="nav-item">
+                                                    <a href="/Employee/TaskRating/AddTaskRating" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>Add Rating </small></p>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="/Employee/TaskRating/TaskRatingList" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>View Ratings</small></p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
                             </ul>
                         </li>
 
@@ -141,24 +276,37 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-map-marked"></i>
                                 <p>
-                                    Address
+                                    <strong>
+                                        Requisition
+                                    </strong>
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/Admin/Address/AddAddress" class="nav-link">
-                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
-                                        <p>Add Address</p>
+                                    <a href="/Employee/ItemRequisition/AddItemRequisition" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>New Request</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admin/Address/AddressList" class="nav-link">
-                                        <i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
-                                        <p>Address List</p>
+                                    <a href="/Employee/ItemRequisition/ItemRequisitionListPerLoginUser" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
+                                        <p>My Requests</p>
                                     </a>
                                 </li>
-
+                                <li class="nav-item">
+                                    <a href="/Employee/ItemRequisition/ItemRequisitionListPerDepartment" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
+                                        <p>Department Requests</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Category/CategoryList" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Require My Actions</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -166,24 +314,37 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-rss"></i>
                                 <p>
-                                    Socail Media
+                                    <strong>
+                                        Leave
+                                    </strong>
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/Admin/SocialMedia/AddSocialMedia" class="nav-link">
-                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
-                                        <p>Add Social Media</p>
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>New Leave</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admin/SocialMedia/SocailMediaList" class="nav-link">
-                                        <i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
-                                        <p>Social Media List</p>
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>My Leaves</p>
                                     </a>
                                 </li>
-
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Department Leaves</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Category/CategoryList" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Require My Actions</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -191,21 +352,35 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-ad"></i>
                                 <p>
-                                    Ads
+                                    <strong>
+                                        Task
+                                    </strong>
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/Admin/Ads/AddAds" class="nav-link">
-                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
-                                        <p>Add Ads</p>
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>New Task</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admin/Ads/AdsList" class="nav-link">
-                                        <i class="fas fa-list nav-icon" style='font-size:12px'></i>
-                                        <p>Ads List</p>
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                        <p>My Assigned Task</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                        <p>Department Task List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Category/CategoryList" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Require My Actions</p>
                                     </a>
                                 </li>
                             </ul>
@@ -215,21 +390,35 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas  fa-clipboard"></i>
                                 <p>
-                                    Category
+                                    <strong>
+                                        Bookings
+                                    </strong>
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="/Admin/Category/AddCategory" class="nav-link">
-                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
-                                        <p>Add Category</p>
+                                        <span>&emsp;</span><i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>New Booking</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/Admin/Category/CategoryList" class="nav-link">
-                                        <i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
-                                        <p>Category List</p>
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>My Bookings</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Category/CategoryList" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Department Bookings</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Category/CategoryList" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Require My Actions</p>
                                     </a>
                                 </li>
                             </ul>
@@ -239,23 +428,182 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-clipboard-check"></i>
                                 <p>
-                                    Posts
+                                    <strong>
+                                        Employee
+                                    </strong>
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/Admin/Post/AddPost" class="nav-link">
-                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
-                                        <p>Add Post</p>
+                                    <a href="/Employee/Employee/AddEmployee" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>Add Employee</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admin/Post/PostList" class="nav-link">
-                                        <i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
-                                        <p>Post List</p>
+                                    <a href="/Employee/Employee/EmployeeList" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Employee List</p>
                                     </a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>
+                                            Settings
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p>
+                                                    <small>
+                                                        Department
+                                                    </small><i class="right fas fa-angle-left"></i>
+                                                </p>
+                                            </a>
+                                            <ul class="nav nav-treeview">
+                                                <li class="nav-item">
+                                                    <a href="/Employee/Department/AddDepartment" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>Add Department</small></p>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="/Employee/Department/DepartmentList" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>Department List</small></p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p>
+                                                    <small>
+                                                        Position
+                                                    </small><i class="right fas fa-angle-left"></i>
+                                                </p>
+                                            </a>
+                                            <ul class="nav nav-treeview">
+                                                <li class="nav-item">
+                                                    <a href="/Employee/Position/AddPosition" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>Add Position </small></p>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="/Employee/Position/PositionList" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>View Positions</small></p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p>
+                                                    <small>
+                                                        Pay Grade
+                                                    </small> <i class="right fas fa-angle-left"></i>
+                                                </p>
+                                            </a>
+                                            <ul class="nav nav-treeview">
+                                                <li class="nav-item">
+                                                    <a href="/Employee/PayGrade/AddPayGrade" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>Add Pay Grade </small></p>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="/Employee/PayGrade/PayGradeList" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>View Pay Grade</small></p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p>
+                                                    <small>
+                                                        Employee Roles
+                                                    </small><i class="right fas fa-angle-left"></i>
+                                                </p>
+                                            </a>
+                                            <ul class="nav nav-treeview">
+                                                <li class="nav-item">
+                                                    <a href="/Employee/EmployeeRole/AddEmployeeRole" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>Add Role </small></p>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="/Employee/EmployeeRole/EmployeeRoleList" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>View Roles</small></p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p>
+                                                    <small>
+                                                        Leave Type
+                                                    </small><i class="right fas fa-angle-left"></i>
+                                                </p>
+                                            </a>
+                                            <ul class="nav nav-treeview">
+                                                <li class="nav-item">
+                                                    <a href="/Employee/LeaveType/AddLeaveType" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>Add Leave Type </small></p>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="/Employee/LeaveType/LeaveTypeList" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>View Leave Types</small></p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p>
+                                                    <small>
+                                                        Leave Action
+                                                    </small><i class="right fas fa-angle-left"></i>
+                                                </p>
+                                            </a>
+                                            <ul class="nav nav-treeview">
+                                                <li class="nav-item">
+                                                    <a href="/Employee/LeaveAction/AddLeaveAction" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>Add Leave Action </small></p>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="/Employee/LeaveAction/LeaveActionList" class="nav-link">
+                                                        <span>&emsp;&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                        <p><small>View Leave Actions</small></p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
                             </ul>
                         </li>
 
@@ -263,84 +611,288 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-video"></i>
                                 <p>
-                                    Video
+                                    <strong>
+                                        Procurement
+                                    </strong>
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/Admin/Video/AddVideo" class="nav-link">
-                                        <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
-                                        <p>Add Video</p>
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span> <i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>Purchase</p>
+                                        <i class="right fas fa-angle-left"></i>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>New Purchase Request</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>All Purchase Request</small></p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                        <p>Products</p>
+                                        <i class="right fas fa-angle-left"></i>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Add Product </small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>All Products</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>In-Stock</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Out-Of-Stock</small></p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                        <p>Item Request</p>
+                                        <i class="right fas fa-angle-left"></i>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Employee/ItemRequisition/ItemRequisitionListProcurementOfficer" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>In-Process Requests(Officer)</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Employee/ItemRequisition/ItemRequisitionList" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>In-Process Requests(Manager)</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Employee/ItemRequisition/ItemRequisitionList" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Processed Requests</small></p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                        <p>Setting</p>
+                                        <i class="right fas fa-angle-left"></i>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Employee/ProductCategory/AddProductCategory" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Add Category</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Employee/ProductCategory/ProductCategoryList" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>View Categories</small></p>
+                                            </a>
+                                        </li>
+                                        @*<li class="nav-item">
+                            <a href="/Admin/Meta/MetaList" class="nav-link">
+                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                <p><small>View Leave Types</small></p>
+                            </a>
+                        </li>*@
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas  fa-clipboard"></i>
+                                <p>
+                                    <strong>
+                                        Fleet Management
+                                    </strong>
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Admin/Category/AddCategory" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-plus nav-icon" style='font-size:12px'></i>
+                                        <p>Add Vehicle</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admin/Video/VideoList" class="nav-link">
-                                        <i class="fas fa-list nav-icon" style='font-size:12px'></i>
-                                        <p>Video List</p>
+                                    <a href="/Admin/Category/CategoryList" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Add Driver</p>
                                     </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Category/CategoryList" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Assign Vehicle/Driver</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Category/CategoryList" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Require My Actions</p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Employee/ProductCategory/AddProductCategory" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Assign Booking</small></p>
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/Category/CategoryList" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-clipboard-list nav-icon" style='font-size:12px'></i>
+                                        <p>Settings</p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Employee/FleetVehicleCondition/FleetVehicleConditionList" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Vehicle Condition</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Employee/FleetVehicleRegistration/FleetVehicleRegistrationList" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Vehicle Registration</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Employee/FleetVehicleType/FleetVehicleTypeList" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Vehicle Type</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Employee/FleetVehicleStatus/FleetVehicleStatusList" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Vehicle Status</small></p>
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                          
+
+
+                        @* @if (UserStatic.isAdmin)
+        {*@
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user-alt"></i>
+                                <p>
+                                    <strong>
+                                        User Management
+                                    </strong>
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Employee/User/AddUser" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-user-plus nav-icon" style='font-size:12px'></i>
+                                        <p>Add User</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Employee/User/UserList" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
+                                        <p>User List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <span>&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                        <p>
+                                            User Status
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Employee/Status/AddStatus" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>Add User Status</small></p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Employee/Status/StatusList" class="nav-link">
+                                                <span>&emsp;&emsp;</span><i class="fas fa-list nav-icon" style='font-size:12px'></i>
+                                                <p><small>View User Status</small></p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </li>
 
-                        @if (UserStatic.isAdmin)
-                        {
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-user-alt"></i>
-                                    <p>
-                                        User
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/Admin/User/AddUser" class="nav-link">
-                                            <i class="fas fa-user-plus nav-icon" style='font-size:12px'></i>
-                                            <p>Add User</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/Admin/User/UserList" class="nav-link">
-                                            <i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
-                                            <p>User List</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/Admin/User/UpdateUser/@UserStatic.UserID" class="nav-link">
-                                            <i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
-                                            <p>Update Profile</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                        @*}*@
 
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-user-alt"></i>
-                                    <p>
-                                        User
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/Admin/User/UpdateUser/@UserStatic.UserID" class="nav-link">
-                                            <i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
-                                            <p>Update Profile</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                        }
-
-
-
-
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user-alt"></i>
+                                <p>
+                                    <strong>
+                                        User Account
+                                    </strong>
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Employee/User/ViewUser/@UserStatic.UserID" class="nav-link">
+                                        <i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
+                                        <p>View Profile</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Employee/User/ViewUser/@UserStatic.UserID" class="nav-link">
+                                        <i class="fas fa-address-book nav-icon" style='font-size:12px'></i>
+                                        <p>Reset Password</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
                     </ul>
                 </nav>

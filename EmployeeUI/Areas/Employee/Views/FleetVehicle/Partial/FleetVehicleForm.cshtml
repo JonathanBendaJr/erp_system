@@ -1,0 +1,140 @@
+﻿
+@model DTO.FleetVehicleDTO
+<div class="box-body">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Basic Information</h3>
+            </div>
+            <div class="card-body">
+                <input hidden type="number" value="@Model.ID" name="ID" />
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Vehicle Code</label>
+                            @Html.TextBoxFor(x => x.VehicleCode, new { @class = "form-control", @placeholder = "Enter Vehicle Code" })
+                            @Html.ValidationMessageFor(x => x.VehicleCode, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>VIN</label>
+                            @Html.TextBoxFor(x => x.VIN, new { @class = "form-control", @placeholder = "Enter VIN" })
+                            @Html.ValidationMessageFor(x => x.VIN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Mileage</label>
+                            @Html.TextBoxFor(x => x.Mileage, new { @class = "form-control", @placeholder = "Enter Mileage" })
+                            @Html.ValidationMessageFor(x => x.Mileage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Vehicle Make</label>
+                            @Html.TextBoxFor(x => x.Make, new { @class = "form-control", @placeholder = "Enter Make" })
+                            @Html.ValidationMessageFor(x => x.Make, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Model</label>
+                            @Html.TextBoxFor(x => x.Model, new { @class = "form-control", @placeholder = "Enter Model" })
+                            @Html.ValidationMessageFor(x => x.Model, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Vehicle Type</label>
+                            @Html.DropDownList("TypeID", Model.TypeList, "Select Vehicle Type", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.TypeID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Color</label>
+                            @Html.TextBoxFor(x => x.Color, new { @class = "form-control", @placeholder = "Enter Vehicle Color" })
+                            @Html.ValidationMessageFor(x => x.Color, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Production Year</label>
+                            @Html.TextBoxFor(x => x.Year, new { @class = "form-control", @placeholder = "Enter Production Year" })
+                            @Html.ValidationMessageFor(x => x.Year, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Received Condition</label>
+                            @Html.DropDownList("ReceivedConditionID", Model.ReceivedConditionList, "Select Vehilce Codintion", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.ReceivedConditionID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Fuel Tank Type</label>
+                            @Html.TextBoxFor(x => x.FuelTankType, new { @class = "form-control", @placeholder = "Enter Fuel Tank Type" })
+                            @Html.ValidationMessageFor(x => x.FuelTankType, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Fuel Tank Size</label>
+                            @Html.TextBoxFor(x => x.FuelTankSize, new { @class = "form-control", @placeholder = "Enter Fuel Tank Size" })
+                            @Html.ValidationMessageFor(x => x.FuelTankSize, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Size Unit</label>
+                            @Html.DropDownList("UnitID", Model.UnitList, "Select Size Measuring Unit", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.UnitID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Vehicle Status</label>
+                            @Html.DropDownList("VehicleStatusID", Model.VehicleStatusList, "Select Vehicle Status", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.VehicleStatusID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Registration Status</label>
+                            @Html.DropDownList("RegistrationStatusID", Model.RegistrationStatusList, "Select Registration Status", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.RegistrationStatusID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Received Date</label>
+                            @Html.TextBoxFor(x => x.ReceivedDate, new { @class = "form-control datepicker" })
+                            @Html.ValidationMessageFor(x => x.ReceivedDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-12">
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save Vehicle Details</button>
+        </div>
+    </div>
+</div>
+
+
+

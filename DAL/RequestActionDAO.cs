@@ -1,19 +1,21 @@
 ﻿using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.Objects.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace DAL
 {
-    public class LeaveActionDAO : PostContext
+    public class RequestActionDAO : PostContext
     {
-        public int AddLeaveAction(LeaveAction leave)
+        public int AddRequestAction(RequestAction leave)
         {
             try
             {
-                db.LeaveActions.Add(leave);
+                db.RequestActions.Add(leave);
                 db.SaveChanges();
                 return leave.ID;
             }
@@ -23,14 +25,22 @@ namespace DAL
                 throw ex;
             }
         }
-
-        public List<LeaveActionDTO> GetLeaveActions()
+        public static IEnumerable<SelectListItem> GetApprovalsForDropdown()
         {
-            List<LeaveAction> list = db.LeaveActions.Where(x => x.isDeleted == false).OrderByDescending(x => x.AddDate).ToList();
-            List<LeaveActionDTO> dtolist = new List<LeaveActionDTO>();
+            IEnumerable<SelectListItem> approvalList = db.RequestActions.Where(x => x.isDeleted == false).OrderByDescending(x => x.AddDate).Select(x => new SelectListItem()
+            {
+                Text = x.Action,
+                Value = SqlFunctions.StringConvert((double)x.ID)
+            }).ToList();
+            return approvalList;
+        }
+        public List<RequestActionDTO> GetRequestActions()
+        {
+            List<RequestAction> list = db.RequestActions.Where(x => x.isDeleted == false).OrderByDescending(x => x.AddDate).ToList();
+            List<RequestActionDTO> dtolist = new List<RequestActionDTO>();
             foreach (var item in list)
             {
-                LeaveActionDTO dto = new LeaveActionDTO();
+                RequestActionDTO dto = new RequestActionDTO();
                 dto.Action = item.Action;
                 dto.Description = item.Description;
                 dto.ID = item.ID;
@@ -38,12 +48,12 @@ namespace DAL
             }
             return dtolist;
         }    
-        public LeaveActionDTO UpdateLeaveActionWithID(int ID)
+        public RequestActionDTO UpdateRequestActionWithID(int ID)
         {
             try
             {
-                LeaveAction leave = db.LeaveActions.First(x => x.ID == ID);
-                LeaveActionDTO dto = new LeaveActionDTO();
+                RequestAction leave = db.RequestActions.First(x => x.ID == ID);
+                RequestActionDTO dto = new RequestActionDTO();
                 dto.ID = leave.ID;
                 dto.Action = leave.Action;
                 dto.Description = leave.Description;
@@ -56,11 +66,11 @@ namespace DAL
             }
         }
 
-        public void UpdateLeaveAction(LeaveActionDTO model)
+        public void UpdateRequestAction(RequestActionDTO model)
         {
             try
             {
-                LeaveAction leave = db.LeaveActions.First(x => x.ID == model.ID);
+                RequestAction leave = db.RequestActions.First(x => x.ID == model.ID);
                 leave.Action = model.Action;
                 leave.Description = model.Description;
                 leave.LastUpdateDate = DateTime.Now;
@@ -74,11 +84,11 @@ namespace DAL
             }
         }
 
-        public void DeleteLeaveAction(int ID)
+        public void DeleteRequestAction(int ID)
         {
             try
             {
-                LeaveAction leave = db.LeaveActions.First(x => x.ID == ID);
+                RequestAction leave = db.RequestActions.First(x => x.ID == ID);
                 leave.isDeleted = true;
                 leave.DeletedDate = DateTime.Now;
                 leave.LastUpdateDate = DateTime.Now;

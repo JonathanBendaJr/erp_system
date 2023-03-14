@@ -139,7 +139,7 @@ namespace DAL
             EmployeeDepartmentDTO dto = new EmployeeDepartmentDTO();
             foreach (var item in employeeDepartmentList)
             {
-                
+      
                 dto.ID = item.ID;
                 dto.EmployeeID = item.EmpID;
                 dto.PositionName = item.PositionName;

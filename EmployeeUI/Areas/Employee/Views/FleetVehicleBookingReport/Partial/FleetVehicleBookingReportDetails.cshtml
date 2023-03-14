@@ -1,0 +1,85 @@
+﻿
+@model DTO.FleetVehicleBookingReportDTO
+<div class="box-body">
+    <div class="card card-secondary">
+        <div class="card-header">
+            <h3 class="card-title">Trip Report Details</h3>
+        </div>
+        <div class="card-body">
+            <input hidden type="number" value="@Model.ID" name="ID" />
+            <input hidden type="number" value="@Model.BookingID" name="BookingID" />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Booking ID</label>
+                        @Html.TextBoxFor(x => x.BookingID, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Dispatch Date</label>
+                        @Html.TextBoxFor(x => x.DispatchDate, new { @class = "form-control datepicker", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Dispatch Time</label>
+                        @Html.TextBoxFor(x => x.DispacthTime, new { @class = "form-control timepicker", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Return Date</label>
+                        @Html.TextBoxFor(x => x.ReturnDate, new { @class = "form-control datepicker", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Return Time</label>
+                        @Html.TextBoxFor(x => x.ReturnTime, new { @class = "form-control timepicker", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Driver Name</label>
+                        @Html.TextBoxFor(x => x.DriverName, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            @if (Model.FleetManagerApprovalID == 1)
+            {
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Fleet Manager Name</label>
+                            @Html.TextBoxFor(x => x.FleetManagerName, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Fleet Manager Approval Status</label>
+                            @Html.TextBoxFor(x => x.FleetManagerApprovalStatus, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Fleet Manager Message</label>
+                            @Html.TextBoxFor(x => x.FleetManagerMessage, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Trip Report Details</label>
+                        @Html.TextAreaFor(x => x.ReportDetails, new { @class = "ckeditor", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -216,9 +216,6 @@
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DepartmentDAO.cs" />
-    <Compile Include="DriverToVehicleAssignment.cs">
-      <DependentUpon>HRModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="EmpDependant.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
@@ -252,15 +249,23 @@
     <Compile Include="FieldOffice.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FleetDriverVehicleAssignment.cs">
+      <DependentUpon>HRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FleetVehicle.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FleetVehicleBookingDAO.cs" />
     <Compile Include="FleetVehicleBookingReport.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FleetVehicleBookingReportDAO.cs" />
     <Compile Include="FleetVehicleBookingRequest.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FleetVehicleConditionDAO.cs" />
+    <Compile Include="FleetVehicleDAO.cs" />
+    <Compile Include="FleetVehicleDriverDAO.cs" />
     <Compile Include="FleetVehicleMaintenanceApprovalAction.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
@@ -270,6 +275,7 @@
     <Compile Include="FleetVehicleMaintenanceRequest.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FleetVehicleMaintenanceRequestDAO.cs" />
     <Compile Include="FleetVehicleOwnership.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
@@ -280,6 +286,7 @@
     <Compile Include="FleetVehicleReceivedCondition.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FleetVehicleRegistrationDAO.cs" />
     <Compile Include="FleetVehicleRegistrationStatu.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
@@ -313,14 +320,12 @@
     <Compile Include="IncidentType.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="IncidentTypeDAO.cs" />
     <Compile Include="ItemRequisition.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ItemRequisitionDAO.cs" />
-    <Compile Include="LeaveAction.cs">
-      <DependentUpon>HRModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LeaveActionDAO.cs" />
+    <Compile Include="RequestActionDAO.cs" />
     <Compile Include="LeaveRequest.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
@@ -371,6 +376,9 @@
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RelationshipDAO.cs" />
+    <Compile Include="RequestAction.cs">
+      <DependentUpon>HRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="RequestStatu.cs">
       <DependentUpon>HRModel.tt</DependentUpon>
     </Compile>

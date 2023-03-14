@@ -16,9 +16,9 @@ namespace DAL
     {
         public FleetVehicle()
         {
-            this.DriverToVehicleAssignments = new HashSet<DriverToVehicleAssignment>();
             this.FleetVehicleBookingRequests = new HashSet<FleetVehicleBookingRequest>();
             this.FleetVehiclePartsRequests = new HashSet<FleetVehiclePartsRequest>();
+            this.FleetDriverVehicleAssignments = new HashSet<FleetDriverVehicleAssignment>();
         }
     
         public int ID { get; set; }
@@ -45,7 +45,6 @@ namespace DAL
         public int LastUpdateUserID { get; set; }
         public System.DateTime LastUpdateDate { get; set; }
     
-        public virtual ICollection<DriverToVehicleAssignment> DriverToVehicleAssignments { get; set; }
         public virtual FleetVehicleOwnership FleetVehicleOwnership { get; set; }
         public virtual FleetVehicleRegistrationStatu FleetVehicleRegistrationStatu { get; set; }
         public virtual FleetVehicleStatu FleetVehicleStatu { get; set; }
@@ -54,5 +53,6 @@ namespace DAL
         public virtual UnitOfMeasurement UnitOfMeasurement { get; set; }
         public virtual ICollection<FleetVehicleBookingRequest> FleetVehicleBookingRequests { get; set; }
         public virtual ICollection<FleetVehiclePartsRequest> FleetVehiclePartsRequests { get; set; }
+        public virtual ICollection<FleetDriverVehicleAssignment> FleetDriverVehicleAssignments { get; set; }
     }
 }

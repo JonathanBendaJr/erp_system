@@ -20,7 +20,7 @@ namespace DAL
             catch (Exception ex)
             {
                 throw ex;
-            }
+            } 
         }
 
         public List<ItemRequisitionDTO> GetItemRequisitions()

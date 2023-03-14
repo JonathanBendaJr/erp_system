@@ -12,9 +12,9 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class LeaveAction
+    public partial class RequestAction
     {
-        public LeaveAction()
+        public RequestAction()
         {
             this.LeaveRequests = new HashSet<LeaveRequest>();
         }
@@ -28,7 +28,7 @@ namespace DAL
         public int LastUpdateUserID { get; set; }
         public System.DateTime LastUpdateDate { get; set; }
     
-        public virtual T_User T_User { get; set; }
         public virtual ICollection<LeaveRequest> LeaveRequests { get; set; }
+        public virtual T_User T_User { get; set; }
     }
 }

@@ -26,7 +26,6 @@ namespace DAL
             this.EmpSalaryBenefits = new HashSet<EmpSalaryBenefit>();
             this.FavLogoTitles = new HashSet<FavLogoTitle>();
             this.Genders = new HashSet<Gender>();
-            this.LeaveActions = new HashSet<LeaveAction>();
             this.LeaveRequests = new HashSet<LeaveRequest>();
             this.LeaveTypes = new HashSet<LeaveType>();
             this.LevelOfUrgencies = new HashSet<LevelOfUrgency>();
@@ -43,7 +42,6 @@ namespace DAL
             this.TaskReports1 = new HashSet<TaskReport>();
             this.WorkExperiences = new HashSet<WorkExperience>();
             this.DeliveryStatus = new HashSet<DeliveryStatu>();
-            this.DriverToVehicleAssignments = new HashSet<DriverToVehicleAssignment>();
             this.FieldOffices = new HashSet<FieldOffice>();
             this.FleetVehicles = new HashSet<FleetVehicle>();
             this.FleetVehicleBookingReports = new HashSet<FleetVehicleBookingReport>();
@@ -61,6 +59,8 @@ namespace DAL
             this.ProcumentProcuredItems = new HashSet<ProcumentProcuredItem>();
             this.ProcurementPurchaseRequests = new HashSet<ProcurementPurchaseRequest>();
             this.UnitOfMeasurements = new HashSet<UnitOfMeasurement>();
+            this.FleetDriverVehicleAssignments = new HashSet<FleetDriverVehicleAssignment>();
+            this.RequestActions = new HashSet<RequestAction>();
         }
     
         public int ID { get; set; }
@@ -115,7 +115,6 @@ namespace DAL
         public virtual ICollection<EmpSalaryBenefit> EmpSalaryBenefits { get; set; }
         public virtual ICollection<FavLogoTitle> FavLogoTitles { get; set; }
         public virtual ICollection<Gender> Genders { get; set; }
-        public virtual ICollection<LeaveAction> LeaveActions { get; set; }
         public virtual ICollection<LeaveRequest> LeaveRequests { get; set; }
         public virtual ICollection<LeaveType> LeaveTypes { get; set; }
         public virtual ICollection<LevelOfUrgency> LevelOfUrgencies { get; set; }
@@ -132,7 +131,6 @@ namespace DAL
         public virtual ICollection<TaskReport> TaskReports1 { get; set; }
         public virtual ICollection<WorkExperience> WorkExperiences { get; set; }
         public virtual ICollection<DeliveryStatu> DeliveryStatus { get; set; }
-        public virtual ICollection<DriverToVehicleAssignment> DriverToVehicleAssignments { get; set; }
         public virtual ICollection<FieldOffice> FieldOffices { get; set; }
         public virtual ICollection<FleetVehicle> FleetVehicles { get; set; }
         public virtual ICollection<FleetVehicleBookingReport> FleetVehicleBookingReports { get; set; }
@@ -150,5 +148,7 @@ namespace DAL
         public virtual ICollection<ProcumentProcuredItem> ProcumentProcuredItems { get; set; }
         public virtual ICollection<ProcurementPurchaseRequest> ProcurementPurchaseRequests { get; set; }
         public virtual ICollection<UnitOfMeasurement> UnitOfMeasurements { get; set; }
+        public virtual ICollection<FleetDriverVehicleAssignment> FleetDriverVehicleAssignments { get; set; }
+        public virtual ICollection<RequestAction> RequestActions { get; set; }
     }
 }

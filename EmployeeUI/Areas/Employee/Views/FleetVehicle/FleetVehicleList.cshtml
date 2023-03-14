@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "FleetVehicleList";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+@model List<DTO.FleetVehicleDTO>
+<section class="content-header">
+    <h1>Vehicle List</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Fleet Management</a></li>
+        <li class="breadcrumb-item"><a>Vehicle</a></li>
+        <li class="breadcrumb-item active"><a>Vehicle List</a></li>
+    </ol>
+
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/FleetVehicle/AddFleetVehicle'">Add Fleet Vehicle</button>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">List of Vehicles</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Vehicle Code</th>
+                    <th>VIN</th>
+                    <th>Mileage</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Registration Status</th>
+                    <th>Fuel Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr id="a_@item.ID">
+                    <td>@item.VehicleCode</td>
+                    <td>@item.VIN</td>
+                    <td>@item.Mileage</td>
+                    <td>@item.Make</td>
+                    <td>@item.Model</td>
+                    <td>@item.Year</td>
+                    <td>@item.RegistrationStatusName</td>
+                    <td>@item.FuelTankType</td>
+                    <td align="center">
+                        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas fa-ellipsis-v" id="ellipses"></i></a>
+                        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                            <li>
+                                <a href="/Employee/FleetVehicle/FleetVehicleCard//@item.ID" style="color:black">
+                                    <span>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <i class="fas fa-id-card" style="color:blue"></i>
+                                        &nbsp;&nbsp;&nbsp;
+                                    </span>
+                                    View
+                                </a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a href="/Employee/FleetVehicleMaintenanceRequest/AddFleetVehicleMaintenanceRequest"  style="color:black">
+                                    <span>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <i class="fas fa-book-open" style="color:blue"></i>
+                                        &nbsp;&nbsp;&nbsp;
+                                    </span>
+                                    Maintenance
+                                </a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a href="/Employee/FleetVehicle/UpdateFleetVehicle"  style="color:black">
+                                    <span>&nbsp;&nbsp;&nbsp;<i class="fas fa-briefcase" style="color:blue"></i>&nbsp;&nbsp;&nbsp;</span>
+                                    Update
+                                </a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a href="#" onclick="AskQuestion('/Employee/FleetVehicle/DeleteFleetVehicle/',@item.ID)" style="color:black">
+                                    <span>&nbsp;&nbsp;&nbsp;<i class="fas fa-trash" style="color:red"></i>&nbsp;&nbsp;&nbsp;</span>
+                                    Delete
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                }
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone #</th>
+                    <th>Gender</th>
+                    <th>Position</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    @Html.Partial("~/Areas/Employee/Views/Shared/ModalMessage.cshtml")
+    <!-- /.card-body -->
+</div>
+<script src="~/Areas/Employee/Content/JS/DeleteRecord.js"></script>
+<script src="~/Areas/Employee/Content/JS/PassData.js"></script>

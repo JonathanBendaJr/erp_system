@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "FleetManagerUpdateFleetVehicleBooking";
+    Layout = "~/Areas/Employee/Views/Shared/MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Department Manager Update Vehicle Booking Request</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Fleet Management</a></li>
+        <li class="breadcrumb-item"><a>Vehicle</a></li>
+        <li class="breadcrumb-item active"><a>Department Manager Update Vehicle Booking Request</a></li>
+    </ol>
+
+</section>
+<br />
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/Employee/FleetVehicleBooking/FleetVehicleBookingList'">Vehicle Booking List</button>
+</div>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+                <div class="row">
+                    @using (Html.BeginForm("FleetManagerUpdateFleetVehicleBooking", "FleetVehicleBooking", FormMethod.Get, new { @enctype = "multipart/form-data" }))
+                    {
+                        @Html.Partial("Partial/FleetVehicleBookingApprovalForm")
+                    }
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            @Html.Partial("~/Areas/Employee/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+                <div class="row">
+                    @using (Html.BeginForm("FleetManagerUpdateFleetVehicleBooking", "FleetVehicleBooking", FormMethod.Get, new { @enctype = "multipart/form-data" }))
+                    {
+                        @Html.Partial("Partial/DeptManagerApprovalDetails")
+                    }
+
+                </div>
+                <div class="row">
+                    @using (Html.BeginForm("FleetManagerUpdateFleetVehicleBooking", "FleetVehicleBooking", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                    {
+                        @Html.Partial("Partial/FleetManagerApprovalUpdateForm")
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

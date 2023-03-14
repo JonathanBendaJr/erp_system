@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class LeaveActionDTO
+    public class FleetVehicleConditionDTO
     {
         public int ID { get; set; }
-        public string Action { get; set; }
+        public string VehicleCondition { get; set; }
         public string Description { get; set; }
     }
 }

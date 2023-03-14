@@ -1,0 +1,65 @@
+﻿
+@model DTO.FleetVehicleBookingReportDTO
+<div class="box-body">
+    <div class="card card-secondary">
+        <div class="card-header">
+            <h3 class="card-title">Booking Report Submission</h3>
+        </div>
+        <div class="card-body">
+            <input hidden type="number" value="@Model.ID" name="ID" />
+            <input hidden type="number" value="@Model.BookingID" name="BookingID" />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Dispatch Date</label>
+                        @Html.TextBoxFor(x => x.DispatchDate, new { @class = "form-control datepicker" })
+                        @Html.ValidationMessageFor(x => x.DispatchDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Dispatch Time</label>
+                        @Html.TextBoxFor(x => x.DispacthTime, new { @class = "form-control timepicker" })
+                        @Html.ValidationMessageFor(x => x.DispacthTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Return Date</label>
+                        @Html.TextBoxFor(x => x.ReturnDate, new { @class = "form-control datepicker" })
+                        @Html.ValidationMessageFor(x => x.ReturnDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Return Time</label>
+                        @Html.TextBoxFor(x => x.ReturnTime, new { @class = "form-control timepicker" })
+                        @Html.ValidationMessageFor(x => x.ReturnTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Trip Report Details</label>
+                        @Html.TextAreaFor(x => x.ReportDetails, new { @class = "ckeditor" })
+                        @Html.ValidationMessageFor(x => x.ReportDetails)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save Booking</button>
+        </div>
+    </div>
+</div>
+
+
+
+

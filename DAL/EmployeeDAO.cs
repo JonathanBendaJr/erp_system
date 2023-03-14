@@ -70,6 +70,16 @@ namespace DAL
             return dtolist;
         }
 
+        public static IEnumerable<SelectListItem> GetDriversForDropdown()
+        {
+            IEnumerable<SelectListItem> driverList = db.Employees.Where(x => x.PositionID == 10 && x.isDeleted == false).OrderBy(x => x.LName).Select(x => new SelectListItem()
+            {
+                Text = x.LName + ", "+ x.FName,
+                Value = SqlFunctions.StringConvert((double)x.ID)
+            }).ToList();
+            return driverList;
+        }
+
         public static EmployeeDTO GetEmployeeDetail(int id)
         {
             Employee emp = db.Employees.First(x => x.ID == id);

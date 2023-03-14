@@ -1,3 +1,4 @@
+C:\Users\Jonathan Benda\source\repos\fda_erp\DAL\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DAL\bin\Debug\DAL.dll.config
 C:\Users\Jonathan Benda\source\repos\fda_erp\DAL\bin\Debug\DAL.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DAL\bin\Debug\DAL.pdb
@@ -12,7 +13,6 @@ C:\Users\Jonathan Benda\source\repos\fda_erp\DAL\bin\Debug\roslyn\Microsoft.Code
 C:\Users\Jonathan Benda\source\repos\fda_erp\DAL\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DAL\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DAL\bin\Debug\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\Jonathan Benda\source\repos\fda_erp\DAL\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DAL\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
 C:\Users\Jonathan Benda\source\repos\fda_erp\DAL\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Users\Jonathan Benda\source\repos\fda_erp\DAL\bin\Debug\roslyn\Microsoft.DiaSymReader.Native.x86.dll

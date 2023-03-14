@@ -24,7 +24,6 @@ namespace DAL
             this.T_User1 = new HashSet<T_User>();
             this.Tasks = new HashSet<Task>();
             this.WorkExperiences = new HashSet<WorkExperience>();
-            this.DriverToVehicleAssignments = new HashSet<DriverToVehicleAssignment>();
             this.FleetVehicleBookingReports = new HashSet<FleetVehicleBookingReport>();
             this.FleetVehicleBookingReports1 = new HashSet<FleetVehicleBookingReport>();
             this.FleetVehicleBookingRequests = new HashSet<FleetVehicleBookingRequest>();
@@ -41,6 +40,8 @@ namespace DAL
             this.ItemRequisitions3 = new HashSet<ItemRequisition>();
             this.ProcurementPurchaseRequests = new HashSet<ProcurementPurchaseRequest>();
             this.ProcurementPurchaseRequests1 = new HashSet<ProcurementPurchaseRequest>();
+            this.EmpDepManSupPositions1 = new HashSet<EmpDepManSupPosition>();
+            this.FleetDriverVehicleAssignments = new HashSet<FleetDriverVehicleAssignment>();
         }
     
         public int ID { get; set; }
@@ -82,7 +83,6 @@ namespace DAL
         public virtual ICollection<T_User> T_User1 { get; set; }
         public virtual ICollection<Task> Tasks { get; set; }
         public virtual ICollection<WorkExperience> WorkExperiences { get; set; }
-        public virtual ICollection<DriverToVehicleAssignment> DriverToVehicleAssignments { get; set; }
         public virtual ICollection<FleetVehicleBookingReport> FleetVehicleBookingReports { get; set; }
         public virtual ICollection<FleetVehicleBookingReport> FleetVehicleBookingReports1 { get; set; }
         public virtual ICollection<FleetVehicleBookingRequest> FleetVehicleBookingRequests { get; set; }
@@ -99,5 +99,7 @@ namespace DAL
         public virtual ICollection<ItemRequisition> ItemRequisitions3 { get; set; }
         public virtual ICollection<ProcurementPurchaseRequest> ProcurementPurchaseRequests { get; set; }
         public virtual ICollection<ProcurementPurchaseRequest> ProcurementPurchaseRequests1 { get; set; }
+        public virtual ICollection<EmpDepManSupPosition> EmpDepManSupPositions1 { get; set; }
+        public virtual ICollection<FleetDriverVehicleAssignment> FleetDriverVehicleAssignments { get; set; }
     }
 }

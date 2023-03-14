@@ -1,9 +1,11 @@
 ﻿using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.Objects.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace DAL
 {
@@ -37,6 +39,16 @@ namespace DAL
                 dtolist.Add(dto);
             }
             return dtolist;
+        }
+
+        public static IEnumerable<SelectListItem> GetVehicleStatusForDropdown()
+        {
+            IEnumerable<SelectListItem> vehicleStatusList = db.FleetVehicleStatus.OrderBy(x => x.Status).Select(x => new SelectListItem()
+            {
+                Text = x.Status,
+                Value = SqlFunctions.StringConvert((double)x.ID)
+            }).ToList();
+            return vehicleStatusList;
         }
 
         public FleetVehicleStatusDTO UpdateFleetVehicleStatusWithID(int ID)

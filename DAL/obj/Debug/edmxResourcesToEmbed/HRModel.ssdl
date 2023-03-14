@@ -64,20 +64,6 @@
     <Property Name="LastUpdateUserID" Type="int" />
     <Property Name="LastUpdateDate" Type="datetime" />
   </EntityType>
-  <EntityType Name="DriverToVehicleAssignment">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DriverID" Type="int" Nullable="false" />
-    <Property Name="VehicleID" Type="int" Nullable="false" />
-    <Property Name="DriverRoleID" Type="int" Nullable="false" />
-    <Property Name="AddDate" Type="datetime" Nullable="false" />
-    <Property Name="isDeleted" Type="bit" Nullable="false" />
-    <Property Name="DeletedDate" Type="datetime" />
-    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
-    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
-  </EntityType>
   <EntityType Name="EmpDependant">
     <Key>
       <PropertyRef Name="ID" />
@@ -101,9 +87,10 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="EmployeeID" Type="int" Nullable="false" />
     <Property Name="DepartmentID" Type="int" Nullable="false" />
-    <Property Name="SupervisorRoleID" Type="int" Nullable="false" />
+    <Property Name="SupervisorRoleID" Type="int" />
     <Property Name="ManagerRoleID" Type="int" Nullable="false" />
     <Property Name="PositionID" Type="int" Nullable="false" />
+    <Property Name="ManagerID" Type="int" />
     <Property Name="AddDate" Type="datetime" Nullable="false" />
     <Property Name="isDeleted" Type="bit" Nullable="false" />
     <Property Name="DeletedDate" Type="datetime" />
@@ -221,6 +208,20 @@
     <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
     <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="FleetDriverVehicleAssignment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DriverID" Type="int" Nullable="false" />
+    <Property Name="VehicleID" Type="int" Nullable="false" />
+    <Property Name="DriverRoleID" Type="int" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="FleetVehicle">
     <Key>
       <PropertyRef Name="ID" />
@@ -286,8 +287,8 @@
     <Property Name="BookingDescription" Type="varchar(max)" Nullable="false" />
     <Property Name="FromDate" Type="date" Nullable="false" />
     <Property Name="ToDate" Type="date" Nullable="false" />
-    <Property Name="FromTime" Type="time" Precision="7" Nullable="false" />
-    <Property Name="ToTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="FromTime" Type="time" Precision="7" />
+    <Property Name="ToTime" Type="time" Precision="7" />
     <Property Name="AssignedDriverID" Type="int" />
     <Property Name="AssignedVehicleID" Type="int" />
     <Property Name="DepartmentManagerApprovalID" Type="int" />
@@ -335,7 +336,7 @@
     <Property Name="VehicleID" Type="int" Nullable="false" />
     <Property Name="VehicleStatusID" Type="int" Nullable="false" />
     <Property Name="MaintenanceDetail" Type="varchar(max)" />
-    <Property Name="MaintenanceCauseID" Type="int" Nullable="false" />
+    <Property Name="MaintenanceCauseID" Type="int" />
     <Property Name="DueDate" Type="datetime" />
     <Property Name="CompletedDate" Type="datetime" />
     <Property Name="DriverID" Type="int" Nullable="false" />
@@ -480,19 +481,6 @@
     <Property Name="ProcurementOfficerDeliverDate" Type="datetime" />
     <Property Name="EmployeeReceived" Type="bit" />
     <Property Name="EmployeeReceivedDate" Type="datetime" />
-    <Property Name="AddDate" Type="datetime" Nullable="false" />
-    <Property Name="isDeleted" Type="bit" Nullable="false" />
-    <Property Name="DeletedDate" Type="datetime" />
-    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
-    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="LeaveAction">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Action" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Description" Type="varchar" MaxLength="50" />
     <Property Name="AddDate" Type="datetime" Nullable="false" />
     <Property Name="isDeleted" Type="bit" Nullable="false" />
     <Property Name="DeletedDate" Type="datetime" />
@@ -695,6 +683,19 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Relationship" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletedDate" Type="datetime" />
+    <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequestAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Action" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
     <Property Name="AddDate" Type="datetime" Nullable="false" />
     <Property Name="isDeleted" Type="bit" Nullable="false" />
     <Property Name="DeletedDate" Type="datetime" />
@@ -931,36 +932,36 @@
   </Association>
   <Association Name="FK_DriverToVehicleAssignment_Employee">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-    <End Role="DriverToVehicleAssignment" Type="Self.DriverToVehicleAssignment" Multiplicity="*" />
+    <End Role="FleetDriverVehicleAssignment" Type="Self.FleetDriverVehicleAssignment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employee">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="DriverToVehicleAssignment">
+      <Dependent Role="FleetDriverVehicleAssignment">
         <PropertyRef Name="DriverID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DriverToVehicleAssignment_FleetVehicle">
     <End Role="FleetVehicle" Type="Self.FleetVehicle" Multiplicity="1" />
-    <End Role="DriverToVehicleAssignment" Type="Self.DriverToVehicleAssignment" Multiplicity="*" />
+    <End Role="FleetDriverVehicleAssignment" Type="Self.FleetDriverVehicleAssignment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="FleetVehicle">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="DriverToVehicleAssignment">
+      <Dependent Role="FleetDriverVehicleAssignment">
         <PropertyRef Name="VehicleID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DriverToVehicleAssignment_T_User">
     <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
-    <End Role="DriverToVehicleAssignment" Type="Self.DriverToVehicleAssignment" Multiplicity="*" />
+    <End Role="FleetDriverVehicleAssignment" Type="Self.FleetDriverVehicleAssignment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="T_User">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="DriverToVehicleAssignment">
+      <Dependent Role="FleetDriverVehicleAssignment">
         <PropertyRef Name="LastUpdateUserID" />
       </Dependent>
     </ReferentialConstraint>
@@ -1010,6 +1011,18 @@
       </Principal>
       <Dependent Role="EmpDepManSupPosition">
         <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpDepManSupPosition_Employee1">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="EmpDepManSupPosition" Type="Self.EmpDepManSupPosition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmpDepManSupPosition">
+        <PropertyRef Name="ManagerID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1673,18 +1686,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ItemRequisition_Department">
-    <End Role="Department" Type="Self.Department" Multiplicity="1" />
-    <End Role="ItemRequisition" Type="Self.ItemRequisition" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Department">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="ItemRequisition">
-        <PropertyRef Name="DepartmentID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ItemRequisition_Employee">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
     <End Role="ItemRequisition" Type="Self.ItemRequisition" Multiplicity="*" />
@@ -1771,12 +1772,12 @@
   </Association>
   <Association Name="FK_LeaveAction_T_User">
     <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
-    <End Role="LeaveAction" Type="Self.LeaveAction" Multiplicity="*" />
+    <End Role="RequestAction" Type="Self.RequestAction" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="T_User">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="LeaveAction">
+      <Dependent Role="RequestAction">
         <PropertyRef Name="LastUpdateUserID" />
       </Dependent>
     </ReferentialConstraint>
@@ -1806,10 +1807,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LeaveRequest_LeaveAction">
-    <End Role="LeaveAction" Type="Self.LeaveAction" Multiplicity="0..1" />
+    <End Role="RequestAction" Type="Self.RequestAction" Multiplicity="0..1" />
     <End Role="LeaveRequest" Type="Self.LeaveRequest" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="LeaveAction">
+      <Principal Role="RequestAction">
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="LeaveRequest">
@@ -2195,7 +2196,6 @@
     <EntitySet Name="DegreeCredential" EntityType="Self.DegreeCredential" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DeliveryStatus" EntityType="Self.DeliveryStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="DriverToVehicleAssignment" EntityType="Self.DriverToVehicleAssignment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmpDependant" EntityType="Self.EmpDependant" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmpDepManSupPosition" EntityType="Self.EmpDepManSupPosition" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmpEducation" EntityType="Self.EmpEducation" Schema="dbo" store:Type="Tables" />
@@ -2204,6 +2204,7 @@
     <EntitySet Name="EmpSalaryBenefit" EntityType="Self.EmpSalaryBenefit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FavLogoTitle" EntityType="Self.FavLogoTitle" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FieldOffice" EntityType="Self.FieldOffice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FleetDriverVehicleAssignment" EntityType="Self.FleetDriverVehicleAssignment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FleetVehicle" EntityType="Self.FleetVehicle" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FleetVehicleBookingReport" EntityType="Self.FleetVehicleBookingReport" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FleetVehicleBookingRequest" EntityType="Self.FleetVehicleBookingRequest" Schema="dbo" store:Type="Tables" />
@@ -2219,7 +2220,6 @@
     <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="IncidentType" EntityType="Self.IncidentType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ItemRequisition" EntityType="Self.ItemRequisition" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="LeaveAction" EntityType="Self.LeaveAction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LeaveRequest" EntityType="Self.LeaveRequest" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LeaveType" EntityType="Self.LeaveType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LevelOfUrgency" EntityType="Self.LevelOfUrgency" Schema="dbo" store:Type="Tables" />
@@ -2233,6 +2233,7 @@
     <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ReceivedCondition" EntityType="Self.ReceivedCondition" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Relationship" EntityType="Self.Relationship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequestAction" EntityType="Self.RequestAction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RequestStatus" EntityType="Self.RequestStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ResolutionType" EntityType="Self.ResolutionType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
@@ -2262,15 +2263,15 @@
     </AssociationSet>
     <AssociationSet Name="FK_DriverToVehicleAssignment_Employee" Association="Self.FK_DriverToVehicleAssignment_Employee">
       <End Role="Employee" EntitySet="Employee" />
-      <End Role="DriverToVehicleAssignment" EntitySet="DriverToVehicleAssignment" />
+      <End Role="FleetDriverVehicleAssignment" EntitySet="FleetDriverVehicleAssignment" />
     </AssociationSet>
     <AssociationSet Name="FK_DriverToVehicleAssignment_FleetVehicle" Association="Self.FK_DriverToVehicleAssignment_FleetVehicle">
       <End Role="FleetVehicle" EntitySet="FleetVehicle" />
-      <End Role="DriverToVehicleAssignment" EntitySet="DriverToVehicleAssignment" />
+      <End Role="FleetDriverVehicleAssignment" EntitySet="FleetDriverVehicleAssignment" />
     </AssociationSet>
     <AssociationSet Name="FK_DriverToVehicleAssignment_T_User" Association="Self.FK_DriverToVehicleAssignment_T_User">
       <End Role="T_User" EntitySet="T_User" />
-      <End Role="DriverToVehicleAssignment" EntitySet="DriverToVehicleAssignment" />
+      <End Role="FleetDriverVehicleAssignment" EntitySet="FleetDriverVehicleAssignment" />
     </AssociationSet>
     <AssociationSet Name="FK_EmpDependant_Employee" Association="Self.FK_EmpDependant_Employee">
       <End Role="Employee" EntitySet="Employee" />
@@ -2285,6 +2286,10 @@
       <End Role="EmpDepManSupPosition" EntitySet="EmpDepManSupPosition" />
     </AssociationSet>
     <AssociationSet Name="FK_EmpDepManSupPosition_Employee" Association="Self.FK_EmpDepManSupPosition_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EmpDepManSupPosition" EntitySet="EmpDepManSupPosition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpDepManSupPosition_Employee1" Association="Self.FK_EmpDepManSupPosition_Employee1">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="EmpDepManSupPosition" EntitySet="EmpDepManSupPosition" />
     </AssociationSet>
@@ -2508,10 +2513,6 @@
       <End Role="T_User" EntitySet="T_User" />
       <End Role="Gender" EntitySet="Gender" />
     </AssociationSet>
-    <AssociationSet Name="FK_ItemRequisition_Department" Association="Self.FK_ItemRequisition_Department">
-      <End Role="Department" EntitySet="Department" />
-      <End Role="ItemRequisition" EntitySet="ItemRequisition" />
-    </AssociationSet>
     <AssociationSet Name="FK_ItemRequisition_Employee" Association="Self.FK_ItemRequisition_Employee">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="ItemRequisition" EntitySet="ItemRequisition" />
@@ -2542,7 +2543,7 @@
     </AssociationSet>
     <AssociationSet Name="FK_LeaveAction_T_User" Association="Self.FK_LeaveAction_T_User">
       <End Role="T_User" EntitySet="T_User" />
-      <End Role="LeaveAction" EntitySet="LeaveAction" />
+      <End Role="RequestAction" EntitySet="RequestAction" />
     </AssociationSet>
     <AssociationSet Name="FK_LeaveRequest_Department" Association="Self.FK_LeaveRequest_Department">
       <End Role="Department" EntitySet="Department" />
@@ -2553,7 +2554,7 @@
       <End Role="LeaveRequest" EntitySet="LeaveRequest" />
     </AssociationSet>
     <AssociationSet Name="FK_LeaveRequest_LeaveAction" Association="Self.FK_LeaveRequest_LeaveAction">
-      <End Role="LeaveAction" EntitySet="LeaveAction" />
+      <End Role="RequestAction" EntitySet="RequestAction" />
       <End Role="LeaveRequest" EntitySet="LeaveRequest" />
     </AssociationSet>
     <AssociationSet Name="FK_LeaveRequest_LeaveType" Association="Self.FK_LeaveRequest_LeaveType">
